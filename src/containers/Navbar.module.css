@@ -1,0 +1,8 @@
+.buttonBorder {
+    border: 2px solid transparent;
+    background:
+        linear-gradient(150deg, rgba(15, 16, 17, 1), rgba(15, 16, 17, 1)) padding-box,
+        linear-gradient(150deg, rgba(255, 255, 255, 0.36), rgba(255, 255, 255, 0)) border-box,
+        linear-gradient(150deg, rgba(15, 16, 17, 1), rgba(15, 16, 17, 1)) border-box;
+    backdrop-filter: blur(17px);
+}
