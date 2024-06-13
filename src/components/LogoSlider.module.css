@@ -1,0 +1,27 @@
+.container {
+    animation: startLine 15s linear, marquee 15s linear 15s infinite;
+}
+
+.item {
+    margin-left: 62px;
+}
+
+@keyframes startLine {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(-500px);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
