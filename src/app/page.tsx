@@ -1,5 +1,6 @@
 import LogoSlider from "@/components/LogoSlider";
 import ArrowIcon from "@/components/icons/Arrow";
+import Footer from "@/containers/Footer";
 import Navbar from "@/containers/Navbar";
 import Image from "next/image";
 import Link from "next/link";
@@ -65,6 +66,38 @@ export default function Home() {
       </div>
       <div className="bg-white px-20 py-8">
         <LogoSlider />
+      </div>
+      <div className="bg-white px-8 pb-8">
+        <div className="py-36 px-28 border-[#0F1322]/[.15] border-[1px] flex flex-row justify-between items-start rounded-[45px]">
+          <div className="opacity-[0.7] text-[#0f1322] font-medium leading-[normal]">[DIGITAL DESIGN STUDIO]</div>
+          <div className="flex flex-col gap-11">
+            <div className="w-max max-w-52 flex justify-center items-center gap-1.5 py-3 px-8 rounded-full bg-[#e6efef] text-[#0f1322] font-medium leading-[140%]">
+              No Label Agency
+            </div>
+            {/* TODO:Добавить переход цветов текста */}
+            <div className="max-w-[479px] text-[#809490] text-[1.5625rem] leading-[140%] text-start indent-32">
+              Это креативная команда профессионалов, готовых воплотить любую Вашу задумку в реальность. Мы создаем уникальные дизайн-решения, привлекающие внимание и отражающие Вашу сущность.
+            </div>
+          </div>
+          <div className="relative rounded-[50px] overflow-hidden">
+            <Image src={"/img/interface/bg-main-baner.png"} alt={"baner"} width={233} height={300} />
+            <svg className="absolute z-10 bottom-0" width={233} height={300} viewBox="0 0 233 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g style={{ mixBlendMode: 'screen' }} filter="url(#filter0_f_2_492)">
+                <circle cx={70} cy={232} r={100} fill="#FF6C2D" />
+              </g>
+              <defs>
+                <filter id="filter0_f_2_492" x={-211} y={-49} width={562} height={562} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                  <feFlood floodOpacity={0} result="BackgroundImageFix" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
+                  <feGaussianBlur stdDeviation={87} result="effect1_foregroundBlur_2_492" />
+                </filter>
+              </defs>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white">
+        <Footer />
       </div>
     </main>
   );

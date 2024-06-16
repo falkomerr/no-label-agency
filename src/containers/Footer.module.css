@@ -1,0 +1,9 @@
+.textGradient {
+    background: radial-gradient(60.98% 51.18% at 50.00%  50.00%, rgb(255, 255, 255) 0%, rgb(0, 0, 0) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bSubmit {
+    backdrop-filter: blur(68.4460678100586px);
+}

@@ -1,0 +1,30 @@
+.borderGradient {
+    position: relative;
+    padding: 16px 21px 16px 21px;
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(30px);
+}
+
+.borderGradient::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    top: 1px;
+    bottom: 1px;
+    left: 1px;
+    right: 1px;
+    border-radius: 11px;
+    padding: 1px;
+    background: linear-gradient(131deg, rgba(255, 255, 255, 0.24), rgba(255, 255, 255, 0));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
+
+.focusedBorder::before {
+    background: linear-gradient(131deg, rgba(255, 141, 92, 0.4), rgba(255, 77, 0, 0.2));
+}
