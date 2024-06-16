@@ -1,24 +1,16 @@
 .container {
-    animation: startLine 15s linear, marquee 15s linear 15s infinite;
+    animation: marquee 12s linear infinite;
 }
 
 .item {
-    margin-left: 62px;
+    margin-left: 31px;
+    margin-right: 31px;
 }
 
-@keyframes startLine {
-    0% {
-        transform: translateX(-100%);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
 
 @keyframes marquee {
     0% {
-        transform: translateX(-500px);
+        transform: translateX(-98%);
     }
 
     100% {

@@ -7,6 +7,7 @@ import InputText from '@/components/interfaces/InputText'
 import InputTel from '@/components/interfaces/InputTel'
 import Switch from '@/components/interfaces/Switch'
 import InputTextArea from '@/components/interfaces/InputTextArea'
+import Case from '@/components/Case'
 
 const Footer = () => {
     const pathname = usePathname()
@@ -62,9 +63,7 @@ const Footer = () => {
                             <div className="w-[5.0625rem] h-[1.1875rem] opacity-[0.3] text-white font-medium leading-[140%]">01.10.2024</div>
                         </div>
                     </div>
-                    <div className="absolute m-auto right-0 h-full w-[758px] bg-contain bg-no-repeat bg-right bg-[url(/img/interface/bg-footer-case1.png)] cursor-pointer">
-                        <div className="absolute z-20 w-full h-full cursor-pointer"></div>
-                    </div>
+                    <Case />
                     <svg className='cursor-pointer absolute m-auto right-0 bottom-0 z-10 flex' width={62} height={62} viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g filter="url(#filter0_b_2_508)">
                             <rect width={62} height={62} rx={31} fill="black" fillOpacity="0.01" />
