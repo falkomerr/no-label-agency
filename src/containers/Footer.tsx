@@ -11,7 +11,7 @@ import InputTextArea from '@/components/interfaces/InputTextArea'
 const Footer = () => {
     const pathname = usePathname()
     return (
-        <div className="bg-black rounded-t-[45px] relative">
+        <div className="bg-black rounded-t-[45px] overflow-hidden relative">
             <div className="absolute h-[600px] w-full bg-[url(/img/interface/bg-footer-bag.png)] top-0 right-0 bg-right-top bg-no-repeat z-20" />
             <div className="absolute h-full w-full m-auto bg-[url(/img/interface/bg-footer-form2.png)] bottom-0 right-0 bg-right-bottom bg-no-repeat" />
             <div className="flex flex-col pt-24 px-28 pb-24">
@@ -96,7 +96,7 @@ const Footer = () => {
             </div>
             <div className="relative flex flex-col items-center justify-center pt-28">
                 <div className="absolute h-[850px] w-full bg-[url(/img/interface/bg-footer-form1.png)] top-0 left-0 bg-left-top bg-no-repeat" />
-                <div className={style.textGradient + " pl-56 opacity-[0.6] text-[7.0625rem] font-semibold leading-[120%]"}>Get In Touch with Us</div>
+                <div id="bot" className={style.textGradient + " pl-56 opacity-[0.6] text-[7.0625rem] font-semibold leading-[120%]"}>Get In Touch with Us</div>
                 <div className='grid grid-cols-5 gap-8 w-full px-56 pt-16'>
                     <div className='col-span-2 flex flex-col items-start gap-12'>
                         <div className='flex flex-col gap-3 w-full'>
@@ -168,25 +168,27 @@ const Footer = () => {
                             Vacancy
                         </Link>
                     </div>
-                    <svg className='cursor-pointer' width={51} height={51} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g filter="url(#filter0_b_2_569)">
-                            <rect width={51} height={51} rx="25.5" fill="black" fillOpacity="0.23" />
-                            <rect x="0.689341" y="0.689341" width="49.6213" height="49.6213" rx="24.8107" stroke="url(#paint0_linear_2_569)" strokeOpacity="0.4" strokeWidth="1.37868" />
-                            <path d="M26.1201 17.6139C25.784 17.2908 25.2496 17.3013 24.9265 17.6373L19.6608 23.1137C19.3377 23.4497 19.3481 23.9841 19.6842 24.3072C20.0202 24.6304 20.5546 24.6199 20.8778 24.2838L25.5584 19.416L30.4262 24.0966C30.7623 24.4197 31.2967 24.4092 31.6198 24.0732C31.9429 23.7371 31.9325 23.2028 31.5964 22.8796L26.1201 17.6139ZM26.6774 33.4267L26.379 18.2059L24.691 18.2389L24.9895 33.4598L26.6774 33.4267Z" fill="white" />
-                        </g>
-                        <defs>
-                            <filter id="filter0_b_2_569" x={-22} y={-22} width={95} height={95} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                                <feFlood floodOpacity={0} result="BackgroundImageFix" />
-                                <feGaussianBlur in="BackgroundImageFix" stdDeviation={11} />
-                                <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_2_569" />
-                                <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_2_569" result="shape" />
-                            </filter>
-                            <linearGradient id="paint0_linear_2_569" x1="0.0487325" y1="-0.154101" x2="25.2247" y2="50.7972" gradientUnits="userSpaceOnUse">
-                                <stop stopColor="white" />
-                                <stop offset={1} stopColor="white" stopOpacity={0} />
-                            </linearGradient>
-                        </defs>
-                    </svg>
+                    <Link href={'#top'}>
+                        <svg className='cursor-pointer' width={51} height={51} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g filter="url(#filter0_b_2_569)">
+                                <rect width={51} height={51} rx="25.5" fill="black" fillOpacity="0.23" />
+                                <rect x="0.689341" y="0.689341" width="49.6213" height="49.6213" rx="24.8107" stroke="url(#paint0_linear_2_569)" strokeOpacity="0.4" strokeWidth="1.37868" />
+                                <path d="M26.1201 17.6139C25.784 17.2908 25.2496 17.3013 24.9265 17.6373L19.6608 23.1137C19.3377 23.4497 19.3481 23.9841 19.6842 24.3072C20.0202 24.6304 20.5546 24.6199 20.8778 24.2838L25.5584 19.416L30.4262 24.0966C30.7623 24.4197 31.2967 24.4092 31.6198 24.0732C31.9429 23.7371 31.9325 23.2028 31.5964 22.8796L26.1201 17.6139ZM26.6774 33.4267L26.379 18.2059L24.691 18.2389L24.9895 33.4598L26.6774 33.4267Z" fill="white" />
+                            </g>
+                            <defs>
+                                <filter id="filter0_b_2_569" x={-22} y={-22} width={95} height={95} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                    <feFlood floodOpacity={0} result="BackgroundImageFix" />
+                                    <feGaussianBlur in="BackgroundImageFix" stdDeviation={11} />
+                                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_2_569" />
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_2_569" result="shape" />
+                                </filter>
+                                <linearGradient id="paint0_linear_2_569" x1="0.0487325" y1="-0.154101" x2="25.2247" y2="50.7972" gradientUnits="userSpaceOnUse">
+                                    <stop stopColor="white" />
+                                    <stop offset={1} stopColor="white" stopOpacity={0} />
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </Link>
                 </nav >
                 <div className="flex flex-row justify-between items-center opacity-50">
                     <div className="text-white text-sm font-semibold leading-[normal]">Based in UK, working worldwide</div>

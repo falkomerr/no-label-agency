@@ -10,7 +10,7 @@ export default function Home() {
     <main>
       <div className="w-full h-[803px] bg-[url(/img/interface/bg-main.png)] bg-contain bg-right bg-no-repeat px-20 flex flex-col justify-between">
         <Navbar />
-        <div className="gap-8 flex flex-col">
+        <div id="top" className="gap-8 flex flex-col">
           <div className="flex flex-row items-center justify-start">
             <ArrowIcon />
             <div className="create_the_future_with_us opacity-[0.6] text-white text-center text-sm font-medium leading-[105%] uppercase">Create the future with us</div>
@@ -41,7 +41,7 @@ export default function Home() {
             <div className="text-white text-sm font-semibold leading-[normal]">Branding, digital</div>
             <div className="opacity-[0.3] text-white text-sm font-semibold leading-[normal]">and communications</div>
           </div>
-          <Link href={""}>
+          <Link href={"#bot"}>
             <svg width={51} height={51} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_b_2_441)">
                 <rect width={51} height={51} rx="25.5" fill="black" fillOpacity="0.23" />
@@ -74,9 +74,11 @@ export default function Home() {
             <div className="w-max max-w-52 flex justify-center items-center gap-1.5 py-3 px-8 rounded-full bg-[#e6efef] text-[#0f1322] font-medium leading-[140%]">
               No Label Agency
             </div>
-            {/* TODO:Добавить переход цветов текста */}
-            <div className="max-w-[479px] text-[#809490] text-[1.5625rem] leading-[140%] text-start indent-32">
-              Это креативная команда профессионалов, готовых воплотить любую Вашу задумку в реальность. Мы создаем уникальные дизайн-решения, привлекающие внимание и отражающие Вашу сущность.
+            <div className="max-w-[479px] relative text-[#809490] text-[1.5625rem] leading-[140%] text-start indent-32 ">
+              <svg className="absolute top-2 left-24 m-auto" width={24} height={25} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.8439 8.70986V0.399414H9.15607V8.70986L1.87283 6.13076L0 11.6472L7.49133 14.3696L2.77457 20.9606L7.3526 24.3994L12 17.9517L16.6474 24.3994L21.2254 20.9606L16.5087 14.3696L24 11.6472L22.1272 6.13076L14.8439 8.70986Z" fill="#FF4D00" />
+              </svg>
+              <span className="text-[#0F1322]">Это креативная команда профессионалов,</span> готовых воплотить любую Вашу задумку в реальность. Мы создаем уникальные дизайн-решения, привлекающие внимание и отражающие Вашу сущность.
             </div>
           </div>
           <div className="relative rounded-[50px] overflow-hidden">
@@ -96,7 +98,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-white">
+      <div className="bot bg-white">
         <Footer />
       </div>
     </main>

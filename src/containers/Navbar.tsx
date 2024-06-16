@@ -32,7 +32,6 @@ const Navbar = () => {
                 </Link>
             </div>
             <div className='flex flex-row items-center'>
-                {/* TODO: переделать кнопку */}
                 <Link href={'/explore-services'} className={style.buttonBorder + " flex justify-center items-center py-4 px-8 rounded-full text-white text-center text-sm"}>
                     Explore services
                 </Link>
