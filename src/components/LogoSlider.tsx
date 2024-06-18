@@ -13,6 +13,13 @@ const LogoSlider = () => {
                 <Image className={style.item} src="/img/logo/logo-examle3.png" alt="logo" width={223} height={30} />
                 <Image className={style.item} src="/img/logo/logo-examle4.png" alt="logo" width={228} height={43} />
                 <Image className={style.item} src="/img/logo/logo-examle5.png" alt="logo" width={146} height={47} />
+
+                <Image className={style.item} src="/img/logo/logo-examle1.png" alt="logo" width={158} height={46} />
+                <Image className={style.item} src="/img/logo/logo-examle2.png" alt="logo" width={193} height={41} />
+                <Image className={style.item} src="/img/logo/logo-examle3.png" alt="logo" width={223} height={30} />
+                <Image className={style.item} src="/img/logo/logo-examle4.png" alt="logo" width={228} height={43} />
+                <Image className={style.item} src="/img/logo/logo-examle5.png" alt="logo" width={146} height={47} />
+                
                 <Image className={style.item} src="/img/logo/logo-examle1.png" alt="logo" width={158} height={46} />
                 <Image className={style.item} src="/img/logo/logo-examle2.png" alt="logo" width={193} height={41} />
                 <Image className={style.item} src="/img/logo/logo-examle3.png" alt="logo" width={223} height={30} />
