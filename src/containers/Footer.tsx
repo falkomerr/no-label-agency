@@ -8,6 +8,7 @@ import InputTel from '@/components/interfaces/InputTel'
 import Switch from '@/components/interfaces/Switch'
 import InputTextArea from '@/components/interfaces/InputTextArea'
 import Case from '@/components/Case'
+import RangeSlider from '@/components/interfaces/RangeSlider'
 
 const Footer = () => {
     const pathname = usePathname()
@@ -110,7 +111,14 @@ const Footer = () => {
                             <div className="text-white text-sm leading-[140%]">Your phone*</div>
                             <InputTel placeholder='+1 (123) 456 78 92' />
                         </div>
-                        {/* TODO: Добавить ползунок вобора стоимости заказа */}
+                        <div className='flex flex-col gap-3 w-full'>
+                            <div className="text-white text-sm leading-[140%]">Approximate budget*</div>
+                            <div className="flex items-start justify-between">
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">FORM $5K</div>
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">TO $100K +</div>
+                            </div>
+                            <RangeSlider min={5000} max={10000} />
+                        </div>
                     </div>
                     <div className='col-span-3 flex flex-col gap-7'>
                         <div className='flex flex-col gap-3'>
