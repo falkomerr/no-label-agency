@@ -54,6 +54,7 @@ const Navbar = () => {
                     </svg>
                 </div>
             </nav>
+            {/* TODO: Добавить задний фон мобильному нав бару (черный градиент с размытием) */}
             <nav className={isOpen ? "hidden" : "flex" + " fixed left-0 top-0 w-screen h-screen bg-[#0A0A0A]/[.80] backdrop-blur-sm flex-col justify-between z-40 py-4 px-4"}>
                 <div className="flex flex-row justify-between items-center">
                     <Link className="logo flex items-center gap-[15px]" href={'/'}>
