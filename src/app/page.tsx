@@ -8,8 +8,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main>
-      <div className="w-full h-[803px] bg-[url(/img/interface/bg-main.png)] bg-contain bg-right bg-no-repeat px-20 flex flex-col justify-between">
-        <Navbar />
+      <div className="w-full h-[803px] bg-[url(/img/interface/bg-main.mobile.png)] md:bg-[url(/img/interface/bg-main.png)] bg-cover md:bg-auto bg-center md:bg-right bg-no-repeat px-4 md:px-12 xl:px-20 flex flex-col justify-between">
+        <div />
         <div id="top" className="gap-8 flex flex-col">
           <div className="flex flex-row items-center justify-start">
             <ArrowIcon />
