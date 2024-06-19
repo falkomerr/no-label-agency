@@ -213,60 +213,32 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='px-4 md:px-12 xl:px-20 lg:px-36 py-11 lg:py-32 flex flex-col w-full gap-14'>
-                <nav className='hidden md:flex flex-row items-center justify-between pt-[51px] z-10'>
-                    <Link className="logo flex items-center gap-[15px]" href={'/'}>
-                        <svg width={35} height={36} viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M21.6474 12.6194V0.5H13.3526V12.6194L2.73121 8.85821L0 16.903L10.9249 20.8731L4.04624 30.4851L10.7225 35.5L17.5 26.097L24.2775 35.5L30.9538 30.4851L24.0751 20.8731L35 16.903L32.2688 8.85821L21.6474 12.6194Z" fill="white" />
-                        </svg>
-                        <svg width={2} height={26} viewBox="0 0 2 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path opacity="0.6" d="M1 0.5L1 25.5" stroke="white" />
-                        </svg>
-                        <div className="text-white font-medium leading-[normal]">NL Agency</div>
-                    </Link>
-                    <div className='flex flex-row items-center gap-6'>
-                        <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
-                            About us
-                        </Link>
-                        <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
-                            Cases
-                        </Link>
-                        <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
-                            Contact
-                        </Link>
-                        <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
-                            Vacancy
-                        </Link>
-                    </div>
-                    <Link href={'#top'}>
-                        <svg className='cursor-pointer' width={51} height={51} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g filter="url(#filter0_b_2_569)">
-                                <rect width={51} height={51} rx="25.5" fill="black" fillOpacity="0.23" />
-                                <rect x="0.689341" y="0.689341" width="49.6213" height="49.6213" rx="24.8107" stroke="url(#paint0_linear_2_569)" strokeOpacity="0.4" strokeWidth="1.37868" />
-                                <path d="M26.1201 17.6139C25.784 17.2908 25.2496 17.3013 24.9265 17.6373L19.6608 23.1137C19.3377 23.4497 19.3481 23.9841 19.6842 24.3072C20.0202 24.6304 20.5546 24.6199 20.8778 24.2838L25.5584 19.416L30.4262 24.0966C30.7623 24.4197 31.2967 24.4092 31.6198 24.0732C31.9429 23.7371 31.9325 23.2028 31.5964 22.8796L26.1201 17.6139ZM26.6774 33.4267L26.379 18.2059L24.691 18.2389L24.9895 33.4598L26.6774 33.4267Z" fill="white" />
-                            </g>
-                            <defs>
-                                <filter id="filter0_b_2_569" x={-22} y={-22} width={95} height={95} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                                    <feFlood floodOpacity={0} result="BackgroundImageFix" />
-                                    <feGaussianBlur in="BackgroundImageFix" stdDeviation={11} />
-                                    <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_2_569" />
-                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_2_569" result="shape" />
-                                </filter>
-                                <linearGradient id="paint0_linear_2_569" x1="0.0487325" y1="-0.154101" x2="25.2247" y2="50.7972" gradientUnits="userSpaceOnUse">
-                                    <stop stopColor="white" />
-                                    <stop offset={1} stopColor="white" stopOpacity={0} />
-                                </linearGradient>
-                            </defs>
-                        </svg>
-                    </Link>
-                </nav >
-                <nav className='flex md:hidden flex-col items-center justify-between pt-[51px] z-10'>
-                    <div className='flex flex-row items-center justify-between w-full'>
+            <div className="w-full flex flex-row justify-center">
+                <div className='px-4 md:px-12 xl:px-20 lg:px-36 py-11 lg:py-32 flex flex-col w-full gap-14 max-w-[1440px]'>
+                    <nav className='hidden md:flex flex-row items-center justify-between pt-[51px] z-10'>
                         <Link className="logo flex items-center gap-[15px]" href={'/'}>
                             <svg width={35} height={36} viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M21.6474 12.6194V0.5H13.3526V12.6194L2.73121 8.85821L0 16.903L10.9249 20.8731L4.04624 30.4851L10.7225 35.5L17.5 26.097L24.2775 35.5L30.9538 30.4851L24.0751 20.8731L35 16.903L32.2688 8.85821L21.6474 12.6194Z" fill="white" />
                             </svg>
+                            <svg width={2} height={26} viewBox="0 0 2 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path opacity="0.6" d="M1 0.5L1 25.5" stroke="white" />
+                            </svg>
+                            <div className="text-white font-medium leading-[normal]">NL Agency</div>
                         </Link>
+                        <div className='flex flex-row items-center gap-6'>
+                            <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
+                                About us
+                            </Link>
+                            <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
+                                Cases
+                            </Link>
+                            <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
+                                Contact
+                            </Link>
+                            <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
+                                Vacancy
+                            </Link>
+                        </div>
                         <Link href={'#top'}>
                             <svg className='cursor-pointer' width={51} height={51} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g filter="url(#filter0_b_2_569)">
@@ -288,25 +260,55 @@ const Footer = () => {
                                 </defs>
                             </svg>
                         </Link>
+                    </nav >
+                    <nav className='flex md:hidden flex-col items-center justify-between pt-[51px] z-10'>
+                        <div className='flex flex-row items-center justify-between w-full'>
+                            <Link className="logo flex items-center gap-[15px]" href={'/'}>
+                                <svg width={35} height={36} viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M21.6474 12.6194V0.5H13.3526V12.6194L2.73121 8.85821L0 16.903L10.9249 20.8731L4.04624 30.4851L10.7225 35.5L17.5 26.097L24.2775 35.5L30.9538 30.4851L24.0751 20.8731L35 16.903L32.2688 8.85821L21.6474 12.6194Z" fill="white" />
+                                </svg>
+                            </Link>
+                            <Link href={'#top'}>
+                                <svg className='cursor-pointer' width={51} height={51} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <g filter="url(#filter0_b_2_569)">
+                                        <rect width={51} height={51} rx="25.5" fill="black" fillOpacity="0.23" />
+                                        <rect x="0.689341" y="0.689341" width="49.6213" height="49.6213" rx="24.8107" stroke="url(#paint0_linear_2_569)" strokeOpacity="0.4" strokeWidth="1.37868" />
+                                        <path d="M26.1201 17.6139C25.784 17.2908 25.2496 17.3013 24.9265 17.6373L19.6608 23.1137C19.3377 23.4497 19.3481 23.9841 19.6842 24.3072C20.0202 24.6304 20.5546 24.6199 20.8778 24.2838L25.5584 19.416L30.4262 24.0966C30.7623 24.4197 31.2967 24.4092 31.6198 24.0732C31.9429 23.7371 31.9325 23.2028 31.5964 22.8796L26.1201 17.6139ZM26.6774 33.4267L26.379 18.2059L24.691 18.2389L24.9895 33.4598L26.6774 33.4267Z" fill="white" />
+                                    </g>
+                                    <defs>
+                                        <filter id="filter0_b_2_569" x={-22} y={-22} width={95} height={95} filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                                            <feFlood floodOpacity={0} result="BackgroundImageFix" />
+                                            <feGaussianBlur in="BackgroundImageFix" stdDeviation={11} />
+                                            <feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_2_569" />
+                                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_2_569" result="shape" />
+                                        </filter>
+                                        <linearGradient id="paint0_linear_2_569" x1="0.0487325" y1="-0.154101" x2="25.2247" y2="50.7972" gradientUnits="userSpaceOnUse">
+                                            <stop stopColor="white" />
+                                            <stop offset={1} stopColor="white" stopOpacity={0} />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                            </Link>
+                        </div>
+                        <div className='flex flex-row items-center justify-around gap-6 mt-6'>
+                            <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
+                                About us
+                            </Link>
+                            <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
+                                Cases
+                            </Link>
+                            <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
+                                Contact
+                            </Link>
+                            <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
+                                Vacancy
+                            </Link>
+                        </div>
+                    </nav >
+                    <div className="flex flex-col gap-3 md:flex-row justify-between items-center opacity-50">
+                        <div className="text-white text-sm font-semibold leading-[normal]">Based in UK, working worldwide</div>
+                        <div className="text-white text-sm font-semibold leading-[normal]">© 2024 No Lable Agency</div>
                     </div>
-                    <div className='flex flex-row items-center justify-around gap-6 mt-6'>
-                        <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
-                            About us
-                        </Link>
-                        <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
-                            Cases
-                        </Link>
-                        <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
-                            Contact
-                        </Link>
-                        <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
-                            Vacancy
-                        </Link>
-                    </div>
-                </nav >
-                <div className="flex flex-col gap-3 md:flex-row justify-between items-center opacity-50">
-                    <div className="text-white text-sm font-semibold leading-[normal]">Based in UK, working worldwide</div>
-                    <div className="text-white text-sm font-semibold leading-[normal]">© 2024 No Lable Agency</div>
                 </div>
             </div>
         </div>

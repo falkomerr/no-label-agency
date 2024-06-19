@@ -9,37 +9,39 @@ const Navbar = () => {
     const pathname = usePathname()
     return (
         <div>
-            <nav className='hidden md:flex absolute w-screen flex-row items-center justify-between pt-[51px] px-4 md:px-12 xl:px-20' style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0))" }}>
-                <Link className="logo flex items-center gap-[15px]" href={'/'}>
-                    <svg width={35} height={36} viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21.6474 12.6194V0.5H13.3526V12.6194L2.73121 8.85821L0 16.903L10.9249 20.8731L4.04624 30.4851L10.7225 35.5L17.5 26.097L24.2775 35.5L30.9538 30.4851L24.0751 20.8731L35 16.903L32.2688 8.85821L21.6474 12.6194Z" fill="white" />
-                    </svg>
-                    <svg width={2} height={26} viewBox="0 0 2 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity="0.6" d="M1 0.5L1 25.5" stroke="white" />
-                    </svg>
-                    <div className="text-white font-medium leading-[normal]">NL Agency</div>
-                </Link>
-                <div className='flex flex-row items-center gap-6'>
-                    <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
-                        About us
+            <nav className='hidden md:flex absolute w-screen flex-row items-center justify-center pt-[51px] px-4 md:px-12 xl:px-20' style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0))" }}>
+                <div className="flex flex-row items-center justify-between w-full max-w-[1440px]">
+                    <Link className="logo flex items-center gap-[15px]" href={'/'}>
+                        <svg width={35} height={36} viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21.6474 12.6194V0.5H13.3526V12.6194L2.73121 8.85821L0 16.903L10.9249 20.8731L4.04624 30.4851L10.7225 35.5L17.5 26.097L24.2775 35.5L30.9538 30.4851L24.0751 20.8731L35 16.903L32.2688 8.85821L21.6474 12.6194Z" fill="white" />
+                        </svg>
+                        <svg width={2} height={26} viewBox="0 0 2 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.6" d="M1 0.5L1 25.5" stroke="white" />
+                        </svg>
+                        <div className="text-white font-medium leading-[normal]">NL Agency</div>
                     </Link>
-                    <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
-                        Cases
-                    </Link>
-                    <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
-                        Contact
-                    </Link>
-                    <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
-                        Vacancy
-                    </Link>
-                </div>
-                <div className='flex flex-row items-center'>
-                    <Link href={'#bot'} className={style.buttonBorder + " flex justify-center items-center py-4 px-8 rounded-full text-white text-center text-sm"}>
-                        Explore services
-                    </Link>
+                    <div className='flex flex-row items-center gap-6'>
+                        <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
+                            About us
+                        </Link>
+                        <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
+                            Cases
+                        </Link>
+                        <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
+                            Contact
+                        </Link>
+                        <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
+                            Vacancy
+                        </Link>
+                    </div>
+                    <div className='flex flex-row items-center'>
+                        <Link href={'#bot'} className={style.buttonBorder + " flex justify-center items-center py-4 px-8 rounded-full text-white text-center text-sm"}>
+                            Explore services
+                        </Link>
+                    </div>
                 </div>
             </nav >
-            <nav className={(isOpen ? '' : 'invisible') + ' fixed flex flex-row md:hidden justify-between items-center w-screen z-40 py-4 px-4'}>
+            <nav className={(isOpen ? '' : 'invisible') + ' fixed flex flex-row md:hidden justify-between bg-[#0A0D1D]/[0.1] backdrop-blur-3xl items-center w-screen z-40 py-4 px-4'}>
                 <Link className="logo flex items-center gap-[15px]" href={'/'}>
                     <svg width={35} height={36} viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21.6474 12.6194V0.5H13.3526V12.6194L2.73121 8.85821L0 16.903L10.9249 20.8731L4.04624 30.4851L10.7225 35.5L17.5 26.097L24.2775 35.5L30.9538 30.4851L24.0751 20.8731L35 16.903L32.2688 8.85821L21.6474 12.6194Z" fill="white" />
@@ -54,8 +56,7 @@ const Navbar = () => {
                     </svg>
                 </div>
             </nav>
-            {/* TODO: Добавить задний фон мобильному нав бару (черный градиент с размытием) */}
-            <nav className={isOpen ? "hidden" : "flex" + " fixed left-0 top-0 w-screen h-screen bg-[#0A0A0A]/[.80] backdrop-blur-sm flex-col justify-between z-40 py-4 px-4"}>
+            <nav className={isOpen ? "hidden" : "flex" + " fixed left-0 top-0 w-screen h-screen bg-[#0A0A0A]/[.50] backdrop-blur-sm flex-col justify-between z-40 py-4 px-4"}>
                 <div className="flex flex-row justify-between items-center">
                     <Link className="logo flex items-center gap-[15px]" href={'/'}>
                         <svg width={35} height={36} viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
