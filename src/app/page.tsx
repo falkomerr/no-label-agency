@@ -11,7 +11,7 @@ export default function Home() {
   const { getTranslation } = useTranslation();
   return (
     <main>
-      <div className='w-full bg-black flex flex-row justify-center bg-[url(/img/interface/bg-main.mobile.png)] md:bg-[url(/img/interface/bg-main.png)] bg-cover md:bg-auto bg-center md:bg-right bg-no-repeat '>
+      <div className='w-full bg-black flex flex-row justify-center bg-[url(/img/interface/bg-main.mobile.webp)] md:bg-[url(/img/interface/bg-main.webp)] bg-cover md:bg-auto bg-center md:bg-right bg-no-repeat '>
         <div className="w-full max-w-[1440px] h-[803px] px-4 md:px-12 xl:px-20 flex flex-col justify-between">
           <div />
           <div id="top" className="gap-8 flex-col hidden md:flex">
