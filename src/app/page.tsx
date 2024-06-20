@@ -20,7 +20,7 @@ export default function Home() {
               Artificial inrelligence<br />some extra info
             </div>
             <div className="w-max max-w-[413px] opacity-[0.6] text-white leading-[140%]">Мы создаем уникальные дизайн-решения, привлекающие внимание и отражающие</div>
-            <Link className="cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
+            <Link className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
               Explore services
               <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))" }}>
                 <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -41,7 +41,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center items-center gap-5">
               <div className="w-max max-w-[260px] opacity-[0.6] text-xs text-white text-center leading-[140%]">Мы создаем уникальные дизайн-решения, привлекающие внимание и отражающие</div>
-              <Link className="cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
+              <Link className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
                 Explore services
                 <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))" }}>
                   <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
