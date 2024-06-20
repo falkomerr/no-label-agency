@@ -1,8 +1,10 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react'
 import style from './Case.module.css'
+import { useTranslation } from '@/hook/useLanguageStore';
 
 const CaseMobile = () => {
+    const { getTranslation } = useTranslation();
     const [showTooltip, setShowTooltip] = useState(false);
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
     const [tooltipSize, setTooltipSize] = useState(0);
@@ -68,7 +70,7 @@ const CaseMobile = () => {
                         pointerEvents: 'none',
                     }}
                 >
-                    View
+                    {getTranslation('component.case.view')}
                 </div>
             </div>
         </div>
@@ -79,6 +81,7 @@ export default CaseMobile
 
 
 const Case = () => {
+    const { getTranslation } = useTranslation();
     const [showTooltip, setShowTooltip] = useState(false);
     const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
     const [tooltipSize, setTooltipSize] = useState(0);
@@ -148,7 +151,7 @@ const Case = () => {
                         pointerEvents: 'none',
                     }}
                 >
-                    View
+                    {getTranslation('component.case.view')}
                 </div>
             </div>
         </div>

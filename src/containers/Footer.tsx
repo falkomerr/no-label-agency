@@ -9,16 +9,18 @@ import Switch from '@/components/interfaces/Switch'
 import InputTextArea from '@/components/interfaces/InputTextArea'
 import CaseMobile, { Case } from '@/components/Case'
 import RangeSlider from '@/components/interfaces/RangeSlider'
+import { useTranslation } from '@/hook/useLanguageStore'
 
 const Footer = () => {
     const pathname = usePathname()
+    const { getTranslation } = useTranslation();
     return (
         <div className="bg-black rounded-t-[45px] overflow-hidden relative">
             <div className="absolute h-[600px] w-full bg-[url(/img/interface/bg-footer-bag.mobile.png)] sm:bg-[url(/img/interface/bg-footer-bag.png)] top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20" />
             <div className="absolute h-full w-full max-w-[600px] lg:max-w-[800px] m-auto bg-[url(/img/interface/bg-footer-form2.png)] bottom-32 sm:bottom-0 right-0 bg-right-bottom bg-no-repeat bg-contain" />
             <div className='flex flex-row w-full justify-center'>
                 <div className="flex flex-col w-full max-w-[1300px] mt-24 mx-4 md:mx-12 xl:mx-28 lg:mx-20 mb-24">
-                    <div className="opacity-[0.7] text-white text-xs ml-4 sm:text-base font-medium leading-[normal] z-20">[OUR CASE STUDIES]</div>
+                    <div className="opacity-[0.7] text-white text-xs ml-4 sm:text-base font-medium leading-[normal] z-20">{getTranslation('footer.text1')}</div>
                     <div className="relative hidden lg:flex flex-row mt-20 mb-8">
                         <div className='flex flex-row'>
                             <svg width="2" height="448" viewBox="0 0 2 448" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -53,8 +55,8 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className="gap-3 inline-flex flex-col items-start ml-24 mt-9 z-10">
-                            <div className="opacity-[0.34] text-white leading-[140%]">Website design UX/UI</div>
-                            <div className="w-[399px] text-white text-[2.375rem] font-semibold leading-[140%]">The name of the project released, info</div>
+                            <div className="opacity-[0.34] text-white leading-[140%]">{getTranslation('footer.text2')}</div>
+                            <div className="w-[399px] text-white text-[2.375rem] font-semibold leading-[140%]">{getTranslation('footer.text3')}</div>
                             <div className="gap-2 flex items-center">
                                 <svg width={17} height={17} viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g opacity="0.3">
@@ -124,8 +126,8 @@ const Footer = () => {
                                 </div>
                             </div>
                             <div className="gap-3 inline-flex flex-col items-start mt-7 z-10">
-                                <div className="opacity-[0.34] text-white text-xs leading-[140%]">Website design UX/UI</div>
-                                <div className=" text-white text-[27px] font-semibold leading-[140%]">The name of the project released, info</div>
+                                <div className="opacity-[0.34] text-white text-xs leading-[140%]">{getTranslation('footer.text4')}</div>
+                                <div className=" text-white text-[27px] font-semibold leading-[140%]">{getTranslation('footer.text5')}</div>
                                 <div className="gap-2 flex items-center">
                                     <svg width={17} height={17} viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <g opacity="0.3">
@@ -137,17 +139,17 @@ const Footer = () => {
                                 </div>
                             </div>
                             <div className="flex flex-wrap justify-start gap-2 my-7">
-                                <div className={style.button}>UX/UI Disign</div>
-                                <div className={style.button}>Marketing</div>
-                                <div className={style.button}>Branding</div>
-                                <div className={style.button}>Illustrtions</div>
+                                <div className={style.button}>{getTranslation('footer.text6')}</div>
+                                <div className={style.button}>{getTranslation('footer.text7')}</div>
+                                <div className={style.button}>{getTranslation('footer.text8')}</div>
+                                <div className={style.button}>{getTranslation('footer.text9')}</div>
                             </div>
                         </div>
                     </div>
 
                     <div className='flex flex-row justify-center lg:justify-start'>
                         <div className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max sm:ml-24 py-4 pl-16 pr-[88px] rounded-full linerBorderGradient">
-                            See more projects
+                            {getTranslation('footer.text10')}
                             <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))" }}>
                                 <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.7452 0.981492C13.735 0.460177 13.3041 0.0458545 12.7828 0.0560763L4.2875 0.222651C3.76618 0.232872 3.35186 0.663768 3.36208 1.18508C3.3723 1.7064 3.8032 2.12072 4.32451 2.1105L11.8759 1.96243L12.024 9.51382C12.0342 10.0351 12.4651 10.4495 12.9864 10.4392C13.5077 10.429 13.922 9.99812 13.9118 9.4768L13.7452 0.981492ZM1.68054 13.9277L13.4819 1.65437L12.1208 0.345632L0.319458 12.619L1.68054 13.9277Z" fill="white" />
@@ -163,29 +165,29 @@ const Footer = () => {
                 <div className='flex flex-col md:grid md:grid-cols-5 gap-8 w-full max-w-[1000px] px-8 pt-16'>
                     <div className='col-span-2 flex flex-col items-start gap-12'>
                         <div className='flex flex-col gap-3 w-full'>
-                            <div className="text-white text-sm leading-[140%] z-10">Your name*</div>
+                            <div className="text-white text-sm leading-[140%] z-10">{getTranslation('footer.text11')}</div>
                             <InputText placeholder='Alex' />
                         </div>
                         <div className='flex flex-col gap-3 w-full'>
-                            <div className="text-white text-sm leading-[140%]">Your email*</div>
+                            <div className="text-white text-sm leading-[140%]">{getTranslation('footer.text12')}</div>
                             <InputText placeholder='ex. jameslaurentsdesign@gmail.com' />
                         </div>
                         <div className='flex flex-col gap-3 w-full'>
-                            <div className="text-white text-sm leading-[140%]">Your phone*</div>
+                            <div className="text-white text-sm leading-[140%]">{getTranslation('footer.text13')}</div>
                             <InputTel placeholder='+1 (123) 456 78 92' />
                         </div>
                         <div className='flex flex-col gap-3 w-full'>
-                            <div className="text-white text-sm leading-[140%]">Approximate budget*</div>
+                            <div className="text-white text-sm leading-[140%]">{getTranslation('footer.text14')}</div>
                             <div className="flex items-start justify-between">
-                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">FORM $5K</div>
-                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">TO $100K +</div>
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text15')}</div>
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text16')}</div>
                             </div>
                             <RangeSlider min={5000} max={10000} />
                         </div>
                     </div>
                     <div className='col-span-3 flex flex-col gap-7'>
                         <div className='flex flex-col gap-3'>
-                            <div className="text-white text-sm leading-[140%]">I need...*</div>
+                            <div className="text-white text-sm leading-[140%]">{getTranslation('footer.text17')}</div>
                             <div className='flex flex-wrap justify-start gap-2'>
                                 <Switch name={'Logo'} />
                                 <Switch name={'Website'} />
@@ -199,14 +201,14 @@ const Footer = () => {
                             </div>
                         </div>
                         <div className='h-full flex flex-col gap-3'>
-                            <div className="text-white text-sm leading-[140%]">Your message</div>
-                            <InputTextArea placeholder='What are you hoping to gain from working with us?' />
+                            <div className="text-white text-sm leading-[140%]">{getTranslation('footer.text18')}</div>
+                            <InputTextArea placeholder={getTranslation('component.inputArea.placeholder')} />
                         </div>
                     </div>
                 </div>
                 {/* TODO: Сделать блять обработку и отправку формы на сервер бл, ААААААААААА */}
                 <div className={style.bSubmit + " text-white mt-14 mb-9 cursor-pointer relative bg-[#DACDFF]/[.03] w-full max-w-[334px] py-4 pl-16 pr-[88px] flex flex-row items-center justify-center rounded-full linerBorderGradient"}>
-                    Submit
+                    {getTranslation('footer.text19')}
                     <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.60)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.3  0))" }}>
                         <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.7452 0.981492C13.735 0.460177 13.3041 0.0458545 12.7828 0.0560763L4.2875 0.222651C3.76618 0.232872 3.35186 0.663768 3.36208 1.18508C3.3723 1.7064 3.8032 2.12072 4.32451 2.1105L11.8759 1.96243L12.024 9.51382C12.0342 10.0351 12.4651 10.4495 12.9864 10.4392C13.5077 10.429 13.922 9.99812 13.9118 9.4768L13.7452 0.981492ZM1.68054 13.9277L13.4819 1.65437L12.1208 0.345632L0.319458 12.619L1.68054 13.9277Z" fill="white" />
@@ -228,16 +230,16 @@ const Footer = () => {
                         </Link>
                         <div className='flex flex-row items-center gap-6'>
                             <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
-                                About us
+                                {getTranslation('nav.about')}
                             </Link>
                             <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
-                                Cases
+                                {getTranslation('nav.cases')}
                             </Link>
                             <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
-                                Contact
+                                {getTranslation('nav.contact')}
                             </Link>
                             <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
-                                Vacancy
+                                {getTranslation('nav.vacancy')}
                             </Link>
                         </div>
                         <Link href={'#top'}>
@@ -293,21 +295,21 @@ const Footer = () => {
                         </div>
                         <div className='flex flex-row items-center justify-around gap-6 mt-6'>
                             <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
-                                About us
+                                {getTranslation('nav.about')}
                             </Link>
                             <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
-                                Cases
+                                {getTranslation('nav.cases')}
                             </Link>
                             <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
-                                Contact
+                                {getTranslation('nav.contact')}
                             </Link>
                             <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
-                                Vacancy
+                                {getTranslation('nav.vacancy')}
                             </Link>
                         </div>
                     </nav >
                     <div className="flex flex-col gap-3 md:flex-row justify-between items-center opacity-50">
-                        <div className="text-white text-sm font-semibold leading-[normal]">Based in UK, working worldwide</div>
+                        <div className="text-white text-sm font-semibold leading-[normal]">{getTranslation('nav.vacancy')}</div>
                         <div className="text-white text-sm font-semibold leading-[normal]">© 2024 No Lable Agency</div>
                     </div>
                 </div>
