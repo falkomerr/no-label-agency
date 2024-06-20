@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React from 'react'
+import React, { useState } from 'react'
 import style from './Footer.module.css'
 import InputText from '@/components/interfaces/InputText'
 import InputTel from '@/components/interfaces/InputTel'
@@ -12,6 +12,8 @@ import RangeSlider from '@/components/interfaces/RangeSlider'
 import { useTranslation } from '@/hook/useLanguageStore'
 
 const Footer = () => {
+    const [budjet, setBudjet] = useState([5000, 60000]);
+
     const pathname = usePathname()
     const { getTranslation } = useTranslation();
     return (
@@ -179,10 +181,10 @@ const Footer = () => {
                         <div className='flex flex-col gap-3 w-full'>
                             <div className="text-white text-sm leading-[140%]">{getTranslation('footer.text14')}</div>
                             <div className="flex items-start justify-between">
-                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text15')}</div>
-                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text16')}</div>
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text15') + Math.floor(budjet[0]/1000) + 'K'}</div>
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text16') + Math.floor(budjet[1]/1000) + 'K +'}</div>
                             </div>
-                            <RangeSlider min={5000} max={10000} />
+                            <RangeSlider value={budjet} setValue={setBudjet} min={1000} max={100000} />
                         </div>
                     </div>
                     <div className='col-span-3 flex flex-col gap-7'>

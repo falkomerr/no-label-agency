@@ -47,8 +47,10 @@ const CaseMobile = () => {
         const tooltipElement: any = document.querySelector('.tooltip');
         if (tooltipElement) {
             if (showTooltip) {
-                tooltipElement.style.top = tooltipPosition.y - 50 + 'px';
-                tooltipElement.style.left = tooltipPosition.x - 50 + 'px';
+                tooltipElement.animate({
+                    left: tooltipPosition.x - 50 + 'px',
+                    top: tooltipPosition.y - 50 + 'px'
+                }, { duration: 400, fill: 'forwards' });
 
             }
         }
@@ -124,9 +126,12 @@ const Case = () => {
         const tooltipElement: any = document.querySelector('.tooltip');
         if (tooltipElement) {
             if (showTooltip) {
-                tooltipElement.style.top = tooltipPosition.y - 50 + 'px';
-                tooltipElement.style.left = tooltipPosition.x - 50 + 'px';
-
+                tooltipElement.animate({
+                    left: tooltipPosition.x - 50 + 'px',
+                    top: tooltipPosition.y - 50 + 'px'
+                }, { duration: 400, fill: 'forwards' });
+                // tooltipElement.style.top = tooltipPosition.y - 50 + 'px';
+                // tooltipElement.style.left = tooltipPosition.x - 50 + 'px';
             }
         }
     }, [tooltipPosition.x, tooltipPosition.y, showTooltip])
