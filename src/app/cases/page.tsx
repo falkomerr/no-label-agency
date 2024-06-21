@@ -6,7 +6,7 @@ import style from './Page.module.css'
 import Image from "next/image";
 import { useTranslation } from '@/hook/useLanguageStore';
 
-const page = () => {
+const Cases = () => {
     const { getTranslation } = useTranslation();
     return (
         <div className="w-full">
@@ -161,4 +161,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Cases
