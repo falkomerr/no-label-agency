@@ -12,7 +12,7 @@ const Navbar = () => {
     const { getTranslation } = useTranslation();
     return (
         <div>
-            <nav className='hidden md:flex absolute w-screen flex-row items-center justify-center pt-[51px] px-4 md:px-12 xl:px-20' style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0))" }}>
+            <nav className='hidden md:flex absolute w-screen flex-row items-center justify-center pt-[51px] px-4 md:px-12 xl:px-20 z-10' style={{ background: "linear-gradient(180deg, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0))" }}>
                 <div className="flex flex-row items-center justify-between w-full max-w-[1440px]">
                     <Link className="logo flex items-center gap-[15px]" href={'/'}>
                         <svg width={35} height={36} viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
