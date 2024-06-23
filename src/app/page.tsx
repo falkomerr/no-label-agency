@@ -22,7 +22,7 @@ export default function Home() {
             <source src={'/img/interface/bg-main-video.mobile.mp4'} type="video/mp4" />
           </video>
         </div>
-        <div className="w-full max-w-[1440px] h-[803px] px-4 md:px-12 xl:px-20 flex flex-col justify-between z-10">
+        <div className="w-full max-w-[1440px] h-[803px] px-4 md:px-12 xl:px-20 flex flex-col justify-between z-[5]">
           <div />
           <div id="top" className="gap-8 flex-col hidden md:flex">
             <div className="flex flex-row items-center justify-start">
