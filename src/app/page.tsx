@@ -12,17 +12,14 @@ export default function Home() {
   return (
     <main>
       <div className='relative w-full bg-black flex flex-row justify-center bg-cover md:bg-auto bg-center md:bg-right bg-no-repeat '>
-        <div className="absolute w-max h-[803px] flex right-0 overflow-x-hidden">
-          <video poster="/img/interface/bg-main.webp" autoPlay muted loop className="hidden md:block min-h-[803px] overflow-x-hidden">
+        <div className="absolute w-max h-[803px] right-0 overflow-x-hidden">
+          <video poster="/img/interface/bg-main.webp" autoPlay muted loop height={"803"} className="hidden md:block max-h-[803px] overflow-x-hidden">
             <source src={'/img/interface/bg-main-video.webm'} type="video/webm" />
             <source src={'/img/interface/bg-main-video.mp4'} type="video/mp4" />
           </video>
-          <video poster="/img/interface/bg-main.mobile.webp" autoPlay muted loop className="block md:hidden min-h-[803px] overflow-x-hidden">
+          <video poster="/img/interface/bg-main.mobile.webp" autoPlay muted loop height={"803"} className="block md:hidden max-h-[803px] overflow-x-hidden">
             <source src={'/img/interface/bg-main-video.mobile.webm'} type="video/webm" />
             <source src={'/img/interface/bg-main-video.mobile.mp4'} type="video/mp4" />
-            <p>
-              Ваш браузер старый...
-            </p>
           </video>
         </div>
         <div className="w-full max-w-[1440px] h-[803px] px-4 md:px-12 xl:px-20 flex flex-col justify-between z-[5]">
