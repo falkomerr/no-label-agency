@@ -20,6 +20,9 @@ export default function Home() {
           <video poster="/img/interface/bg-main.mobile.webp" autoPlay muted loop className="block md:hidden min-h-[803px] overflow-x-hidden">
             <source src={'/img/interface/bg-main-video.mobile.webm'} type="video/webm" />
             <source src={'/img/interface/bg-main-video.mobile.mp4'} type="video/mp4" />
+            <p>
+              Your browser doesn't support HTML video.
+            </p>
           </video>
         </div>
         <div className="w-full max-w-[1440px] h-[803px] px-4 md:px-12 xl:px-20 flex flex-col justify-between z-[5]">
