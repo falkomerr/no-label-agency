@@ -21,7 +21,7 @@ export default function Home() {
             <source src={'/img/interface/bg-main-video.mobile.webm'} type="video/webm" />
             <source src={'/img/interface/bg-main-video.mobile.mp4'} type="video/mp4" />
             <p>
-              Your browser doesn't support HTML video.
+              Ваш браузер старый...
             </p>
           </video>
         </div>
