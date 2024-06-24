@@ -13,11 +13,11 @@ export default function Home() {
     <main>
       <div className='relative w-full bg-black flex flex-row justify-center bg-cover md:bg-auto bg-center md:bg-right bg-no-repeat '>
         <div className="absolute w-max h-[803px] right-0 overflow-x-hidden">
-          <video poster="/img/interface/bg-main.webp" autoPlay muted loop height={"803"} className="hidden md:block max-h-[803px] overflow-x-hidden">
+          <video poster="/img/interface/bg-main.webp" autoPlay playsInline muted loop height={"803"} className="hidden md:block max-h-[803px] overflow-x-hidden">
             <source src={'/img/interface/bg-main-video.webm'} type="video/webm" />
             <source src={'/img/interface/bg-main-video.mp4'} type="video/mp4" />
           </video>
-          <video poster="/img/interface/bg-main.mobile.webp" autoPlay muted loop height={"803"} className="block md:hidden max-h-[803px] overflow-x-hidden">
+          <video poster="/img/interface/bg-main.mobile.webp" autoPlay playsInline muted loop height={"803"} className="block md:hidden max-h-[803px] overflow-x-hidden">
             <source src={'/img/interface/bg-main-video.mobile.webm'} type="video/webm" />
             <source src={'/img/interface/bg-main-video.mobile.mp4'} type="video/mp4" />
           </video>
@@ -35,7 +35,7 @@ export default function Home() {
             <div className="w-max max-w-[413px] opacity-[0.6] text-white leading-[140%]">{getTranslation('page.main.text4')}</div>
             <Link className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
               {getTranslation('nav.explore')}
-              <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))" }}>
+              <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full z-10" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))" }}>
                 <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M13.7452 0.981492C13.735 0.460177 13.3041 0.0458545 12.7828 0.0560763L4.2875 0.222651C3.76618 0.232872 3.35186 0.663768 3.36208 1.18508C3.3723 1.7064 3.8032 2.12072 4.32451 2.1105L11.8759 1.96243L12.024 9.51382C12.0342 10.0351 12.4651 10.4495 12.9864 10.4392C13.5077 10.429 13.922 9.99812 13.9118 9.4768L13.7452 0.981492ZM1.68054 13.9277L13.4819 1.65437L12.1208 0.345632L0.319458 12.619L1.68054 13.9277Z" fill="white" />
                 </svg>
