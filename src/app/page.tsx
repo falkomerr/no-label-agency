@@ -17,7 +17,7 @@ export default function Home() {
             <source src={'/img/interface/bg-main-video.webm'} type="video/webm" />
             <source src={'/img/interface/bg-main-video.mp4'} type="video/mp4" />
           </video>
-          <video poster="/img/interface/bg-main.mobile.webp" autoPlay muted loop className="md:hidden min-h-[803px] overflow-x-hidden">
+          <video poster="/img/interface/bg-main.mobile.webp" autoPlay muted loop className="block md:hidden min-h-[803px] overflow-x-hidden">
             <source src={'/img/interface/bg-main-video.mobile.webm'} type="video/webm" />
             <source src={'/img/interface/bg-main-video.mobile.mp4'} type="video/mp4" />
           </video>
