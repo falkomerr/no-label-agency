@@ -115,7 +115,7 @@ const Cases = () => {
             <div className='bg-white px-7 py-8 flex flex-row justify-center'>
                 <div className='max-w-[1440px] w-full'>
                     <div className='border-[#0F1322]/[.15] border-[1px] rounded-[45px] relative py-28 px-[20%]'>
-                        <div className='absolute left-0 right-0 top-0 bottom-0 m-auto h-[301px] rounded-3xl overflow-hidden'>
+                        <div className='absolute left-0 right-0 top-0 bottom-0 m-auto  lg:pr-72 xl:pr-8 h-[301px] rounded-3xl overflow-hidden'>
                             <div className="relative rounded-[50px] overflow-hidden items-center flex flex-row justify-center">
                                 <Image className='rounded-[50px] overflow-hidden' src={"/img/interface/bg-main-baner.png"} alt={"baner"} width={233} height={300} />
                                 <svg className="absolute z-10 bottom-0 rounded-[50px]" width={233} height={300} viewBox="0 0 233 300" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,7 +135,7 @@ const Cases = () => {
                         </div>
                         <div className='max-w-[950px] min-h-[390px] w-full grid grid-cols-1 lg:grid-cols-2'>
                             <div className="opacity-[0.7] justify-self-start text-[#0f1322] text-center text-sm md:text-base w-full lg:w-auto font-medium leading-[normal]">{getTranslation('page.main.text11')}</div>
-                            <div className="z-10 self-end relative text-[#809490] text-sm md:text-[1.5625rem] leading-[140%] text-start indent-32 ">
+                            <div className="z-10 self-end relative text-[#809490] text-sm md:text-lg lg:text-[1.5625rem] leading-[140%] text-start indent-32 ">
                                 <svg className="absolute md:top-1 left-[105px] md:left-24 m-auto w-4 h-4 md:w-auto md:h-auto" width={24} height={25} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.8439 8.70986V0.399414H9.15607V8.70986L1.87283 6.13076L0 11.6472L7.49133 14.3696L2.77457 20.9606L7.3526 24.3994L12 17.9517L16.6474 24.3994L21.2254 20.9606L16.5087 14.3696L24 11.6472L22.1272 6.13076L14.8439 8.70986Z" fill="#FF4D00" />
                                 </svg>
