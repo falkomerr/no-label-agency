@@ -24,22 +24,25 @@ const Navbar = () => {
                         <div className="text-white font-medium leading-[normal]">NL Agency</div>
                     </Link>
                     <div className='flex flex-row items-center gap-6'>
-                        <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
+                        <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'/'}>
                             {getTranslation('nav.about')}
                         </Link>
-                        <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
+                        <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'/cases'}>
                             {getTranslation('nav.cases')}
                         </Link>
-                        <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
+                        <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'/contact'}>
                             {getTranslation('nav.contact')}
                         </Link>
-                        <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
+                        <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'/vacancy'}>
                             {getTranslation('nav.vacancy')}
                         </Link>
                     </div>
                     <div className='flex flex-row items-center gap-5'>
                         <LanguagrSelect />
-                        <Link href={'#bot'} className={style.buttonBorder + " flex justify-center items-center py-4 px-8 rounded-full text-white text-center text-sm"}>
+                        <Link
+                            href={'#bot'}
+                            className={style.buttonBorder + " flex justify-center items-center py-4 px-8 rounded-full text-white text-center text-sm transition-all hover:scale-95 hover:bg-[#fff]/[.15]"}
+                        >
                             {getTranslation('nav.explore')}
                         </Link>
                     </div>

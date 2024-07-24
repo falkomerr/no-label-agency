@@ -10,6 +10,7 @@ import InputTextArea from '@/components/interfaces/InputTextArea'
 import CaseMobile, { Case } from '@/components/Case'
 import RangeSlider from '@/components/interfaces/RangeSlider'
 import { useTranslation } from '@/hook/useLanguageStore'
+import Button from '@/components/interfaces/Button'
 
 const Footer = () => {
     const [budjet, setBudjet] = useState([5000, 60000]);
@@ -150,14 +151,17 @@ const Footer = () => {
                     </div>
 
                     <div className='flex flex-row justify-center lg:justify-start'>
-                        <div className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max sm:ml-24 py-4 pl-16 pr-[88px] rounded-full linerBorderGradient">
+                        {/* <div className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max sm:ml-24 py-4 pl-16 pr-[88px] rounded-full linerBorderGradient">
                             {getTranslation('footer.text10')}
                             <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))" }}>
                                 <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.7452 0.981492C13.735 0.460177 13.3041 0.0458545 12.7828 0.0560763L4.2875 0.222651C3.76618 0.232872 3.35186 0.663768 3.36208 1.18508C3.3723 1.7064 3.8032 2.12072 4.32451 2.1105L11.8759 1.96243L12.024 9.51382C12.0342 10.0351 12.4651 10.4495 12.9864 10.4392C13.5077 10.429 13.922 9.99812 13.9118 9.4768L13.7452 0.981492ZM1.68054 13.9277L13.4819 1.65437L12.1208 0.345632L0.319458 12.619L1.68054 13.9277Z" fill="white" />
                                 </svg>
                             </div>
-                        </div>
+                        </div> */}
+                        <Button href={""} className='sm:ml-24'>
+                            {getTranslation('footer.text10')}
+                        </Button>
                     </div>
                 </div>
             </div>
@@ -171,7 +175,7 @@ const Footer = () => {
                             <InputText placeholder='Alex' />
                         </div>
                         <div className='flex flex-col gap-3 w-full'>
-                            <div className="text-white text-sm leading-[140%]">{getTranslation('footer.text12')}</div>
+                            <div className="text-white text-sm leading-[140%] z-10">{getTranslation('footer.text12')}</div>
                             <InputText placeholder='ex. jameslaurentsdesign@gmail.com' />
                         </div>
                         <div className='flex flex-col gap-3 w-full'>
@@ -181,8 +185,8 @@ const Footer = () => {
                         <div className='flex flex-col gap-3 w-full'>
                             <div className="text-white text-sm leading-[140%]">{getTranslation('footer.text14')}</div>
                             <div className="flex items-start justify-between">
-                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text15') + Math.floor(budjet[0]/1000) + 'K'}</div>
-                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text16') + Math.floor(budjet[1]/1000) + 'K +'}</div>
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text15') + Math.floor(budjet[0] / 1000) + 'K'}</div>
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text16') + Math.floor(budjet[1] / 1000) + 'K +'}</div>
                             </div>
                             <RangeSlider value={budjet} setValue={setBudjet} min={1000} max={100000} />
                         </div>
@@ -209,14 +213,17 @@ const Footer = () => {
                     </div>
                 </div>
                 {/* TODO: Сделать блять обработку и отправку формы на сервер бл, ААААААААААА */}
-                <div className={style.bSubmit + " text-white mt-14 mb-9 cursor-pointer relative bg-[#DACDFF]/[.03] w-full max-w-[334px] py-4 pl-16 pr-[88px] flex flex-row items-center justify-center rounded-full linerBorderGradient"}>
+                {/* <div className={style.bSubmit + " text-white mt-14 mb-9 cursor-pointer relative bg-[#DACDFF]/[.03] w-full max-w-[334px] py-4 pl-16 pr-[88px] flex flex-row items-center justify-center rounded-full linerBorderGradient"}>
                     {getTranslation('footer.text19')}
                     <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.60)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.3  0))" }}>
                         <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13.7452 0.981492C13.735 0.460177 13.3041 0.0458545 12.7828 0.0560763L4.2875 0.222651C3.76618 0.232872 3.35186 0.663768 3.36208 1.18508C3.3723 1.7064 3.8032 2.12072 4.32451 2.1105L11.8759 1.96243L12.024 9.51382C12.0342 10.0351 12.4651 10.4495 12.9864 10.4392C13.5077 10.429 13.922 9.99812 13.9118 9.4768L13.7452 0.981492ZM1.68054 13.9277L13.4819 1.65437L12.1208 0.345632L0.319458 12.619L1.68054 13.9277Z" fill="white" />
                         </svg>
                     </div>
-                </div>
+                </div> */}
+                <Button href={""} className={style.bSubmit + " mt-14 mb-9 w-full max-w-[334px] flex flex-row items-center justify-center"}>
+                    {getTranslation('footer.text19')}
+                </Button>
             </div>
             <div className="w-full flex flex-row justify-center">
                 <div className='px-4 md:px-12 xl:px-20 lg:px-36 py-11 lg:py-32 flex flex-col w-full gap-14 max-w-[1440px]'>
@@ -231,20 +238,20 @@ const Footer = () => {
                             <div className="text-white font-medium leading-[normal]">NL Agency</div>
                         </Link>
                         <div className='flex flex-row items-center gap-6'>
-                            <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
+                            <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'/'}>
                                 {getTranslation('nav.about')}
                             </Link>
-                            <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
+                            <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'/cases'}>
                                 {getTranslation('nav.cases')}
                             </Link>
-                            <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
+                            <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'/contact'}>
                                 {getTranslation('nav.contact')}
                             </Link>
-                            <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
+                            <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'/vacancy'}>
                                 {getTranslation('nav.vacancy')}
                             </Link>
                         </div>
-                        <Link href={'#top'}>
+                        <Link href={'#top'} className='transition-all rounded-full hover:scale-95 hover:bg-[#fff]/[.1]'>
                             <svg className='cursor-pointer' width={51} height={51} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g filter="url(#filter0_b_2_569)">
                                     <rect width={51} height={51} rx="25.5" fill="black" fillOpacity="0.23" />

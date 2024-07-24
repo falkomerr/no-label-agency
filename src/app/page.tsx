@@ -1,6 +1,8 @@
 "use client"
 import LogoSlider from "@/components/LogoSlider";
+import ColorText from "@/components/common/ColorText";
 import ArrowIcon from "@/components/icons/Arrow";
+import Button from "@/components/interfaces/Button";
 import Footer from "@/containers/Footer";
 import Navbar from "@/containers/Navbar";
 import { useTranslation } from "@/hook/useLanguageStore";
@@ -12,12 +14,12 @@ export default function Home() {
   return (
     <main>
       <div className='relative w-full bg-black flex flex-row justify-center bg-cover md:bg-auto bg-center md:bg-right bg-no-repeat '>
-        <div className="absolute w-max h-full md:h-[803px] right-auto bottom-0 top-0 md:right-0 overflow-x-hidden">
+        <div className="absolute md:w-max h-full md:h-[803px] right-auto bottom-0 top-0 md:right-0 overflow-x-hidden">
           <video poster="/img/interface/bg-main.webp" autoPlay playsInline muted preload='none' loop height={"803"} className="hidden md:block max-h-[803px] overflow-x-hidden">
             <source src={'/img/interface/bg-main-video.webm'} type="video/webm" />
             <source src={'/img/interface/bg-main-video.mp4'} type="video/mp4" />
           </video>
-          <video poster="/img/interface/bg-main.mobile.webp" autoPlay playsInline muted preload='none' loop height={"803"} className="block md:hidden max-h-full md:max-h-[803px] overflow-x-hidden">
+          <video poster="/img/interface/bg-main.mobile.webp" autoPlay playsInline muted preload='none' loop height={"803"} className="block md:hidden max-h-full md:max-h-[803px] overflow-x-hidden w-full max-w-full" style={{objectFit: 'cover'}}>
             <source src={'/img/interface/bg-main-video.mobile.webm'} type="video/webm" />
             <source src={'/img/interface/bg-main-video.mobile.mp4'} type="video/mp4" />
           </video>
@@ -33,14 +35,17 @@ export default function Home() {
               {getTranslation('page.main.text1')}<br />{getTranslation('page.main.text2')}
             </div>
             <div className="w-max max-w-[413px] opacity-[0.6] text-white leading-[140%]">{getTranslation('page.main.text4')}</div>
-            <Link className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
+            {/* <Link className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
               {getTranslation('nav.explore')}
               <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full z-20 m-auto" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))" }}>
                 <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M13.7452 0.981492C13.735 0.460177 13.3041 0.0458545 12.7828 0.0560763L4.2875 0.222651C3.76618 0.232872 3.35186 0.663768 3.36208 1.18508C3.3723 1.7064 3.8032 2.12072 4.32451 2.1105L11.8759 1.96243L12.024 9.51382C12.0342 10.0351 12.4651 10.4495 12.9864 10.4392C13.5077 10.429 13.922 9.99812 13.9118 9.4768L13.7452 0.981492ZM1.68054 13.9277L13.4819 1.65437L12.1208 0.345632L0.319458 12.619L1.68054 13.9277Z" fill="white" />
                 </svg>
               </div>
-            </Link>
+            </Link> */}
+            <Button href={"#bot"}>
+              {getTranslation('nav.explore')}
+            </Button>
           </div>
           <div id="top" className="gap-8 flex-col flex md:hidden h-full my-14 mt-20 justify-between">
             <div className="flex flex-col gap-4">
@@ -54,14 +59,17 @@ export default function Home() {
             </div>
             <div className="flex flex-col justify-center items-center gap-5">
               <div className="w-max max-w-[260px] opacity-[0.6] text-xs text-white text-center leading-[140%]">{getTranslation('page.main.text4')}</div>
-              <Link className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
+              {/* <Link className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
                 {getTranslation('nav.explore')}
                 <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))" }}>
                   <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13.7452 0.981492C13.735 0.460177 13.3041 0.0458545 12.7828 0.0560763L4.2875 0.222651C3.76618 0.232872 3.35186 0.663768 3.36208 1.18508C3.3723 1.7064 3.8032 2.12072 4.32451 2.1105L11.8759 1.96243L12.024 9.51382C12.0342 10.0351 12.4651 10.4495 12.9864 10.4392C13.5077 10.429 13.922 9.99812 13.9118 9.4768L13.7452 0.981492ZM1.68054 13.9277L13.4819 1.65437L12.1208 0.345632L0.319458 12.619L1.68054 13.9277Z" fill="white" />
                   </svg>
                 </div>
-              </Link>
+              </Link> */}
+              <Button href={"#bot"}>
+                {getTranslation('nav.explore')}
+              </Button>
             </div>
           </div>
           <div className="flex flex-row justify-around md:justify-end items-center gap-16 md:gap-28 mb-12">
@@ -77,7 +85,7 @@ export default function Home() {
               <div className="text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text9')}</div>
               <div className="opacity-[0.3] text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text10')}</div>
             </div>
-            <Link href={"#bot"} className=" hidden md:block">
+            <Link href={"#bot"} className=" hidden md:block transition-all rounded-full hover:scale-95 hover:bg-[#fff]/[.1]">
               <svg width={51} height={51} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_b_2_441)">
                   <rect width={51} height={51} rx="25.5" fill="black" fillOpacity="0.23" />
@@ -115,7 +123,7 @@ export default function Home() {
               <svg className="absolute md:top-1 left-[105px] md:left-24 m-auto w-4 h-4 md:w-auto md:h-auto" width={24} height={25} viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M14.8439 8.70986V0.399414H9.15607V8.70986L1.87283 6.13076L0 11.6472L7.49133 14.3696L2.77457 20.9606L7.3526 24.3994L12 17.9517L16.6474 24.3994L21.2254 20.9606L16.5087 14.3696L24 11.6472L22.1272 6.13076L14.8439 8.70986Z" fill="#FF4D00" />
               </svg>
-              <span className="text-[#0F1322]">{getTranslation('page.main.text13')}</span>{getTranslation('page.main.text14')}
+              <span className="text-[#0F1322]">{getTranslation('page.main.text13')}</span><ColorText text={getTranslation('page.main.text14')} />
             </div>
           </div>
           <div className="flex flex-row justify-center w-full max-w-72">
