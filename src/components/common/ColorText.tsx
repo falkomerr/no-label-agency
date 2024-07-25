@@ -10,7 +10,7 @@ const ColorText = ({ text }: { text: string }) => {
             const textHeight = textRef.current.getBoundingClientRect()
             const textHeight2 = textRef.current.offsetHeight
             const screenHight = window.innerHeight
-            console.log(Math.min(Math.abs((textHeight.top + (textHeight2 / 2) - (screenHight / 2))/((screenHight/2)/100)), 100))
+            //console.log(Math.min(Math.abs((textHeight.top + (textHeight2 / 2) - (screenHight / 2))/((screenHight/2)/100)), 100))
 
             const color1 = '#0F1322'
             const color2 = '#e6efef'
@@ -46,7 +46,7 @@ const ColorText = ({ text }: { text: string }) => {
     }
 
     return (
-        <span ref={textRef} style={{ color: textColor }}>
+        <span ref={textRef} style={{ color: textColor }} className="transition-colors">
             {text}
         </span>
     )

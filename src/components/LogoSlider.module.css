@@ -1,12 +1,12 @@
-.container {
+/* .container {
     animation: marquee 12s linear infinite;
-}
+} */
 
-.item {
+/* .item {
     margin-left: 31px;
     margin-right: 31px;
-}
-
+} */
+/* 
 
 @keyframes marquee {
     0% {
@@ -16,4 +16,4 @@
     100% {
         transform: translateX(0%);
     }
-}
+} */
