@@ -20,7 +20,7 @@ const Footer = () => {
     const { getTranslation } = useTranslation();
     return (
         <div className="bg-black rounded-t-[45px] overflow-hidden relative">
-            <div className="absolute h-[600px] w-full bg-[url(/img/interface/bg-footer-bag.mobile.png)] sm:bg-[url(/img/interface/bg-footer-bag.png)] top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20" />
+            <div className="absolute h-[600px] w-full pointer-events-none bg-[url(/img/interface/bg-footer-bag.mobile.png)] sm:bg-[url(/img/interface/bg-footer-bag.png)] top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20" />
             <div className="absolute h-full w-full max-w-[600px] lg:max-w-[800px] m-auto bg-[url(/img/interface/bg-footer-form2.png)] bottom-32 sm:bottom-0 right-0 bg-right-bottom bg-no-repeat bg-contain" />
             <div className='flex flex-row w-full justify-center'>
                 <div className="flex flex-col w-full max-w-[1300px] mt-24 mx-4 md:mx-12 xl:mx-28 lg:mx-20 mb-24">
