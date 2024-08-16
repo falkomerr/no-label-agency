@@ -8,6 +8,9 @@ import 'swiper/css';
 import Image from "next/image";
 import { Mousewheel, EffectCreative } from 'swiper/modules';
 import Link from 'next/link';
+import { Cursor } from 'react-creative-cursor';
+import 'react-creative-cursor/dist/styles.css';
+var gsap = require('gsap');
 
 const projects = [
     {
@@ -51,55 +54,55 @@ const CaseView = () => {
     const swaperRef = useRef<HTMLAnchorElement>(null)
     const [positionCursor, setPositionCursor] = useState(-22)
 
-    const [showTooltip, setShowTooltip] = useState(false);
-    const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
+    // const [showTooltip, setShowTooltip] = useState(false);
+    // const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
 
-    const handleMouseMove = (event: any) => {
-        setTooltipPosition({ x: event.clientX, y: event.clientY });
-    };
+    // const handleMouseMove = (event: any) => {
+    //     setTooltipPosition({ x: event.clientX, y: event.clientY });
+    // };
 
-    useEffect(() => {
-        const handleMouseOver = () => { setShowTooltip(true); }
-        const handleMouseLeave = () => { setShowTooltip(false); }
-        const element: any = swaperRef.current;
-        element.addEventListener('mouseover', handleMouseOver);
-        element.addEventListener('mouseleave', handleMouseLeave);
+    // useEffect(() => {
+    //     const handleMouseOver = () => { setShowTooltip(true); }
+    //     const handleMouseLeave = () => { setShowTooltip(false); }
+    //     const element: any = swaperRef.current;
+    //     element.addEventListener('mouseover', handleMouseOver);
+    //     element.addEventListener('mouseleave', handleMouseLeave);
 
-        return () => {
-            element.removeEventListener('mouseover', handleMouseOver);
-            element.removeEventListener('mouseleave', handleMouseLeave);
-        };
-    }, []);
+    //     return () => {
+    //         element.removeEventListener('mouseover', handleMouseOver);
+    //         element.removeEventListener('mouseleave', handleMouseLeave);
+    //     };
+    // }, []);
 
-    useEffect(() => {
-        const tooltipElement: any = document.querySelector('.tooltip');
+    // useEffect(() => {
+    //     const tooltipElement: any = document.querySelector('.tooltip');
 
-        if (tooltipElement) {
+    //     if (tooltipElement) {
 
-            if (showTooltip) {
-                tooltipElement.style.opacity = '1';
-                tooltipElement.style.transform = 'scale(1)';
-                tooltipElement.style.transition = 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out';
-            } else {
-                tooltipElement.style.opacity = '0';
-                tooltipElement.style.transform = 'scale(0.1)';
-            }
-        }
-    }, [showTooltip]);
+    //         if (showTooltip) {
+    //             tooltipElement.style.opacity = '1';
+    //             tooltipElement.style.transform = 'scale(1)';
+    //             tooltipElement.style.transition = 'opacity 0.3s ease-in-out, transform 0.3s ease-in-out';
+    //         } else {
+    //             tooltipElement.style.opacity = '0';
+    //             tooltipElement.style.transform = 'scale(0.1)';
+    //         }
+    //     }
+    // }, [showTooltip]);
 
-    useEffect(() => {
-        const tooltipElement: any = document.querySelector('.tooltip');
-        if (tooltipElement) {
-            if (showTooltip) {
-                tooltipElement.animate({
-                    left: tooltipPosition.x - 80 + 'px',
-                    top: tooltipPosition.y - 80 + 'px'
-                }, { duration: 1000, fill: 'forwards' });
-                // tooltipElement.style.top = tooltipPosition.y - 50 + 'px';
-                // tooltipElement.style.left = tooltipPosition.x - 50 + 'px';
-            }
-        }
-    }, [tooltipPosition.x, tooltipPosition.y, showTooltip])
+    // useEffect(() => {
+    //     const tooltipElement: any = document.querySelector('.tooltip');
+    //     if (tooltipElement) {
+    //         if (showTooltip) {
+    //             tooltipElement.animate({
+    //                 left: tooltipPosition.x - 80 + 'px',
+    //                 top: tooltipPosition.y - 80 + 'px'
+    //             }, { duration: 1000, fill: 'forwards' });
+    //             // tooltipElement.style.top = tooltipPosition.y - 50 + 'px';
+    //             // tooltipElement.style.left = tooltipPosition.x - 50 + 'px';
+    //         }
+    //     }
+    // }, [tooltipPosition.x, tooltipPosition.y, showTooltip])
 
     const handleSlideChange = (swiper: any) => {
         const currentIndex = swiper.activeIndex;
@@ -112,6 +115,7 @@ const CaseView = () => {
     return (
         <>
             <div className="relative hidden lg:flex flex-row mt-20 mb-8">
+                <Cursor isGelly={true} cursorSize={10} cursorBackgrounColor='#ffffff00' cursorInnerColor='black' sizeAnimationDuration={1.5} colorAnimationDuration={1.5} />
                 <div className='flex flex-row'>
                     {/* Полоса */}
                     <div ref={scrollRef}>
@@ -159,7 +163,10 @@ const CaseView = () => {
                     </div>
                 </div>
                 <Link
-                    onMouseMove={handleMouseMove}
+                    data-cursor-size={80}
+                    data-cursor-text={getTranslation('component.case.view')}
+                    data-cursor-color={'#fff'}
+                    // onMouseMove={handleMouseMove}
                     ref={swaperRef}
                     className="w-full h-full relative cursor-pointer"
                     href={project.link}
@@ -214,7 +221,7 @@ const CaseView = () => {
                         })}
 
                     </Swiper>
-                    <div
+                    {/* <div
                         className={" tooltip fixed bg-white text-black rounded-full p-2 text-center flex items-center justify-center z-30"}
                         style={{
                             width: `130px`,
@@ -223,7 +230,7 @@ const CaseView = () => {
                         }}
                     >
                         <b>{getTranslation('component.case.view')}</b>
-                    </div>
+                    </div> */}
                 </Link>
 
             </div>

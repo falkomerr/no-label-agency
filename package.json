@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3003",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3003",
     "lint": "next lint"
   },
   "dependencies": {
@@ -13,8 +13,10 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.20",
     "@mui/material-nextjs": "^5.15.11",
+    "gsap": "^3.12.5",
     "next": "14.2.4",
     "react": "^18",
+    "react-creative-cursor": "^1.2.7",
     "react-dom": "^18",
     "swiper": "^11.1.9",
     "zustand": "^4.5.2"
