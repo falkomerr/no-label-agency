@@ -205,7 +205,7 @@ const CaseView = () => {
                                     {/* <Image src={project.img} fill className="object-contain" alt="project" /> */}
                                     <div className="absolute text-[8px] ml-[1vw] xl:text-[14px] 2xl:text-[16px] z-20 w-full h-full cursor-pointer flex flex-row items-end gap-2">
                                         {project.tags.map((item, index) => {
-                                            return <div className={style.button + " mb-[100px] xl:mb-16 2xl:mb-6"}>
+                                            return <div className={style.button + " mb-[100px] xl:mb-16 2xl:mb-6"} key={index}>
                                                 {item.name}
                                             </div>
                                         })}
@@ -231,7 +231,7 @@ const CaseView = () => {
             <div className="w-full h-full flex flex-row relative justify-center">
                 <div className="flex lg:hidden flex-col mt-10 mb-8 ml-10">
                     <div className='flex flex-row w-full relative'>
-                        <div ref={window.innerWidth <= 1024 ? scrollRef : null}>
+                        <div ref={window && window.innerWidth <= 1024 ? scrollRef : null}>
                             <svg width="2" height="227" viewBox="0 0 2 448" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.8" d="M1 0L1.00002 448" stroke="white" strokeDasharray="5 5" />
                             </svg>
@@ -308,7 +308,7 @@ const CaseView = () => {
                     </div>
                     <div className="flex flex-wrap justify-start gap-2 my-7">
                         {project.tags.map((item, index) => {
-                            return <div className={style.button}>
+                            return <div className={style.button} key={index}>
                                 {item.name}
                             </div>
                         })}
