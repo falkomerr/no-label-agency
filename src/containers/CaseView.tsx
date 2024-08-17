@@ -57,6 +57,7 @@ const CaseView = () => {
     const { getTranslation } = useTranslation();
     const [project, setProject] = useState(projects[0])
     const scrollRef = useRef<HTMLDivElement>(null)
+    const scrollRef2 = useRef<HTMLDivElement>(null)
     const swaperRef = useRef<HTMLAnchorElement>(null)
     const [positionCursor, setPositionCursor] = useState(-22)
 
@@ -113,8 +114,9 @@ const CaseView = () => {
     const handleSlideChange = (swiper: any) => {
         const currentIndex = swiper.activeIndex;
         setProject(projects[currentIndex])
-        if (scrollRef) {
-            setPositionCursor(scrollRef.current?.offsetHeight ? (scrollRef.current?.offsetHeight / (projects.length - 1)) * currentIndex - 22 : -22);
+        if (scrollRef ?? scrollRef2) {
+            const current = window.innerWidth <= 1024 ? scrollRef2.current : scrollRef.current;
+            setPositionCursor(current ? (current?.offsetHeight / (projects.length - 1)) * currentIndex - 22 : -22);
         }
     }
 
@@ -231,7 +233,7 @@ const CaseView = () => {
             <div className="w-full h-full flex flex-row relative justify-center">
                 <div className="flex lg:hidden flex-col mt-10 mb-8 ml-10">
                     <div className='flex flex-row w-full relative'>
-                        <div ref={window && window.innerWidth <= 1024 ? scrollRef : null}>
+                        <div ref={scrollRef2}>
                             <svg width="2" height="227" viewBox="0 0 2 448" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.8" d="M1 0L1.00002 448" stroke="white" strokeDasharray="5 5" />
                             </svg>
