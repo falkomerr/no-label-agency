@@ -14,7 +14,7 @@ const projects = [
     {
         id: 0,
         date: '01.10.2024',
-        title: 'The name of the project released 1',
+        title: 'Cryptosensei',
         description: 'Website design UX/UI',
         img: '/img/interface/bg-footer-case1.png',
         imgMobile: '/img/interface/bg-footer-case1.mobile.png',
@@ -24,32 +24,33 @@ const projects = [
     {
         id: 1,
         date: '01.10.2030',
-        title: 'The name of the project released 2',
+        title: 'Saku Monsters',
         description: 'App design UX/UI',
-        img: '/img/interface/bg-footer-case1.png',
-        imgMobile: '/img/interface/bg-footer-case1.mobile.png',
+        img: '/img/interface/bg-footer-case2.png',
+        imgMobile: '/img/interface/bg-footer-case2.mobile.png',
         link: '/cases',
         tags: [{ name: 'UX/UI Disign' }, { name: 'Branding' }, { name: 'Illustations' }]
     },
     {
         id: 2,
         date: '01.10.3000',
-        title: 'The name of the project released 3',
+        title: 'Mel`s Bar',
         description: 'Design XD',
-        img: '/img/interface/bg-footer-case1.png',
-        imgMobile: '/img/interface/bg-footer-case1.mobile.png',
+        img: '/img/interface/bg-footer-case3.png',
+        imgMobile: '/img/interface/bg-footer-case3.mobile.png',
         link: '/cases',
         tags: [{ name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
-    },
+    }
+    ,
     {
-        id: 2,
+        id: 3,
         date: '01.10.3000',
-        title: 'The name of the project released 4',
+        title: 'In Pulse',
         description: 'Design XD',
-        img: '/img/interface/bg-footer-case1.png',
-        imgMobile: '/img/interface/bg-footer-case1.mobile.png',
+        img: '/img/interface/bg-footer-case4.png',
+        imgMobile: '/img/interface/bg-footer-case4.mobile.png',
         link: '/cases',
-        tags: [{ name: 'UX/UI Disign' }]
+        tags: [{ name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
     }
 ]
 
@@ -122,7 +123,7 @@ const CaseView = () => {
 
     return (
         <>
-            <div className="relative hidden lg:flex flex-row mt-20 mb-8">
+            <div className="relative hidden lg:flex flex-row justify-between mt-20 mb-8">
                 <Cursor isGelly={true} cursorSize={10} cursorBackgrounColor='#ffffff00' cursorInnerColor='black' sizeAnimationDuration={1.5} colorAnimationDuration={1.5} />
                 <div className='flex flex-row'>
                     {/* Полоса */}
@@ -157,7 +158,7 @@ const CaseView = () => {
                         </defs>
                     </svg>
                 </div>
-                <div className="gap-3 inline-flex flex-col items-start ml-24 mt-9 z-10">
+                <div className="gap-3 inline-flex flex-col absolute items-start ml-24 mt-9 z-10">
                     <div className="opacity-[0.34] text-white leading-[140%]">{project.description}</div>
                     <div className="w-[399px] text-white text-[2.375rem] font-semibold leading-[140%]">{project.title}</div>
                     <div className="gap-2 flex items-center">
@@ -176,7 +177,7 @@ const CaseView = () => {
                     data-cursor-color={'#fff'}
                     // onMouseMove={handleMouseMove}
                     ref={swaperRef}
-                    className="w-full h-full relative cursor-pointer"
+                    className="w-[758px] h-full relative cursor-pointer"
                     href={project.link}
                 >
                     <Swiper
@@ -203,15 +204,8 @@ const CaseView = () => {
                     >
                         {projects.map((project, index) => {
                             return <SwiperSlide key={index} className="w-full">
-                                <div className="relative w-full h-full bg-contain bg-no-repeat bg-left bg-[url(/img/interface/bg-footer-case1.png)]">
-                                    {/* <Image src={project.img} fill className="object-contain" alt="project" /> */}
-                                    <div className="absolute text-[8px] ml-[1vw] xl:text-[14px] 2xl:text-[16px] z-20 w-full h-full cursor-pointer flex flex-row items-end gap-2">
-                                        {project.tags.map((item, index) => {
-                                            return <div className={style.button + " mb-[100px] xl:mb-16 2xl:mb-6"} key={index}>
-                                                {item.name}
-                                            </div>
-                                        })}
-                                    </div>
+                                <div className={"relative w-full h-full"}>
+                                    <Image src={project.img} fill className="object-contain" alt="project" />
                                 </div>
                             </SwiperSlide>
                         })}

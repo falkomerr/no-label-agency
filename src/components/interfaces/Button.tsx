@@ -31,7 +31,7 @@ const Button = ({ className, href, children, ...props }: { className?: string, h
             <div
                 className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full z-20 m-auto"
                 style={{ 
-                    filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))",
+                    filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90))",
                     transform: isHovered ? 'rotate(45deg)' : 'rotate(0deg)',
                     transition: 'transform 0.4s ease' 
                 }}
