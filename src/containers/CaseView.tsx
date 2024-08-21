@@ -143,7 +143,7 @@ const CaseView = () => {
                         })}
                     </div>
                     {/* Курсор */}
-                    <svg className="absolute -left-12 m-auto -top-5 transition-all" style={{ top: positionCursor }} width={43} height={45} viewBox="0 0 43 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="absolute -left-12 m-auto -top-5 transition-all duration-500" style={{ top: positionCursor }} width={43} height={45} viewBox="0 0 43 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g opacity="0.5" filter="url(#filter0_f_2_543)">
                             <path d="M27.4199 22.5L15.5399 29.3589L15.5399 15.6411L27.4199 22.5Z" fill="#FF4D00" />
                         </g>
@@ -182,13 +182,13 @@ const CaseView = () => {
                 >
                     <Swiper
                         direction={'vertical'}
-                        // effect={'creative'}
+                        effect={'creative'}
                         scrollbar={{ draggable: true }}
                         className='w-full max-h-[448px] h-full absolute left-0'
                         spaceBetween={30}
                         mousewheel={{
-                            forceToAxis: true,
                             releaseOnEdges: true,
+                            thresholdDelta: 4,
                         }}
                         modules={[Mousewheel, EffectCreative]}
                         onSlideChange={handleSlideChange}
@@ -198,7 +198,7 @@ const CaseView = () => {
                                 translate: [0, 0, -400],
                             },
                             next: {
-                                translate: ['100%', 0, 0],
+                                translate: [0, '100%', 0],
                             },
                         }}
                     >
@@ -241,7 +241,7 @@ const CaseView = () => {
                                 </div>
                             })}
                         </div>
-                        <svg className="absolute -left-9 m-auto -top-5 transition-all" style={{ top: positionCursor }} width={43} height={45} viewBox="0 0 43 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg className="absolute -left-9 m-auto -top-5 transition-all duration-500" style={{ top: positionCursor }} width={43} height={45} viewBox="0 0 43 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g opacity="0.5" filter="url(#filter0_f_2_543)">
                                 <path d="M27.4199 22.5L15.5399 29.3589L15.5399 15.6411L27.4199 22.5Z" fill="#FF4D00" />
                             </g>
@@ -257,14 +257,14 @@ const CaseView = () => {
                         </svg>
                         <div className='w-full h-full mr-8'>
                             <Swiper
-                                direction={'vertical'}
-                                // effect={'creative'}
-                                scrollbar={{ draggable: true }}
                                 className='w-full max-h-[220px] h-full absolute left-0'
+                                direction={'vertical'}
+                                effect={'creative'}
+                                scrollbar={{ draggable: true }}
                                 spaceBetween={30}
                                 mousewheel={{
-                                    forceToAxis: true,
                                     releaseOnEdges: true,
+                                    thresholdDelta: 4,
                                 }}
                                 modules={[Mousewheel, EffectCreative]}
                                 onSlideChange={handleSlideChange}
@@ -274,7 +274,7 @@ const CaseView = () => {
                                         translate: [0, 0, -400],
                                     },
                                     next: {
-                                        translate: ['100%', 0, 0],
+                                        translate: [0, '100%', 0],
                                     },
                                 }}
                             >
