@@ -1,7 +1,7 @@
 "use client"
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from './Footer.module.css'
 import InputText from '@/components/interfaces/InputText'
 import InputTel from '@/components/interfaces/InputTel'
@@ -12,15 +12,24 @@ import RangeSlider from '@/components/interfaces/RangeSlider'
 import { useTranslation } from '@/hook/useLanguageStore'
 import Button from '@/components/interfaces/Button'
 import CaseView from './CaseView'
+import useProjectStore from '@/hook/useProjectStore'
 
 const Footer = () => {
     const [budjet, setBudjet] = useState([5000, 60000]);
+    const { currentProject } = useProjectStore();
+    const [bg, setBg] = useState('/img/interface/bg-footer-bag.png')
+
+    useEffect (() => {
+        if(currentProject) console.log(currentProject.glare)
+
+        if (currentProject && currentProject.glare) setBg(currentProject.glare)
+    }, [currentProject])
 
     const pathname = usePathname()
     const { getTranslation } = useTranslation();
     return (
         <div className="bg-black rounded-t-[45px] overflow-hidden relative">
-            <div className="absolute h-[600px] w-full pointer-events-none bg-[url(/img/interface/bg-footer-bag.mobile.png)] sm:bg-[url(/img/interface/bg-footer-bag.png)] top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20" />
+            <div style={{ backgroundImage: "url(" + bg + ")"}} className={"transition-all absolute h-[600px] w-full pointer-events-none top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20"} />
             <div className="absolute h-full w-full max-w-[600px] lg:max-w-[800px] m-auto bg-[url(/img/interface/bg-footer-form2.png)] bottom-32 sm:bottom-0 right-0 bg-right-bottom bg-no-repeat bg-contain" />
             <div className='flex flex-row w-full justify-center'>
                 <div className="flex flex-col w-full max-w-[1300px] mt-24 mx-4 md:mx-12 xl:mx-28 lg:mx-20 mb-24">

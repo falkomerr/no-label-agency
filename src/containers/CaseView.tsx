@@ -9,6 +9,7 @@ import { Mousewheel, EffectCreative } from 'swiper/modules';
 import Link from 'next/link';
 import { Cursor } from 'react-creative-cursor';
 import 'react-creative-cursor/dist/styles.css';
+import useProjectStore from '@/hook/useProjectStore';
 
 const projects = [
     {
@@ -18,37 +19,41 @@ const projects = [
         description: 'Website design UX/UI',
         img: '/img/interface/bg-footer-case1.png',
         imgMobile: '/img/interface/bg-footer-case1.mobile.png',
+        glare: '/img/interface/bg-footer-bag.png',
         link: '/cases',
         tags: [{ name: 'UX/UI Disign' }, { name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
     },
     {
         id: 1,
-        date: '01.10.2030',
-        title: 'Saku Monsters',
-        description: 'App design UX/UI',
+        date: '10.08.2024',
+        title: 'Content for Saku Monsters / Pt. 1',
+        description: 'Illustration and animation',
         img: '/img/interface/bg-footer-case2.png',
         imgMobile: '/img/interface/bg-footer-case2.mobile.png',
+        glare: '/img/interface/bg-footer-bag2.png',
         link: '/cases',
         tags: [{ name: 'UX/UI Disign' }, { name: 'Branding' }, { name: 'Illustations' }]
     },
     {
         id: 2,
-        date: '01.10.3000',
-        title: 'Mel`s Bar',
-        description: 'Design XD',
+        date: 'Soon',
+        title: 'Mel’s Bar: website for the gambling platform',
+        description: 'Web-site',
         img: '/img/interface/bg-footer-case3.png',
         imgMobile: '/img/interface/bg-footer-case3.mobile.png',
+        glare: '/img/interface/bg-footer-bag3.png',
         link: '/cases',
         tags: [{ name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
     }
     ,
     {
         id: 3,
-        date: '01.10.3000',
-        title: 'In Pulse',
-        description: 'Design XD',
+        date: '20.05.2024',
+        title: '«In Pulse»: web-site design',
+        description: 'Web-site',
         img: '/img/interface/bg-footer-case4.png',
         imgMobile: '/img/interface/bg-footer-case4.mobile.png',
+        glare: '/img/interface/bg-footer-bag4.png',
         link: '/cases',
         tags: [{ name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
     }
@@ -61,6 +66,10 @@ const CaseView = () => {
     const scrollRef2 = useRef<HTMLDivElement>(null)
     const swaperRef = useRef<HTMLAnchorElement>(null)
     const [positionCursor, setPositionCursor] = useState(-22)
+
+    useEffect(() => {
+        useProjectStore.setState({ currentProject: projects[0] });
+    }, [])
 
     // const [showTooltip, setShowTooltip] = useState(false);
     // const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
@@ -114,6 +123,7 @@ const CaseView = () => {
 
     const handleSlideChange = (swiper: any) => {
         const currentIndex = swiper.activeIndex;
+        useProjectStore.setState({ currentProject: projects[currentIndex] });
         setProject(projects[currentIndex])
         if (scrollRef ?? scrollRef2) {
             const current = window.innerWidth <= 1024 ? scrollRef2.current : scrollRef.current;
