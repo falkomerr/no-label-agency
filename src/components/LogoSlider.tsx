@@ -21,6 +21,13 @@ const LogoSlider = () => {
                 <Image src="/img/logo/logo-examle4.png" alt="logo" width={228} height={43}/>
                 <Image src="/img/logo/logo-examle5.png" alt="logo" width={146} height={47}/>
             </div>
+            <div className={"flex w-max min-w-max space-x-16 pr-16 items-center animate-loop-scroll group-hover:paused"} aria-hidden="true">
+                <Image src="/img/logo/logo-examle1.png" alt="logo" width={158} height={46}/>
+                <Image src="/img/logo/logo-examle2.png" alt="logo" width={193} height={41}/>
+                <Image src="/img/logo/logo-examle3.png" alt="logo" width={223} height={30}/>
+                <Image src="/img/logo/logo-examle4.png" alt="logo" width={228} height={43}/>
+                <Image src="/img/logo/logo-examle5.png" alt="logo" width={146} height={47}/>
+            </div>
         </div>
     )
 }
