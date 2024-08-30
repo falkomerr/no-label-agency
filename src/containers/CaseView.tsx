@@ -67,6 +67,13 @@ const CaseView = () => {
     const swaperRef = useRef<HTMLAnchorElement>(null)
     const [positionCursor, setPositionCursor] = useState(-22)
 
+    const textRef = useRef<HTMLDivElement>(null)
+    const text0Ref = useRef<HTMLDivElement>(null)
+    const text1Ref = useRef<HTMLDivElement>(null)
+    const text2Ref = useRef<HTMLDivElement>(null)
+    const text3Ref = useRef<HTMLDivElement>(null)
+
+
     useEffect(() => {
         useProjectStore.setState({ currentProject: projects[0] });
     }, [])
@@ -123,6 +130,44 @@ const CaseView = () => {
 
     const handleSlideChange = (swiper: any) => {
         const currentIndex = swiper.activeIndex;
+        if (textRef && textRef.current && text0Ref && text0Ref.current && text1Ref && text1Ref.current && text2Ref && text2Ref.current && text3Ref && text3Ref.current) {
+            let current = 0
+            switch (currentIndex) {
+                case 0:
+                    text0Ref.current.style.opacity = '1'
+                    text1Ref.current.style.opacity = '0'
+                    text2Ref.current.style.opacity = '0'
+                    text3Ref.current.style.opacity = '0'
+                    break
+                case 1:
+                    current = text0Ref.current.offsetHeight + 36
+                    text0Ref.current.style.opacity = '0'
+                    text1Ref.current.style.opacity = '1'
+                    text2Ref.current.style.opacity = '0'
+                    text3Ref.current.style.opacity = '0'
+                    break;
+                case 2:
+                    current += text0Ref.current.offsetHeight + 36
+                    current += text1Ref.current.offsetHeight + 36
+                    text0Ref.current.style.opacity = '0'
+                    text1Ref.current.style.opacity = '0'
+                    text2Ref.current.style.opacity = '1'
+                    text3Ref.current.style.opacity = '0'
+                    break;
+                case 3:
+                    current += text0Ref.current.offsetHeight + 36
+                    current += text1Ref.current.offsetHeight + 36
+                    current += text2Ref.current.offsetHeight + 36
+                    text0Ref.current.style.opacity = '0'
+                    text1Ref.current.style.opacity = '0'
+                    text2Ref.current.style.opacity = '0'
+                    text3Ref.current.style.opacity = '1'
+                    break;
+            }
+            textRef.current.style.opacity = '1';
+            textRef.current.style.transform = 'translateY(-' + (current) + 'px)';
+            textRef.current.style.transition = 'opacity 0.3s ease-in-out, transform 0.4s ease-in-out';
+        }
         useProjectStore.setState({ currentProject: projects[currentIndex] });
         setProject(projects[currentIndex])
         if (scrollRef ?? scrollRef2) {
@@ -168,26 +213,35 @@ const CaseView = () => {
                         </defs>
                     </svg>
                 </div>
-                <div className="gap-3 inline-flex flex-col absolute items-start ml-24 mt-9 z-10">
-                    <div className="opacity-[0.34] text-white leading-[140%]">{project.description}</div>
-                    <div className="w-[399px] text-white text-[2.375rem] font-semibold leading-[140%]">{project.title}</div>
-                    <div className="gap-2 flex items-center">
-                        <svg width={17} height={17} viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <g opacity="0.3">
-                                <path d="M1.41797 6.37499C1.41797 5.03907 1.41797 4.37182 1.83305 3.95674C2.24814 3.54166 2.91539 3.54166 4.2513 3.54166H12.7513C14.0872 3.54166 14.7545 3.54166 15.1695 3.95674C15.5846 4.37182 15.5846 5.03907 15.5846 6.37499C15.5846 6.70861 15.5846 6.87578 15.4812 6.97991C15.3771 7.08332 15.2092 7.08332 14.8763 7.08332H2.1263C1.79268 7.08332 1.62551 7.08332 1.52139 6.97991C1.41797 6.87578 1.41797 6.70791 1.41797 6.37499ZM1.41797 12.75C1.41797 14.0859 1.41797 14.7532 1.83305 15.1682C2.24814 15.5833 2.91539 15.5833 4.2513 15.5833H12.7513C14.0872 15.5833 14.7545 15.5833 15.1695 15.1682C15.5846 14.7532 15.5846 14.0859 15.5846 12.75V9.20832C15.5846 8.8747 15.5846 8.70753 15.4812 8.6034C15.3771 8.49999 15.2092 8.49999 14.8763 8.49999H2.1263C1.79268 8.49999 1.62551 8.49999 1.52139 8.6034C1.41797 8.70753 1.41797 8.8754 1.41797 9.20832V12.75Z" fill="white" />
-                                <path d="M4.95898 2.125V4.25M12.0423 2.125V4.25" stroke="white" strokeWidth="1.41667" strokeLinecap="round" />
-                            </g>
-                        </svg>
-                        <div className="w-[5.0625rem] h-[1.1875rem] opacity-[0.3] text-white font-medium leading-[140%]">{project.date}</div>
+                <div className='inline-flex flex-col absolute w-[495px] h-[280px] overflow-hidden z-10'>
+                    <div ref={textRef} className='transition-all'>
+                        {projects.map((item, index) => {
+                            return (
+                                <div style={{ opacity: (index != 0 ? 0 : 1), transition: 'opacity 0.4s ease-in-out' }} className="gap-3 inline-flex flex-col items-start ml-24 mt-9 z-10" key={index} ref={index == 0 ? text0Ref : (index == 1 ? text1Ref : (index == 2 ? text2Ref : text3Ref))}>
+                                    <div className="opacity-[0.34] text-white leading-[140%]">{item.description}</div>
+                                    <div className={(index != 3 ? "w-[345px]" : "w-[300px]") + " text-white text-[2.375rem] font-semibold leading-[140%]"}>{item.title}</div>
+                                    <div className="gap-2 flex items-center">
+                                        <svg width={17} height={17} viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <g opacity="0.3">
+                                                <path d="M1.41797 6.37499C1.41797 5.03907 1.41797 4.37182 1.83305 3.95674C2.24814 3.54166 2.91539 3.54166 4.2513 3.54166H12.7513C14.0872 3.54166 14.7545 3.54166 15.1695 3.95674C15.5846 4.37182 15.5846 5.03907 15.5846 6.37499C15.5846 6.70861 15.5846 6.87578 15.4812 6.97991C15.3771 7.08332 15.2092 7.08332 14.8763 7.08332H2.1263C1.79268 7.08332 1.62551 7.08332 1.52139 6.97991C1.41797 6.87578 1.41797 6.70791 1.41797 6.37499ZM1.41797 12.75C1.41797 14.0859 1.41797 14.7532 1.83305 15.1682C2.24814 15.5833 2.91539 15.5833 4.2513 15.5833H12.7513C14.0872 15.5833 14.7545 15.5833 15.1695 15.1682C15.5846 14.7532 15.5846 14.0859 15.5846 12.75V9.20832C15.5846 8.8747 15.5846 8.70753 15.4812 8.6034C15.3771 8.49999 15.2092 8.49999 14.8763 8.49999H2.1263C1.79268 8.49999 1.62551 8.49999 1.52139 8.6034C1.41797 8.70753 1.41797 8.8754 1.41797 9.20832V12.75Z" fill="white" />
+                                                <path d="M4.95898 2.125V4.25M12.0423 2.125V4.25" stroke="white" strokeWidth="1.41667" strokeLinecap="round" />
+                                            </g>
+                                        </svg>
+                                        <div className="w-[5.0625rem] h-[1.1875rem] opacity-[0.3] text-white font-medium leading-[140%]">{item.date}</div>
+                                    </div>
+                                </div>
+                            )
+                        })}
                     </div>
                 </div>
+
                 <Link
                     data-cursor-size={80}
                     data-cursor-text={getTranslation('component.case.view')}
                     data-cursor-color={'#fff'}
                     // onMouseMove={handleMouseMove}
                     ref={swaperRef}
-                    className="w-[758px] h-full relative cursor-pointer"
+                    className="w-[758px] h-full relative cursor-pointer pointer-events-auto"
                     href={project.link}
                 >
                     <Swiper
@@ -204,7 +258,7 @@ const CaseView = () => {
                         onSlideChange={handleSlideChange}
                         creativeEffect={{
                             prev: {
-                                shadow: true,
+                                // shadow: true,
                                 translate: [0, 0, -400],
                             },
                             next: {

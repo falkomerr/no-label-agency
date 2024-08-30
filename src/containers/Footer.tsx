@@ -13,6 +13,7 @@ import { useTranslation } from '@/hook/useLanguageStore'
 import Button from '@/components/interfaces/Button'
 import CaseView from './CaseView'
 import useProjectStore from '@/hook/useProjectStore'
+import { TCanvas } from './canvas/TCanvas'
 
 const Footer = () => {
     const [budjet, setBudjet] = useState([5000, 60000]);
@@ -20,7 +21,7 @@ const Footer = () => {
     const [bg, setBg] = useState('/img/interface/bg-footer-bag.png')
 
     useEffect (() => {
-        if(currentProject) console.log(currentProject.glare)
+        // if(currentProject) console.log(currentProject.glare)
 
         if (currentProject && currentProject.glare) setBg(currentProject.glare)
     }, [currentProject])
@@ -29,9 +30,11 @@ const Footer = () => {
     const { getTranslation } = useTranslation();
     return (
         <div className="bg-black rounded-t-[45px] overflow-hidden relative">
-            <div style={{ backgroundImage: "url(" + bg + ")"}} className={"transition-all absolute h-[600px] w-full pointer-events-none top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20"} />
-            <div className="absolute h-full w-full max-w-[600px] lg:max-w-[800px] m-auto bg-[url(/img/interface/bg-footer-form2.png)] bottom-32 sm:bottom-0 right-0 bg-right-bottom bg-no-repeat bg-contain" />
-            <div className='flex flex-row w-full justify-center'>
+            <div className="absolute w-full h-[800px]"><TCanvas /></div>
+
+            {/* <div style={{ backgroundImage: "url(" + bg + ")"}} className={"transition-all absolute h-[600px] w-full pointer-events-none top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20"} /> */}
+            <div className="absolute pointer-events-none h-full w-full max-w-[600px] lg:max-w-[800px] m-auto bg-[url(/img/interface/bg-footer-form2.png)] bottom-32 sm:bottom-0 right-0 bg-right-bottom bg-no-repeat bg-contain" />
+            <div className='flex pointer-events-none flex-row w-full justify-center'>
                 <div className="flex flex-col w-full max-w-[1300px] mt-24 mx-4 md:mx-12 xl:mx-28 lg:mx-20 mb-24">
                     <div className="opacity-[0.7] text-white text-xs ml-4 sm:text-base font-medium leading-[normal] z-20">{getTranslation('footer.text1')}</div>
                     <CaseView />
@@ -45,7 +48,7 @@ const Footer = () => {
                                 </svg>
                             </div>
                         </div> */}
-                        <Button href={""} className='sm:ml-24'>
+                        <Button href={""} className='sm:ml-24 pointer-events-auto'>
                             {getTranslation('footer.text10')}
                         </Button>
                     </div>
