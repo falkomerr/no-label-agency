@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { Backround } from "./Backround";
 
 
-export const TCanvas: VFC = () => {
+export const TCanvas = ({index}: {index?: number}) => {
     const OrthographicCamera = new THREE.OrthographicCamera(-1, 1, 1, -1, -10, 10)
     const [dpr, setDpr] = useState<number>(1)
     useEffect(() => {
@@ -15,7 +15,7 @@ export const TCanvas: VFC = () => {
     return (
         <Canvas camera={OrthographicCamera} dpr={dpr}>
             <Suspense fallback={null}>
-                <Backround />
+                <Backround index={index} />
             </Suspense>
         </Canvas>
     )

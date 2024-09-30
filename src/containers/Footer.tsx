@@ -7,7 +7,6 @@ import InputText from '@/components/interfaces/InputText'
 import InputTel from '@/components/interfaces/InputTel'
 import Switch from '@/components/interfaces/Switch'
 import InputTextArea from '@/components/interfaces/InputTextArea'
-import CaseMobile, { Case } from '@/components/Case'
 import RangeSlider from '@/components/interfaces/RangeSlider'
 import { useTranslation } from '@/hook/useLanguageStore'
 import Button from '@/components/interfaces/Button'
@@ -19,18 +18,20 @@ const Footer = () => {
     const [budjet, setBudjet] = useState([5000, 60000]);
     const { currentProject } = useProjectStore();
     const [bg, setBg] = useState('/img/interface/bg-footer-bag.png')
+    const [index, setIndex] = useState(0)
 
     useEffect (() => {
         // if(currentProject) console.log(currentProject.glare)
 
         if (currentProject && currentProject.glare) setBg(currentProject.glare)
+        if (currentProject) setIndex(currentProject.id)
     }, [currentProject])
 
     const pathname = usePathname()
     const { getTranslation } = useTranslation();
     return (
         <div className="bg-black rounded-t-[45px] overflow-hidden relative">
-            <div className="absolute w-full h-[800px]"><TCanvas /></div>
+            <div className="absolute w-full h-[800px]"><TCanvas index={index}/></div>
 
             {/* <div style={{ backgroundImage: "url(" + bg + ")"}} className={"transition-all absolute h-[600px] w-full pointer-events-none top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20"} /> */}
             <div className="absolute pointer-events-none h-full w-full max-w-[600px] lg:max-w-[800px] m-auto bg-[url(/img/interface/bg-footer-form2.png)] bottom-32 sm:bottom-0 right-0 bg-right-bottom bg-no-repeat bg-contain" />
