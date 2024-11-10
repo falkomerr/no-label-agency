@@ -32,7 +32,7 @@ const Footer = () => {
     return (
         <div className="bg-black rounded-t-[45px] overflow-hidden relative">
             <div className="absolute w-full h-[800px]"><TCanvas index={index}/></div>
-
+            <div className="absolute m-auto -right-4 flex-shrink-0 w-screen h-[5.75rem] top-[800px] bg-black" style={{boxShadow: '0px 0px 63.1px 49px #000000'}}/>
             {/* <div style={{ backgroundImage: "url(" + bg + ")"}} className={"transition-all absolute h-[600px] w-full pointer-events-none top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20"} /> */}
             <div className="absolute pointer-events-none h-full w-full max-w-[600px] lg:max-w-[800px] m-auto bg-[url(/img/interface/bg-footer-form2.png)] bottom-32 sm:bottom-0 right-0 bg-right-bottom bg-no-repeat bg-contain" />
             <div className='flex pointer-events-none flex-row w-full justify-center'>

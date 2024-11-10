@@ -198,7 +198,7 @@ const CaseView = () => {
                         })}
                     </div>
                     {/* Курсор */}
-                    <svg className="absolute -left-12 m-auto -top-5 transition-all duration-500" style={{ top: positionCursor }} width={43} height={45} viewBox="0 0 43 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="absolute -left-12 m-auto -top-5 transition-all duration-700" style={{ top: positionCursor }} width={43} height={45} viewBox="0 0 43 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g opacity="0.5" filter="url(#filter0_f_2_543)">
                             <path d="M27.4199 22.5L15.5399 29.3589L15.5399 15.6411L27.4199 22.5Z" fill="#FF4D00" />
                         </g>
@@ -249,7 +249,8 @@ const CaseView = () => {
                         effect={'creative'}
                         scrollbar={{ draggable: true }}
                         className='w-full max-h-[448px] h-full absolute left-0'
-                        spaceBetween={30}
+                        spaceBetween={1}
+                        speed={700}
                         mousewheel={{
                             releaseOnEdges: true,
                             thresholdDelta: 4,
@@ -259,17 +260,19 @@ const CaseView = () => {
                         creativeEffect={{
                             prev: {
                                 // shadow: true,
-                                translate: [0, 0, -400],
+                                scale: 1.0,
+                                translate: [0, '-100%', 100],
                             },
                             next: {
-                                translate: [0, '100%', 0],
+                                scale: 1.0,
+                                translate: [0, '100%', 100],
                             },
                         }}
                     >
                         {projects.map((project, index) => {
-                            return <SwiperSlide key={index} className="w-full">
-                                <div className={"relative w-full h-full"}>
-                                    <Image src={project.img} fill className="object-contain" alt="project" />
+                            return <SwiperSlide key={index} className="w-full" style={{}}>
+                                <div className={"relative w-full h-full bac bg-no-repeat bg-contain"} style={{backgroundImage: `url(${project.img})`, scale: '90%'}}>
+                                    {/* <Image src={project.img} fill className="object-contain" alt="project" /> */}
                                 </div>
                             </SwiperSlide>
                         })}
