@@ -74,3 +74,7 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   display: none;
 }
+
+#c-cursor {
+  transition:height 150ms, width 150ms;
+}

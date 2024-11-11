@@ -166,7 +166,7 @@ const CaseView = () => {
             }
             textRef.current.style.opacity = '1';
             textRef.current.style.transform = 'translateY(-' + (current) + 'px)';
-            textRef.current.style.transition = 'opacity 0.3s ease-in-out, transform 0.4s ease-in-out';
+            textRef.current.style.transition = 'opacity 0.3s ease-in-out, transform 0.6s ease-in-out';
         }
         useProjectStore.setState({ currentProject: projects[currentIndex] });
         setProject(projects[currentIndex])
@@ -178,8 +178,8 @@ const CaseView = () => {
 
     return (
         <>
-            <div className="relative hidden lg:flex flex-row justify-between mt-20 mb-8">
-                <Cursor isGelly={true} cursorSize={10} cursorBackgrounColor='#ffffff00' cursorInnerColor='black' sizeAnimationDuration={1.5} colorAnimationDuration={1.5} />
+            <div className="relative  hidden lg:flex flex-row justify-between mt-20 mb-8">
+                <Cursor isGelly={true} cursorSize={1} cursorBackgrounColor='#ffffff00' cursorInnerColor='black' colorAnimationDuration={1.5} />
                 <div className='flex flex-row'>
                     {/* Полоса */}
                     <div ref={scrollRef}>
@@ -238,7 +238,7 @@ const CaseView = () => {
                 <Link
                     data-cursor-size={80}
                     data-cursor-text={getTranslation('component.case.view')}
-                    data-cursor-color={'#fff'}
+                    data-cursor-color={'#ffffff'}
                     // onMouseMove={handleMouseMove}
                     ref={swaperRef}
                     className="w-[758px] h-full relative cursor-pointer pointer-events-auto"
@@ -260,19 +260,20 @@ const CaseView = () => {
                         creativeEffect={{
                             prev: {
                                 // shadow: true,
-                                scale: 1.0,
                                 translate: [0, '-100%', 100],
                             },
                             next: {
-                                scale: 1.0,
                                 translate: [0, '100%', 100],
                             },
                         }}
                     >
                         {projects.map((project, index) => {
                             return <SwiperSlide key={index} className="w-full" style={{}}>
-                                <div className={"relative w-full h-full bac bg-no-repeat bg-contain"} style={{backgroundImage: `url(${project.img})`, scale: '90%'}}>
-                                    {/* <Image src={project.img} fill className="object-contain" alt="project" /> */}
+                                <div
+                                    className={"relative w-full h-full bac bg-no-repeat bg-contain"}
+                                    style={{ scale: '90%' }}
+                                >
+                                    <Image src={project.img} fill className="object-contain" alt="project" />
                                 </div>
                             </SwiperSlide>
                         })}
