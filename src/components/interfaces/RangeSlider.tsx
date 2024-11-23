@@ -42,7 +42,7 @@ const RangeSlider: React.FC<Props> = ({ value, setValue, min, max }) => {
                     },
                 },
                 '& .MuiSlider-rail': { opacity: 0.2, height: "2px" },
-                '& .MuiSlider-track': { opacity: 0 },
+                '& .MuiSlider-track': { background: "#CB7850", border: 0, height: 2},
                 '& .MuiSlider-thumb': { opacity: 0.8, background: "#FF4D00", '&:before': { background: "white", height: "8px", width: "8px", opacity: 1, boxShadow: '0 0 23px 0 rgba(255, 77, 0, 0.6), 0 0 29px 0 rgba(255, 77, 0, 0.3)' }, '&:focus, &:hover, &.Mui-active': { boxShadow: '0 0 23px 0 rgba(255, 77, 0, 0.6), 0 0 29px 0 rgba(255, 77, 0, 0.3)' } },
             }}
         />

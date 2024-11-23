@@ -31,9 +31,9 @@ export const Backround = ({ index }: { index?: number }) => {
   useEffect(() => {
     console.log(index)
     if (index == 0) {
-      color1.set(1.0, 0.58, 0.58)
-      color2.set(1.0, 0.83, 0.58)
-      color3.set(0.58, 1.0, 0.62)
+      color1.set(0.19, 0.027, 0.62)
+      color2.set(0.43, 0.29, 0.88)
+      color3.set(1, 0.6, 1)
     } else if (index == 1) {
       color1.set(0.16, 0.38, 0.24)
       color2.set(0.44, 0.86, 0.38)
@@ -43,9 +43,9 @@ export const Backround = ({ index }: { index?: number }) => {
       color2.set(0.25, 0.26, 0.45)
       color3.set(0.75, 0.2, 0.8)
     } else if (index == 3) {
-      color1.set(0.19, 0.027, 0.62)
-      color2.set(0.43, 0.29, 0.88)
-      color3.set(1, 0.6, 1)
+      color1.set(1.0, 0.58, 0.58)
+      color2.set(1.0, 0.83, 0.58)
+      color3.set(0.58, 1.0, 0.62)
     }
     const duration = 500; // Длительность анимации в миллисекундах
     const steps = 60; // Количество шагов

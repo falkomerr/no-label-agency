@@ -109,11 +109,11 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="bg-white md:px-20 py-8 flex flex-row justify-center w-full">
+      {/* <div className="bg-white md:px-20 py-8 flex flex-row justify-center w-full">
         <LogoSlider />
-      </div>
+      </div> */}
       <div className="bg-white px-8 pb-8 flex flex-row justify-center w-full">
-        <div className="max-w-[1440px] w-full py-9 lg:py-36 px-10 lg:px-28 border-[#0F1322]/[.15] border-[1px] flex flex-col lg:flex-row justify-between items-center lg:items-start rounded-[45px] gap-6">
+        <div className="max-w-[1440px]  mt-7 w-full py-9 lg:py-36 px-10 lg:px-28 border-[#0F1322]/[.15] border-[1px] flex flex-col lg:flex-row justify-between items-center lg:items-start rounded-[45px] gap-6">
           <div className="opacity-[0.7] text-[#0f1322] text-center text-sm md:text-base w-full lg:w-auto font-medium leading-[normal]">{getTranslation('page.main.text11')}</div>
           <div className="flex flex-col gap-11 lg:items-start w-full max-w-[480px]">
             <div className="w-max max-w-52 flex justify-center items-center gap-1.5 py-3 px-8 rounded-full bg-[#e6efef] text-[#0f1322] text-xs md:text-base font-medium leading-[140%]">

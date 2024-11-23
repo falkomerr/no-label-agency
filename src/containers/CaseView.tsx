@@ -10,19 +10,33 @@ import Link from 'next/link';
 import { Cursor } from 'react-creative-cursor';
 import 'react-creative-cursor/dist/styles.css';
 import useProjectStore from '@/hook/useProjectStore';
+    // {
+    //     id: 0,
+    //     date: '01.10.2024',
+    //     title: 'Cryptosensei',
+    //     description: 'Website design UX/UI',
+    //     img: '/img/interface/bg-footer-case1.png',
+    //     imgMobile: '/img/interface/bg-footer-case1.mobile.png',
+    //     glare: '/img/interface/bg-footer-bag.png',
+    //     link: '/cases',
+    //     tags: [{ name: 'UX/UI Disign' }, { name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
+    // },
+
 
 const projects = [
+
     {
         id: 0,
-        date: '01.10.2024',
-        title: 'Cryptosensei',
-        description: 'Website design UX/UI',
-        img: '/img/interface/bg-footer-case1.png',
-        imgMobile: '/img/interface/bg-footer-case1.mobile.png',
-        glare: '/img/interface/bg-footer-bag.png',
+        date: '20.05.2024',
+        title: '«In Pulse»: web-site design',
+        description: 'Web-site',
+        img: '/img/interface/bg-footer-case4.png',
+        imgMobile: '/img/interface/bg-footer-case4.mobile.png',
+        glare: '/img/interface/bg-footer-bag4.png',
         link: '/cases',
-        tags: [{ name: 'UX/UI Disign' }, { name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
-    },
+        tags: [{ name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
+    }
+    ,
     {
         id: 1,
         date: '10.08.2024',
@@ -42,18 +56,6 @@ const projects = [
         img: '/img/interface/bg-footer-case3.png',
         imgMobile: '/img/interface/bg-footer-case3.mobile.png',
         glare: '/img/interface/bg-footer-bag3.png',
-        link: '/cases',
-        tags: [{ name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
-    }
-    ,
-    {
-        id: 3,
-        date: '20.05.2024',
-        title: '«In Pulse»: web-site design',
-        description: 'Web-site',
-        img: '/img/interface/bg-footer-case4.png',
-        imgMobile: '/img/interface/bg-footer-case4.mobile.png',
-        glare: '/img/interface/bg-footer-bag4.png',
         link: '/cases',
         tags: [{ name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
     }
@@ -136,21 +138,21 @@ const CaseView = () => {
 
     const handleSlideChangeMobile = (swiper: any) => {
         const currentIndex = swiper.activeIndex;
-        if (textRefMob && textRefMob.current && text0RefMob && text0RefMob.current && text1RefMob && text1RefMob.current && text2RefMob && text2RefMob.current && text3RefMob && text3RefMob.current) {
+        if (textRefMob && textRefMob.current && text0RefMob && text0RefMob.current && text1RefMob && text1RefMob.current && text2RefMob && text2RefMob.current) {
             let current = 0
             switch (currentIndex) {
                 case 0:
                     text0RefMob.current.style.opacity = '1'
                     text1RefMob.current.style.opacity = '0'
                     text2RefMob.current.style.opacity = '0'
-                    text3RefMob.current.style.opacity = '0'
+                    // text3RefMob.current.style.opacity = '0'
                     break
                 case 1:
                     current = text0RefMob.current.offsetHeight
                     text0RefMob.current.style.opacity = '0'
                     text1RefMob.current.style.opacity = '1'
                     text2RefMob.current.style.opacity = '0'
-                    text3RefMob.current.style.opacity = '0'
+                    // text3RefMob.current.style.opacity = '0'
                     break;
                 case 2:
                     current += text0RefMob.current.offsetHeight
@@ -158,7 +160,7 @@ const CaseView = () => {
                     text0RefMob.current.style.opacity = '0'
                     text1RefMob.current.style.opacity = '0'
                     text2RefMob.current.style.opacity = '1'
-                    text3RefMob.current.style.opacity = '0'
+                    // text3RefMob.current.style.opacity = '0'
                     break;
                 case 3:
                     current += text0RefMob.current.offsetHeight
@@ -167,7 +169,7 @@ const CaseView = () => {
                     text0RefMob.current.style.opacity = '0'
                     text1RefMob.current.style.opacity = '0'
                     text2RefMob.current.style.opacity = '0'
-                    text3RefMob.current.style.opacity = '1'
+                    // text3RefMob.current.style.opacity = '1'
                     break;
             }
             textRefMob.current.style.opacity = '1';
@@ -184,21 +186,22 @@ const CaseView = () => {
 
     const handleSlideChange = (swiper: any) => {
         const currentIndex = swiper.activeIndex;
-        if (textRef && textRef.current && text0Ref && text0Ref.current && text1Ref && text1Ref.current && text2Ref && text2Ref.current && text3Ref && text3Ref.current) {
+        console.log(currentIndex)
+        if (textRef && textRef.current && text0Ref && text0Ref.current && text1Ref && text1Ref.current && text2Ref && text2Ref.current) {
             let current = 0
             switch (currentIndex) {
                 case 0:
                     text0Ref.current.style.opacity = '1'
                     text1Ref.current.style.opacity = '0'
                     text2Ref.current.style.opacity = '0'
-                    text3Ref.current.style.opacity = '0'
+                    // text3Ref.current.style.opacity = '0'
                     break
                 case 1:
                     current = text0Ref.current.offsetHeight + 36
                     text0Ref.current.style.opacity = '0'
                     text1Ref.current.style.opacity = '1'
                     text2Ref.current.style.opacity = '0'
-                    text3Ref.current.style.opacity = '0'
+                    // text3Ref.current.style.opacity = '0'
                     break;
                 case 2:
                     current += text0Ref.current.offsetHeight + 36
@@ -206,7 +209,7 @@ const CaseView = () => {
                     text0Ref.current.style.opacity = '0'
                     text1Ref.current.style.opacity = '0'
                     text2Ref.current.style.opacity = '1'
-                    text3Ref.current.style.opacity = '0'
+                    // text3Ref.current.style.opacity = '0'
                     break;
                 case 3:
                     current += text0Ref.current.offsetHeight + 36
@@ -215,7 +218,7 @@ const CaseView = () => {
                     text0Ref.current.style.opacity = '0'
                     text1Ref.current.style.opacity = '0'
                     text2Ref.current.style.opacity = '0'
-                    text3Ref.current.style.opacity = '1'
+                    // text3Ref.current.style.opacity = '1'
                     break;
             }
             textRef.current.style.opacity = '1';
