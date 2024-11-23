@@ -76,7 +76,7 @@ const Footer = () => {
                             <div className="text-white text-sm leading-[140%]">{getTranslation('footer.text14')}</div>
                             <div className="flex items-start justify-between">
                                 <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text15') + Math.floor(budjet[0] / 1000) + 'K'}</div>
-                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text16') + Math.floor(budjet[1] / 1000) + 'K +'}</div>
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text16') + Math.floor(budjet[1] / 1000) + 'K' + (budjet[1] >= 100000 ? ' +' : '')}</div>
                             </div>
                             <RangeSlider value={budjet} setValue={setBudjet} min={1000} max={100000} />
                         </div>

@@ -4,8 +4,8 @@ import React from 'react'
 const NotFount = () => {
     return (
         <div className="relative w-full bg-black flex flex-row justify-center bg-cover md:bg-auto bg-center md:bg-right bg-no-repeat">
-            <div className="absolute md:w-max h-full md:h-[803px] right-auto bottom-0 top-0 md:right-0 overflow-x-hidden">
-                <video poster="/img/interface/bg-main.webp" autoPlay playsInline muted preload='none' loop height={"803"} className="hidden md:block max-h-[803px] overflow-x-hidden">
+            <div className="absolute md:w-max h-full  md:h-max right-auto bottom-0 top-0 md:right-0 overflow-x-hidden">
+                <video poster="/img/interface/bg-main.webp" autoPlay playsInline muted preload='none' loop height={"803"} className="hidden md:block h-screen overflow-x-hidden">
                     <source src={'/img/interface/bg-main-video.webm'} type="video/webm" />
                     <source src={'/img/interface/bg-main-video.mp4'} type="video/mp4" />
                 </video>
