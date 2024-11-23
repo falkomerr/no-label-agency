@@ -208,8 +208,8 @@ const Footer = () => {
                         </div>
                     </nav >
                     <div className="flex flex-col gap-3 md:flex-row justify-between items-center opacity-50">
-                        <div className="text-white text-sm font-semibold leading-[normal]">{getTranslation('nav.vacancy')}</div>
-                        <div className="text-white text-sm font-semibold leading-[normal]">© 2024 No Lable Agency</div>
+                        <div className="text-white text-sm leading-[normal]">Based in Russia, working worldwide</div>
+                        <div className="text-white text-sm leading-[normal]">© 2024 No Lable Agency</div>
                     </div>
                 </div>
             </div>

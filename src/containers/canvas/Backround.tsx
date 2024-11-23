@@ -26,6 +26,7 @@ export const Backround = ({ index }: { index?: number }) => {
   const color1 = new THREE.Vector3()
   const color2 = new THREE.Vector3()
   const color3 = new THREE.Vector3()
+  const isMobile = window.innerWidth < 1024
 
   useEffect(() => {
     console.log(index)
@@ -90,6 +91,8 @@ export const Backround = ({ index }: { index?: number }) => {
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
+      if (isMobile) return
+
       const { clientX, clientY } = event;
       const { innerWidth: width, innerHeight: height } = window;
 
@@ -116,8 +119,13 @@ export const Backround = ({ index }: { index?: number }) => {
   useFrame(({ }) => {
     // shader.uniforms.u_time.value += 0.005
     // target.set((mouse.x + 1) * 0.5, (mouse.y + 1) * 0.5)
+    if (isMobile) {
+      // console.log(mouse)
+      shader.uniforms.u_mouse.value.lerp({ x: 0.01, y: 0.008 }, 1)
+    } else {
+      shader.uniforms.u_mouse.value.lerp(mouse, 1)
+    }
 
-    shader.uniforms.u_mouse.value.lerp(mouse, 1)
     // console.log(scolor1)
     shader.uniforms.color1.value.copy(scolor1)
     shader.uniforms.color2.value.copy(scolor2)

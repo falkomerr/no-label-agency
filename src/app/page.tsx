@@ -32,7 +32,7 @@ export default function Home() {
               <div className="opacity-[0.6] text-white text-center text-sm font-medium leading-[105%] uppercase">{getTranslation('page.main.text3')}</div>
             </div>
             <div className="text-white text-[3.3125rem] font-medium leading-[105%]">
-              {getTranslation('page.main.text1')}<br />{getTranslation('page.main.text2')}
+              {getTranslation('page.main.text1')}<br />{getTranslation('page.main.text2')}<br />{getTranslation('page.main.text2.1')}
             </div>
             <div className="w-max max-w-[413px] opacity-[0.6] text-white leading-[140%]">{getTranslation('page.main.text4')}</div>
             {/* <Link className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
@@ -77,14 +77,14 @@ export default function Home() {
               <div className="text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text5')}</div>
               <div className="opacity-[0.3] text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text6')}</div>
             </div>
-            <div className="flex flex-col items-start">
+            {/* <div className="flex flex-col items-start">
               <div className="text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text7')}</div>
               <div className="opacity-[0.3] text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text8')}</div>
             </div>
             <div className="flex flex-col items-start">
               <div className="text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text9')}</div>
               <div className="opacity-[0.3] text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text10')}</div>
-            </div>
+            </div> */}
             <Link href={"#bot"} className=" hidden md:block transition-all rounded-full hover:scale-95 hover:bg-[#fff]/[.1]">
               <svg width={51} height={51} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_b_2_441)">
