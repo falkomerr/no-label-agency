@@ -54,7 +54,7 @@ export default function Home() {
                 <div className="opacity-[0.6] text-white text-center text-xs font-medium leading-[105%] uppercase">{getTranslation('page.main.text3')}</div>
               </div>
               <div className="text-white text-center text-3xl font-medium leading-[105%]">
-                {getTranslation('page.main.text1')}<br />{getTranslation('page.main.text2')}
+                {getTranslation('page.main.text1')}<br />{getTranslation('page.main.text2')}<br />{getTranslation('page.main.text2.1')}
               </div>
             </div>
             <div className="flex flex-col justify-center items-center gap-5">
@@ -74,8 +74,8 @@ export default function Home() {
           </div>
           <div className="flex flex-row justify-around md:justify-end items-center gap-16 md:gap-28 mb-12">
             <div className="flex flex-col items-start">
-              <div className="text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text5')}</div>
-              <div className="opacity-[0.3] text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text6')}</div>
+              <div className="text-white text-[12px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text5')}</div>
+              <div className="opacity-[0.3] text-white text-[12px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text6')}</div>
             </div>
             {/* <div className="flex flex-col items-start">
               <div className="text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text7')}</div>
