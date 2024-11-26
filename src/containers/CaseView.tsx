@@ -186,7 +186,7 @@ const CaseView = () => {
 
     const handleSlideChange = (swiper: any) => {
         const currentIndex = swiper.activeIndex;
-        console.log(currentIndex)
+        // console.log(currentIndex)
         if (textRef && textRef.current && text0Ref && text0Ref.current && text1Ref && text1Ref.current && text2Ref && text2Ref.current) {
             let current = 0
             switch (currentIndex) {
@@ -240,9 +240,9 @@ const CaseView = () => {
                 <div className='flex flex-row'>
                     {/* Полоса */}
                     <div ref={scrollRef}>
-                        <svg width="2" height="448" viewBox="0 0 2 448" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path opacity="0.8" d="M1 0L1.00002 448" stroke="white" strokeDasharray="5 5" />
-                        </svg>
+                        <svg width="2" height="485" viewBox="0 0 2 485" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path opacity="0.8" d="M1 0L1.00002 485" stroke="white" strokeDasharray="5 5" />
+                        </svg> 
                     </div>
                     {/* Страницы */}
                     <div className='flex flex-col h-full justify-between'>
@@ -298,14 +298,14 @@ const CaseView = () => {
                     data-cursor-color={'#ffffff'}
                     // onMouseMove={handleMouseMove}
                     ref={swaperRef}
-                    className="w-[758px] h-full relative cursor-pointer pointer-events-auto"
+                    className="w-[834px] h-full relative cursor-pointer pointer-events-auto"
                     href={project.link}
                 >
                     <Swiper
                         direction={'vertical'}
                         effect={'creative'}
                         scrollbar={{ draggable: true }}
-                        className='w-full max-h-[448px] h-full absolute left-0'
+                        className='w-full max-h-[485px] h-full absolute left-0'
                         spaceBetween={1}
                         speed={700}
                         mousewheel={{

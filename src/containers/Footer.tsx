@@ -15,7 +15,7 @@ import useProjectStore from '@/hook/useProjectStore'
 import { TCanvas } from './canvas/TCanvas'
 
 const Footer = () => {
-    const [budjet, setBudjet] = useState([5000, 60000]);
+    const [budjet, setBudjet] = useState([5, 60]);
     const { currentProject } = useProjectStore();
     const [bg, setBg] = useState('/img/interface/bg-footer-bag.png')
     const [index, setIndex] = useState(0)
@@ -33,14 +33,16 @@ const Footer = () => {
         <div className="bg-black rounded-t-[45px] overflow-hidden relative">
             <div className="absolute w-full h-[800px]"><TCanvas index={index}/></div>
             <div className="absolute m-auto -right-4 flex-shrink-0 w-screen h-[5.75rem] top-[800px] bg-black" style={{boxShadow: '0px 0px 63.1px 49px #000000'}}/>
+
             {/* <div style={{ backgroundImage: "url(" + bg + ")"}} className={"transition-all absolute h-[600px] w-full pointer-events-none top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20"} /> */}
             <div className="absolute pointer-events-none h-full w-full max-w-[600px] lg:max-w-[800px] m-auto bg-[url(/img/interface/bg-footer-form2.png)] bottom-32 sm:bottom-0 right-0 bg-right-bottom bg-no-repeat bg-contain" />
+
             <div className='flex pointer-events-none flex-row w-full justify-center'>
                 <div className="flex flex-col w-full max-w-[1300px] mt-24 mx-4 md:mx-12 xl:mx-28 lg:mx-20 mb-24">
                     <div className="opacity-[0.7] text-white text-xs ml-4 sm:text-base font-medium leading-[normal] z-20">{getTranslation('footer.text1')}</div>
                     <CaseView />
 
-                    <div className='flex flex-row justify-center lg:justify-start'>
+                    <div className='flex flex-row justify-center lg:justify-start z-[5]'>
                         {/* <div className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max sm:ml-24 py-4 pl-16 pr-[88px] rounded-full linerBorderGradient">
                             {getTranslation('footer.text10')}
                             <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))" }}>
@@ -58,7 +60,7 @@ const Footer = () => {
             <div className="relative flex-col items-center justify-center pt-28 flex">
                 <div className="absolute h-[300px] md:h-[413px] w-full bg-[url(/img/interface/bg-footer-form1.png)] top-0 left-0 bg-left-top bg-no-repeat bg-contain" />
                 <span id="bot" className={style.textGradient + " pl-52 md:pl-56 opacity-[0.6] text-[39px] md:text-[65px] lg:text-[113px] font-semibold leading-[120%] text-center"}>Get&nbsp;In Touch with&nbsp;Us</span>
-                <div className='flex flex-col md:grid md:grid-cols-5 gap-8 w-full max-w-[1000px] px-8 pt-16'>
+                <div className='flex flex-col md:grid md:grid-cols-5 gap-8 w-full max-w-[1000px] px-8 pt-16 z-[5]'>
                     <div className='col-span-2 flex flex-col items-start gap-12'>
                         <div className='flex flex-col gap-3 w-full'>
                             <div className="text-white text-sm leading-[140%] z-10">{getTranslation('footer.text11')}</div>
@@ -75,10 +77,10 @@ const Footer = () => {
                         <div className='flex flex-col gap-3 w-full'>
                             <div className="text-white text-sm leading-[140%]">{getTranslation('footer.text14')}</div>
                             <div className="flex items-start justify-between">
-                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text15') + Math.floor(budjet[0] / 1000) + 'K'}</div>
-                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text16') + Math.floor(budjet[1] / 1000) + 'K' + (budjet[1] >= 100000 ? ' +' : '')}</div>
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text15') + Math.floor(budjet[0]) + 'K'}</div>
+                                <div className="opacity-[0.4] text-white text-xs leading-[140%]">{getTranslation('footer.text16') + Math.floor(budjet[1]) + 'K' + (budjet[1] >= 100000 ? ' +' : '')}</div>
                             </div>
-                            <RangeSlider value={budjet} setValue={setBudjet} min={1000} max={100000} />
+                            <RangeSlider value={budjet} setValue={setBudjet} min={1} max={100} />
                         </div>
                     </div>
                     <div className='col-span-3 flex flex-col gap-7'>
@@ -111,13 +113,14 @@ const Footer = () => {
                         </svg>
                     </div>
                 </div> */}
-                <Button href={""} className={style.bSubmit + " mt-14 mb-9 w-full max-w-[334px] flex flex-row items-center justify-center"}>
+                <Button href={""} className={style.bSubmit + " z-[5] mt-14 mb-9 w-full max-w-[334px] flex flex-row items-center justify-center"}>
                     {getTranslation('footer.text19')}
                 </Button>
             </div>
+            <div className='absolute bg-[url(/img/interface/shum.png)] pointer-events-none top-0 right-0 w-full h-full mix-blend-soft-light z-[2]' />
             <div className="w-full flex flex-row justify-center">
                 <div className='px-4 md:px-12 xl:px-20 lg:px-36 py-11 lg:py-32 flex flex-col w-full gap-14 max-w-[1440px]'>
-                    <nav className='hidden md:flex flex-row items-center justify-between pt-[51px] z-10'>
+                    <nav className='hidden md:flex flex-row items-center justify-between pt-[51px] z-40'>
                         <Link className="logo flex items-center gap-[15px]" href={'/'}>
                             <svg width={35} height={36} viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M21.6474 12.6194V0.5H13.3526V12.6194L2.73121 8.85821L0 16.903L10.9249 20.8731L4.04624 30.4851L10.7225 35.5L17.5 26.097L24.2775 35.5L30.9538 30.4851L24.0751 20.8731L35 16.903L32.2688 8.85821L21.6474 12.6194Z" fill="white" />
@@ -163,7 +166,7 @@ const Footer = () => {
                             </svg>
                         </Link>
                     </nav >
-                    <nav className='flex md:hidden flex-col items-center justify-between pt-[51px] z-10'>
+                    <nav className='flex md:hidden flex-col items-center justify-between pt-[51px] z-50'>
                         <div className='flex flex-row items-center justify-between w-full'>
                             <Link className="logo flex items-center gap-[15px]" href={'/'}>
                                 <svg width={35} height={36} viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">
