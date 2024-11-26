@@ -117,7 +117,7 @@ const Footer = () => {
                     {getTranslation('footer.text19')}
                 </Button>
             </div>
-            <div className='absolute bg-[url(/img/interface/shum.png)] pointer-events-none top-0 right-0 w-full h-full mix-blend-soft-light z-[2]' />
+            <div className='absolute bg-[url(/img/interface/shum.png)] pointer-events-none top-0 right-0 w-full h-full mix-blend-soft-light z-[2] opacity-35' />
             <div className="w-full flex flex-row justify-center">
                 <div className='px-4 md:px-12 xl:px-20 lg:px-36 py-11 lg:py-32 flex flex-col w-full gap-14 max-w-[1440px]'>
                     <nav className='hidden md:flex flex-row items-center justify-between pt-[51px] z-40'>

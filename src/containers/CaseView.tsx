@@ -330,7 +330,7 @@ const CaseView = () => {
                                     className={"relative w-full h-full bac bg-no-repeat bg-contain"}
                                     style={{ scale: '90%' }}
                                 >
-                                    <Image src={project.img} fill className="object-contain" alt="project" />
+                                    <Image quality={100} src={project.img} fill className="object-contain" alt="project" />
                                 </div>
                             </SwiperSlide>
                         })}
@@ -351,8 +351,8 @@ const CaseView = () => {
             </div>
             <div className="w-full h-full flex flex-row relative justify-center">
                 <div className="flex lg:hidden flex-col mt-10 mb-8 ml-10 max-w-[360px]">
-                    <div className='flex flex-row w-full relative'>
-                        <div ref={scrollRef2}>
+                    <div className='flex flex-row w-full relative h-[260px]'>
+                        {/* <div ref={scrollRef2}>
                             <svg width="2" height="227" viewBox="0 0 2 448" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path opacity="0.8" d="M1 0L1.00002 448" stroke="white" strokeDasharray="5 5" />
                             </svg>
@@ -379,14 +379,14 @@ const CaseView = () => {
                                     <feGaussianBlur stdDeviation="7.392" result="effect1_foregroundBlur_2_543" />
                                 </filter>
                             </defs>
-                        </svg>
+                        </svg> */}
                         <div className='w-full h-full mr-8 absolute z-10 relative cursor-pointer pointer-events-auto'>
                             <Swiper
-                                className='w-full max-h-[220px] h-full absolute left-0 cursor-pointer'
+                                className='w-full max-h-[260px] h-full absolute left-0 cursor-pointer'
                                 direction={'vertical'}
                                 effect={'creative'}
                                 scrollbar={{ draggable: true }}
-                                spaceBetween={0}
+                                spaceBetween={30}
                                 speed={700}
                                 mousewheel={{
                                     releaseOnEdges: true,
@@ -407,7 +407,7 @@ const CaseView = () => {
                                 {projects.map((project, index) => {
                                     return <SwiperSlide key={index} className="w-full">
                                         <div className="relative w-full h-full">
-                                            <Image src={project.imgMobile} fill className="object-contain" alt="project" />
+                                            <Image quality={100} src={project.imgMobile} fill className="object-contain" alt="project" />
                                         </div>
                                     </SwiperSlide>
                                 })}
