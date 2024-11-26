@@ -13,7 +13,7 @@ export default function Home() {
   const { getTranslation } = useTranslation();
   return (
     <main>
-      <div className='relative w-full bg-black flex flex-row justify-center bg-cover md:bg-auto bg-center md:bg-right bg-no-repeat '>
+      <div className='relative w-full bg-black flex flex-row justify-center bg-cover md:bg-auto bg-center md:bg-right bg-no-repeat px-4 md:px-12 xl:px-20 '>
         <div className="absolute md:w-max h-full md:h-[803px] right-auto bottom-0 top-0 md:right-0 overflow-x-hidden">
           <video poster="/img/interface/bg-main.webp" autoPlay playsInline muted preload='none' loop height={"803"} className="hidden md:block max-h-[803px] overflow-x-hidden">
             <source src={'/img/interface/bg-main-video.webm'} type="video/webm" />
