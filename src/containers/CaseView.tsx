@@ -33,7 +33,7 @@ const projects = [
         img: '/img/interface/bg-footer-case4.png',
         imgMobile: '/img/interface/bg-footer-case4.mobile.png',
         glare: '/img/interface/bg-footer-bag4.png',
-        link: '/cases',
+        link: 'https://www.behance.net/gallery/198984227/In-Pulse-web-site-design',
         tags: [{ name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
     }
     ,
@@ -45,7 +45,7 @@ const projects = [
         img: '/img/interface/bg-footer-case2.png',
         imgMobile: '/img/interface/bg-footer-case2.mobile.png',
         glare: '/img/interface/bg-footer-bag2.png',
-        link: '/cases',
+        link: 'https://www.behance.net/gallery/204696285/Content-for-Saku-Monsters-Pt-1',
         tags: [{ name: 'UX/UI Disign' }, { name: 'Branding' }, { name: 'Illustations' }]
     },
     {
@@ -56,7 +56,7 @@ const projects = [
         img: '/img/interface/bg-footer-case3.png',
         imgMobile: '/img/interface/bg-footer-case3.mobile.png',
         glare: '/img/interface/bg-footer-bag3.png',
-        link: '/cases',
+        link: 'https://www.behance.net/gallery/213083385/UXUI-Website-redesign-for-online-casino-Mels-Bar',
         tags: [{ name: 'Marketing' }, { name: 'Branding' }, { name: 'Illustations' }]
     }
 ]
@@ -380,7 +380,7 @@ const CaseView = () => {
                                 </filter>
                             </defs>
                         </svg> */}
-                        <div className='w-full h-full mr-8 absolute z-10 relative cursor-pointer pointer-events-auto'>
+                        <Link href={project.link} className='w-full h-full mr-8 absolute z-10 relative cursor-pointer pointer-events-auto'>
                             <Swiper
                                 className='w-full max-h-[260px] h-full absolute left-0 cursor-pointer'
                                 direction={'vertical'}
@@ -406,14 +406,14 @@ const CaseView = () => {
                             >
                                 {projects.map((project, index) => {
                                     return <SwiperSlide key={index} className="w-full">
-                                        <div className="relative w-full h-full">
-                                            <Image quality={100} src={project.imgMobile} fill className="object-contain" alt="project" />
+                                        <div className="relative w-full h-full bg-no-repeat bg-contain bg-right" style={{backgroundImage : 'url('+ project.imgMobile +')'}}>
+                                            {/* <Image quality={100} src={project.imgMobile} fill className="object-contain" alt="project" /> */}
                                         </div>
                                     </SwiperSlide>
                                 })}
 
                             </Swiper>
-                        </div>
+                        </Link>
                     </div>
                     <div className='inline-flex flex-col h-[320px] overflow-hidden mt-8 z-10'>
                         <div ref={textRefMob} className='transition-all'>
