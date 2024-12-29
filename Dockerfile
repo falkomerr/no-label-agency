@@ -1,9 +1,10 @@
 FROM node:22 AS build-stage
 WORKDIR /opt/app
 
-COPY . .
+COPY package*.json ./
 
-RUN npm ci 
+RUN npm ci
+COPY . .
 RUN npm dedupe
 
 RUN npm run build
