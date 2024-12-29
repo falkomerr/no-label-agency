@@ -1,7 +1,7 @@
 FROM node:22 AS build-stage
 WORKDIR /opt/app
 
-COPY package*.json ./
+COPY package.json package-lock.json ./
 
 RUN npm ci
 COPY . .
