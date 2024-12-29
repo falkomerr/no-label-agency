@@ -3,7 +3,7 @@ WORKDIR /opt/app
 
 COPY . .
 
-RUN npm i 
+RUN npm ci 
 RUN npm dedupe
 
 RUN npm run build
