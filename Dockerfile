@@ -3,9 +3,7 @@ WORKDIR /opt/app
 
 COPY . .
 
-RUN npm ci \
-  --omit=dev \
-  --prefer-offline
+RUN npm i 
 RUN npm dedupe
 
 RUN npm run build
