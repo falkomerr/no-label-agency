@@ -27,14 +27,14 @@ const Navbar = () => {
                         <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'/'}>
                             {getTranslation('nav.about')}
                         </Link>
-                        <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'/cases'}>
+                        <Link className={(pathname == '/#cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'#cases'}>
                             {getTranslation('nav.cases')}
                         </Link>
-                        <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'/contact'}>
+                        {/* <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'/contact'}>
                             {getTranslation('nav.contact')}
-                        </Link>
-                        <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'/vacancy'}>
-                            {getTranslation('nav.vacancy')}
+                        </Link> */}
+                        <Link className={(pathname == '/#bot' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] hover:opacity-100 transition-all"} href={'#bot'}>
+                            {getTranslation('nav.contact')}
                         </Link>
                     </div>
                     <div className='flex flex-row items-center gap-5'>

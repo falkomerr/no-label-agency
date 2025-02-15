@@ -38,7 +38,7 @@ const Footer = () => {
             <div className="absolute pointer-events-none h-full w-full max-w-[600px] lg:max-w-[800px] m-auto bg-[url(/img/interface/bg-footer-form2.png)] bottom-32 sm:bottom-0 right-0 bg-right-bottom bg-no-repeat bg-contain" />
 
             <div className='flex pointer-events-none flex-row w-full justify-center'>
-                <div className="flex flex-col w-full max-w-[1300px] mt-24 mx-4 md:mx-12 xl:mx-28 lg:mx-20 mb-24">
+                <div id="cases" className="flex flex-col w-full max-w-[1300px] mt-24 mx-4 md:mx-12 xl:mx-28 lg:mx-20 mb-24">
                     <div className="opacity-[0.7] text-white text-xs ml-4 sm:text-base font-medium leading-[normal] z-20">{getTranslation('footer.text1')}</div>
                     <CaseView />
 
@@ -134,15 +134,15 @@ const Footer = () => {
                             <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'/'}>
                                 {getTranslation('nav.about')}
                             </Link>
-                            <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'/cases'}>
+                            <Link className={(pathname == '#cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'#cases'}>
                                 {getTranslation('nav.cases')}
                             </Link>
-                            <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'/contact'}>
+                            <Link className={(pathname == '#bot' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'#bot'}>
                                 {getTranslation('nav.contact')}
                             </Link>
-                            <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'/vacancy'}>
+                            {/* <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'/vacancy'}>
                                 {getTranslation('nav.vacancy')}
-                            </Link>
+                            </Link> */}
                         </div>
                         <Link href={'#top'} className='transition-all rounded-full hover:scale-95 hover:bg-[#fff]/[.1]'>
                             <svg className='cursor-pointer' width={51} height={51} viewBox="0 0 51 51" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -199,20 +199,20 @@ const Footer = () => {
                             <Link className={(pathname == '/' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/'}>
                                 {getTranslation('nav.about')}
                             </Link>
-                            <Link className={(pathname == '/cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/cases'}>
+                            <Link className={(pathname == '/#cases' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'#cases'}>
                                 {getTranslation('nav.cases')}
                             </Link>
-                            <Link className={(pathname == '/contact' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/contact'}>
+                            <Link className={(pathname == '/#bot' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'#bot'}>
                                 {getTranslation('nav.contact')}
                             </Link>
-                            <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
+                            {/* <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
                                 {getTranslation('nav.vacancy')}
-                            </Link>
+                            </Link> */}
                         </div>
                     </nav >
                     <div className="flex flex-col gap-3 md:flex-row justify-between items-center opacity-50">
-                        <div className="text-white text-sm leading-[normal]">Based in Russia, working worldwide</div>
-                        <div className="text-white text-sm leading-[normal]">© 2024 No Lable Agency</div>
+                        <div className="text-white text-sm leading-[normal]">Working worldwide</div>
+                        <div className="text-white text-sm leading-[normal]">© 2025 No Lable Agency</div>
                     </div>
                 </div>
             </div>

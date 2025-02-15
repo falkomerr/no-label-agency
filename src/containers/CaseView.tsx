@@ -82,6 +82,10 @@ const CaseView = () => {
     const text3RefMob = useRef<HTMLDivElement>(null)
 
 
+    const [isComponentInView, setIsComponentInView] = useState(false);
+    const componentRef = useRef(null);
+    const [currentSlide, setCurrentSlide] = useState(0);
+
     useEffect(() => {
         useProjectStore.setState({ currentProject: projects[0] });
     }, [])
@@ -184,8 +188,50 @@ const CaseView = () => {
         }
     }
 
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsComponentInView(true);
+                    document.body.style.overflow = 'hidden'; // Блокируем скролл страницы
+                } else {
+                    setIsComponentInView(false);
+                    document.body.style.overflow = 'auto'; // Разблокируем скролл страницы
+                }
+            },
+            {
+                threshold: 1, // Компонент считается в центре, если 50% его видно
+            }
+        );
+
+        if (componentRef.current) {
+            observer.observe(componentRef.current);
+        }
+
+        return () => {
+            if (componentRef.current) {
+                observer.unobserve(componentRef.current);
+            }
+        };
+    }, []);
+
     const handleSlideChange = (swiper: any) => {
         const currentIndex = swiper.activeIndex;
+
+        if (isComponentInView) {
+            console.log(isComponentInView)
+            console.log(currentIndex)
+            console.log(currentSlide)
+            if (currentIndex > currentSlide && currentIndex == projects.length-1) {
+                document.body.style.overflow = 'auto';
+                console.log('yes')
+            } else if (currentIndex < currentSlide && currentIndex == 0) {
+                document.body.style.overflow = 'auto';
+                console.log('no')
+            }
+        }
+        setCurrentSlide(currentIndex)
+
         // console.log(currentIndex)
         if (textRef && textRef.current && text0Ref && text0Ref.current && text1Ref && text1Ref.current && text2Ref && text2Ref.current) {
             let current = 0
@@ -233,9 +279,10 @@ const CaseView = () => {
         }
     }
 
+
     return (
         <>
-            <div className="relative  hidden lg:flex flex-row justify-between mt-20 mb-8">
+            <div ref={componentRef} className="relative  hidden lg:flex flex-row justify-between mt-20 mb-8">
                 <Cursor isGelly={true} cursorSize={1} cursorBackgrounColor='#ffffff00' cursorInnerColor='black' colorAnimationDuration={1.5} />
                 <div className='flex flex-row'>
                     {/* Полоса */}
