@@ -4,7 +4,9 @@ WORKDIR /opt/app
 COPY package.json package-lock.json ./
 
 RUN npm ci
+
 COPY . .
+
 RUN npm dedupe
 
 RUN npm run build

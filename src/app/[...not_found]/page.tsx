@@ -1,10 +1,8 @@
-import React from 'react'
-import NotFount from "../not_found"
+import React from 'react';
+import NotFount from '../not_found';
 
 const page = () => {
-    return (
-        <NotFount />
-    )
-}
+  return <NotFount />;
+};
 
-export default page
+export default page;

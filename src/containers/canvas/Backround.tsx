@@ -1,10 +1,10 @@
-'use client'
-import { Plane } from "@react-three/drei"
-import { useFrame } from "@react-three/fiber";
-import { useEffect, useState } from "react"
+'use client';
+import { Plane } from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
+import { useEffect, useState } from 'react';
 import * as THREE from 'three';
-import { cnoise21 } from "./noise";
-import useProjectStore from "@/hook/useProjectStore";
+import { cnoise21 } from './noise';
+import useProjectStore from '@/hook/useProjectStore';
 
 export const Backround = ({ index }: { index?: number }) => {
   const shader: THREE.Shader = {
@@ -13,39 +13,39 @@ export const Backround = ({ index }: { index?: number }) => {
       u_mouse: { value: new THREE.Vector2() },
       color1: { value: new THREE.Vector3(0.19, 0.027, 0.62) },
       color2: { value: new THREE.Vector3(0.95, 0.21, 0.56) },
-      color3: { value: new THREE.Vector3(1, 0.36, 0.23) }
+      color3: { value: new THREE.Vector3(1, 0.36, 0.23) },
     },
     vertexShader,
     fragmentShader,
-  }
-  const [mouse, setMouse] = useState(new THREE.Vector2())
-  const [scolor1, SetSColor1] = useState(new THREE.Vector3())
-  const [scolor2, SetSColor2] = useState(new THREE.Vector3())
-  const [scolor3, SetSColor3] = useState(new THREE.Vector3())
-  const target = new THREE.Vector2()
-  const color1 = new THREE.Vector3()
-  const color2 = new THREE.Vector3()
-  const color3 = new THREE.Vector3()
-  const isMobile = window.innerWidth < 1024
+  };
+  const [mouse, setMouse] = useState(new THREE.Vector2());
+  const [scolor1, SetSColor1] = useState(new THREE.Vector3());
+  const [scolor2, SetSColor2] = useState(new THREE.Vector3());
+  const [scolor3, SetSColor3] = useState(new THREE.Vector3());
+  const target = new THREE.Vector2();
+  const color1 = new THREE.Vector3();
+  const color2 = new THREE.Vector3();
+  const color3 = new THREE.Vector3();
+  const isMobile = window.innerWidth < 1024;
 
   useEffect(() => {
-    console.log(index)
+    console.log(index);
     if (index == 0) {
-      color1.set(0.19, 0.027, 0.62)
-      color2.set(0.43, 0.29, 0.88)
-      color3.set(1, 0.6, 1)
+      color1.set(0.19, 0.027, 0.62);
+      color2.set(0.43, 0.29, 0.88);
+      color3.set(1, 0.6, 1);
     } else if (index == 1) {
-      color1.set(0.16, 0.38, 0.24)
-      color2.set(0.44, 0.86, 0.38)
-      color3.set(0.63, 0.74, 0.23)
+      color1.set(0.16, 0.38, 0.24);
+      color2.set(0.44, 0.86, 0.38);
+      color3.set(0.63, 0.74, 0.23);
     } else if (index == 2) {
-      color1.set(0.29, 0.32, 0.49)
-      color2.set(0.25, 0.26, 0.45)
-      color3.set(0.75, 0.2, 0.8)
+      color1.set(0.29, 0.32, 0.49);
+      color2.set(0.25, 0.26, 0.45);
+      color3.set(0.75, 0.2, 0.8);
     } else if (index == 3) {
-      color1.set(1.0, 0.58, 0.58)
-      color2.set(1.0, 0.83, 0.58)
-      color3.set(0.58, 1.0, 0.62)
+      color1.set(1.0, 0.58, 0.58);
+      color2.set(1.0, 0.83, 0.58);
+      color3.set(0.58, 1.0, 0.62);
     }
     const duration = 500; // Длительность анимации в миллисекундах
     const steps = 60; // Количество шагов
@@ -63,19 +63,19 @@ export const Backround = ({ index }: { index?: number }) => {
         const newColor1 = new THREE.Vector3(
           startColor1.x + (color1.x - startColor1.x) * progress,
           startColor1.y + (color1.y - startColor1.y) * progress,
-          startColor1.z + (color1.z - startColor1.z) * progress
+          startColor1.z + (color1.z - startColor1.z) * progress,
         );
 
         const newColor2 = new THREE.Vector3(
           startColor2.x + (color2.x - startColor2.x) * progress,
           startColor2.y + (color2.y - startColor2.y) * progress,
-          startColor2.z + (color2.z - startColor2.z) * progress
+          startColor2.z + (color2.z - startColor2.z) * progress,
         );
 
         const newColor3 = new THREE.Vector3(
           startColor3.x + (color3.x - startColor3.x) * progress,
           startColor3.y + (color3.y - startColor3.y) * progress,
-          startColor3.z + (color3.z - startColor3.z) * progress
+          startColor3.z + (color3.z - startColor3.z) * progress,
         );
 
         SetSColor1(newColor1);
@@ -87,26 +87,26 @@ export const Backround = ({ index }: { index?: number }) => {
         shader.uniforms.color3.value.copy(newColor3);
       }, interval * i);
     }
-  }, [index])
+  }, [index]);
 
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      if (isMobile) return
+      if (isMobile) return;
 
       const { clientX, clientY } = event;
       const { innerWidth: width, innerHeight: height } = window;
 
       // Normalize coordinates to be between -1 and 1
-      const normalizedX: number = ((clientX - width / 2) / (width / 2));
-      const normalizedY: number = ((clientY - height / 2) / (height / 2));
+      const normalizedX: number = (clientX - width / 2) / (width / 2);
+      const normalizedY: number = (clientY - height / 2) / (height / 2);
 
       // setCoordinates({
       //   x: parseFloat(normalizedX),
       //   y: parseFloat(normalizedY),
       // });
-      target.set((normalizedX + 1) * 0.04, (normalizedY + 1) * 0.04)
-      setMouse(target)
-      shader.uniforms.u_mouse.value.lerp(target, 1)
+      target.set((normalizedX + 1) * 0.04, (normalizedY + 1) * 0.04);
+      setMouse(target);
+      shader.uniforms.u_mouse.value.lerp(target, 1);
       // console.log(shader.uniforms.u_mouse.value)
     };
 
@@ -115,30 +115,30 @@ export const Backround = ({ index }: { index?: number }) => {
     return () => {
       window.removeEventListener('pointermove', handleMouseMove);
     };
-  }, [])
-  useFrame(({ }) => {
+  }, []);
+  useFrame(({}) => {
     // shader.uniforms.u_time.value += 0.005
     // target.set((mouse.x + 1) * 0.5, (mouse.y + 1) * 0.5)
     if (isMobile) {
       // console.log(mouse)
-      shader.uniforms.u_mouse.value.lerp({ x: 0.01, y: 0.008 }, 1)
+      shader.uniforms.u_mouse.value.lerp({ x: 0.01, y: 0.008 }, 1);
     } else {
-      shader.uniforms.u_mouse.value.lerp(mouse, 1)
+      shader.uniforms.u_mouse.value.lerp(mouse, 1);
     }
 
     // console.log(scolor1)
-    shader.uniforms.color1.value.copy(scolor1)
-    shader.uniforms.color2.value.copy(scolor2)
-    shader.uniforms.color3.value.copy(scolor3)
+    shader.uniforms.color1.value.copy(scolor1);
+    shader.uniforms.color2.value.copy(scolor2);
+    shader.uniforms.color3.value.copy(scolor3);
     // console.log(1)
-  })
+  });
 
   return (
     <Plane args={[2, 2]}>
       <shaderMaterial args={[shader]} />
     </Plane>
-  )
-}
+  );
+};
 const vertexShader = `
 varying vec2 v_uv;
 
@@ -146,7 +146,7 @@ void main() {
   v_uv = uv;
   gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
 }
-`
+`;
 
 const fragmentShader = `
 uniform float u_time;
@@ -191,4 +191,4 @@ void main() {
 
   gl_FragColor = vec4(color, 1.0);
 }
-`
+`;

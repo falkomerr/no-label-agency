@@ -1,8 +1,5 @@
-
-
 services:
-
   agency:
     build: .
     ports:
-      - "4500:4500"
+      - '4500:4500'

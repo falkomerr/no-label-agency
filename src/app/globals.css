@@ -22,9 +22,12 @@ html {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
+  background: linear-gradient(
+      to bottom,
       transparent,
-      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
@@ -43,7 +46,7 @@ body {
 }
 
 .linerBorderGradient::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 1px;
   bottom: 1px;
@@ -51,9 +54,17 @@ body {
   right: 1px;
   border-radius: 99999px;
   padding: 2px;
-  background: linear-gradient(150deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  background: linear-gradient(
+    150deg,
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0)
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 }
@@ -76,5 +87,7 @@ body {
 }
 
 #c-cursor {
-  transition:height 150ms, width 150ms;
+  transition:
+    height 150ms,
+    width 150ms;
 }
