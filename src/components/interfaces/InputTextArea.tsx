@@ -1,9 +1,11 @@
 'use client';
-import React, { useState } from 'react';
-import { InputProps } from './InputText';
+import React, { TextareaHTMLAttributes, useState } from 'react';
 import style from './InputTextArea.module.css';
 
-const InputTextArea: React.FC<InputProps> = ({ placeholder }) => {
+const InputTextArea: React.FC<TextareaHTMLAttributes<HTMLTextAreaElement>> = ({
+  placeholder,
+  ...props
+}) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {
@@ -18,7 +20,8 @@ const InputTextArea: React.FC<InputProps> = ({ placeholder }) => {
     <div
       className={`${style.borderGradient} relative h-full max-h-72 min-h-44 ${isFocused ? style.focusedBorder : ''}`}>
       <textarea
-        className={`z-10 h-full w-full resize-none bg-[#000]/[.0] placeholder-[#fff]/[.3] focus-visible:outline-none`}
+        {...props}
+        className={`z-10 h-full w-full resize-none bg-[#000]/[.0] text-white placeholder-[#fff]/[.3] focus-visible:outline-none`}
         onFocus={handleFocus}
         onBlur={handleBlur}
         placeholder={placeholder}

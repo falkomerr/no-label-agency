@@ -1,9 +1,9 @@
 import Slider from '@mui/material/Slider';
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 
 interface Props {
-  value: number[];
-  setValue: (value: number[]) => void;
+  value: [number, number];
+  setValue: Dispatch<SetStateAction<[number, number]>>;
   min: number;
   max: number;
 }
@@ -11,8 +11,8 @@ interface Props {
 const RangeSlider: React.FC<Props> = ({ value, setValue, min, max }) => {
   const [range, setRange] = useState([5500, 8500]);
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
-    setValue(newValue as number[]);
+  const handleChange = (event: Event, newValue: number | [number, number]) => {
+    setValue(newValue as [number, number]);
   };
 
   // const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
@@ -29,7 +29,7 @@ const RangeSlider: React.FC<Props> = ({ value, setValue, min, max }) => {
       value={value}
       min={min}
       max={max}
-      onChange={handleChange}
+      onChange={handleChange as any}
       sx={{
         color: '#fff',
         '& .MuiSlider-valueLabel': {

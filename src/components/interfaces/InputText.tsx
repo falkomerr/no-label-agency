@@ -6,7 +6,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
 }
 
-const InputText: React.FC<InputProps> = ({ placeholder }) => {
+const InputText: React.FC<InputProps> = ({ placeholder, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {
@@ -21,7 +21,8 @@ const InputText: React.FC<InputProps> = ({ placeholder }) => {
     <div
       className={`${style.borderGradient} relative ${isFocused ? style.focusedBorder : ''}`}>
       <input
-        className={`z-10 w-full bg-[#000]/[.0] placeholder-[#fff]/[.3] focus-visible:outline-none`}
+        {...props}
+        className={`z-10 w-full bg-[#000]/[.0] text-white placeholder-[#fff]/[.3] focus-visible:outline-none`}
         onFocus={handleFocus}
         onBlur={handleBlur}
         placeholder={placeholder}
