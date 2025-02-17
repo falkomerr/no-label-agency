@@ -1,8 +1,8 @@
 'use client';
 import { Canvas } from '@react-three/fiber';
-import { Suspense, VFC, use, useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import * as THREE from 'three';
-import { Backround } from './Backround';
+import { Background } from '@/containers/canvas/Backround';
 
 export const TCanvas = ({ index }: { index?: number }) => {
   const OrthographicCamera = new THREE.OrthographicCamera(
@@ -21,7 +21,7 @@ export const TCanvas = ({ index }: { index?: number }) => {
   return (
     <Canvas camera={OrthographicCamera} dpr={dpr}>
       <Suspense fallback={null}>
-        <Backround index={index} />
+        <Background index={index} />
       </Suspense>
     </Canvas>
   );

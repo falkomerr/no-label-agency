@@ -1,156 +1,157 @@
 'use client';
 import { Plane } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { cnoise21 } from './noise';
-import useProjectStore from '@/hook/useProjectStore';
 
-export const Backround = ({ index }: { index?: number }) => {
-  const shader: THREE.Shader = {
+// Define color sets for different indices
+const COLOR_PRESETS = [
+  {
+    color1: new THREE.Vector3(0.19, 0.027, 0.62),
+    color2: new THREE.Vector3(0.43, 0.29, 0.88),
+    color3: new THREE.Vector3(1, 0.6, 1),
+  },
+  {
+    color1: new THREE.Vector3(0.16, 0.38, 0.24),
+    color2: new THREE.Vector3(0.44, 0.86, 0.38),
+    color3: new THREE.Vector3(0.63, 0.74, 0.23),
+  },
+  {
+    color1: new THREE.Vector3(0.29, 0.32, 0.49),
+    color2: new THREE.Vector3(0.25, 0.26, 0.45),
+    color3: new THREE.Vector3(0.75, 0.2, 0.8),
+  },
+  {
+    color1: new THREE.Vector3(1.0, 0.58, 0.58),
+    color2: new THREE.Vector3(1.0, 0.83, 0.58),
+    color3: new THREE.Vector3(0.58, 1.0, 0.62),
+  },
+];
+
+type Colors = {
+  color1: THREE.Vector3;
+  color2: THREE.Vector3;
+  color3: THREE.Vector3;
+};
+
+export const Background = ({ index = 0 }: { index?: number }) => {
+  const shaderRef = useRef<THREE.Shader>({
     uniforms: {
       u_time: { value: 0 },
       u_mouse: { value: new THREE.Vector2() },
-      color1: { value: new THREE.Vector3(0.19, 0.027, 0.62) },
-      color2: { value: new THREE.Vector3(0.95, 0.21, 0.56) },
-      color3: { value: new THREE.Vector3(1, 0.36, 0.23) },
+      color1: { value: new THREE.Vector3() },
+      color2: { value: new THREE.Vector3() },
+      color3: { value: new THREE.Vector3() },
     },
     vertexShader,
     fragmentShader,
-  };
-  const [mouse, setMouse] = useState(new THREE.Vector2());
-  const [scolor1, SetSColor1] = useState(new THREE.Vector3());
-  const [scolor2, SetSColor2] = useState(new THREE.Vector3());
-  const [scolor3, SetSColor3] = useState(new THREE.Vector3());
-  const target = new THREE.Vector2();
-  const color1 = new THREE.Vector3();
-  const color2 = new THREE.Vector3();
-  const color3 = new THREE.Vector3();
-  const isMobile = window.innerWidth < 1024;
+  });
 
+  const targetColors = useRef<Colors>(COLOR_PRESETS[index]);
+  const currentColors = useRef<Colors>(COLOR_PRESETS[index]);
+  const mouse = useRef(new THREE.Vector2());
+  const isMobile = useRef(window.innerWidth < 1024);
+  const animationFrameId = useRef<number>();
+
+  // Handle color transitions
   useEffect(() => {
-    console.log(index);
-    if (index == 0) {
-      color1.set(0.19, 0.027, 0.62);
-      color2.set(0.43, 0.29, 0.88);
-      color3.set(1, 0.6, 1);
-    } else if (index == 1) {
-      color1.set(0.16, 0.38, 0.24);
-      color2.set(0.44, 0.86, 0.38);
-      color3.set(0.63, 0.74, 0.23);
-    } else if (index == 2) {
-      color1.set(0.29, 0.32, 0.49);
-      color2.set(0.25, 0.26, 0.45);
-      color3.set(0.75, 0.2, 0.8);
-    } else if (index == 3) {
-      color1.set(1.0, 0.58, 0.58);
-      color2.set(1.0, 0.83, 0.58);
-      color3.set(0.58, 1.0, 0.62);
-    }
-    const duration = 500; // Длительность анимации в миллисекундах
-    const steps = 60; // Количество шагов
-    const interval = duration / steps; // Время между шагами
+    const preset = COLOR_PRESETS[index % COLOR_PRESETS.length];
+    targetColors.current = preset;
 
-    const startColor1 = { ...scolor1 };
-    const startColor2 = { ...scolor2 };
-    const startColor3 = { ...scolor3 };
+    const animate = () => {
+      const lerpFactor = 0.1;
+      currentColors.current.color1.lerp(
+        targetColors.current.color1,
+        lerpFactor,
+      );
+      currentColors.current.color2.lerp(
+        targetColors.current.color2,
+        lerpFactor,
+      );
+      currentColors.current.color3.lerp(
+        targetColors.current.color3,
+        lerpFactor,
+      );
 
-    for (let i = 0; i <= steps; i++) {
-      setTimeout(() => {
-        const progress = i / steps;
+      if (
+        currentColors.current.color1.distanceTo(targetColors.current.color1) >
+          0.001 ||
+        currentColors.current.color2.distanceTo(targetColors.current.color2) >
+          0.001 ||
+        currentColors.current.color3.distanceTo(targetColors.current.color3) >
+          0.001
+      ) {
+        animationFrameId.current = requestAnimationFrame(animate);
+      }
+    };
 
-        // Вычисляем новые значения RGB
-        const newColor1 = new THREE.Vector3(
-          startColor1.x + (color1.x - startColor1.x) * progress,
-          startColor1.y + (color1.y - startColor1.y) * progress,
-          startColor1.z + (color1.z - startColor1.z) * progress,
-        );
-
-        const newColor2 = new THREE.Vector3(
-          startColor2.x + (color2.x - startColor2.x) * progress,
-          startColor2.y + (color2.y - startColor2.y) * progress,
-          startColor2.z + (color2.z - startColor2.z) * progress,
-        );
-
-        const newColor3 = new THREE.Vector3(
-          startColor3.x + (color3.x - startColor3.x) * progress,
-          startColor3.y + (color3.y - startColor3.y) * progress,
-          startColor3.z + (color3.z - startColor3.z) * progress,
-        );
-
-        SetSColor1(newColor1);
-        SetSColor2(newColor2);
-        SetSColor3(newColor3);
-
-        shader.uniforms.color1.value.copy(newColor1);
-        shader.uniforms.color2.value.copy(newColor2);
-        shader.uniforms.color3.value.copy(newColor3);
-      }, interval * i);
-    }
+    animationFrameId.current = requestAnimationFrame(animate);
+    return () => {
+      if (animationFrameId.current)
+        cancelAnimationFrame(animationFrameId.current);
+    };
   }, [index]);
 
+  // Handle mouse movement
   useEffect(() => {
     const handleMouseMove = (event: MouseEvent) => {
-      if (isMobile) return;
+      if (isMobile.current) return;
 
       const { clientX, clientY } = event;
-      const { innerWidth: width, innerHeight: height } = window;
+      const { innerWidth, innerHeight } = window;
 
-      // Normalize coordinates to be between -1 and 1
-      const normalizedX: number = (clientX - width / 2) / (width / 2);
-      const normalizedY: number = (clientY - height / 2) / (height / 2);
+      mouse.current.set(
+        (clientX / innerWidth) * 2 - 1,
+        -(clientY / innerHeight) * 2 + 1,
+      );
+    };
 
-      // setCoordinates({
-      //   x: parseFloat(normalizedX),
-      //   y: parseFloat(normalizedY),
-      // });
-      target.set((normalizedX + 1) * 0.04, (normalizedY + 1) * 0.04);
-      setMouse(target);
-      shader.uniforms.u_mouse.value.lerp(target, 1);
-      // console.log(shader.uniforms.u_mouse.value)
+    const handleResize = () => {
+      isMobile.current = window.innerWidth < 1024;
     };
 
     window.addEventListener('pointermove', handleMouseMove);
+    window.addEventListener('resize', handleResize);
 
     return () => {
       window.removeEventListener('pointermove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
-  useFrame(({}) => {
-    // shader.uniforms.u_time.value += 0.005
-    // target.set((mouse.x + 1) * 0.5, (mouse.y + 1) * 0.5)
-    if (isMobile) {
-      // console.log(mouse)
-      shader.uniforms.u_mouse.value.lerp({ x: 0.01, y: 0.008 }, 1);
-    } else {
-      shader.uniforms.u_mouse.value.lerp(mouse, 1);
-    }
 
-    // console.log(scolor1)
-    shader.uniforms.color1.value.copy(scolor1);
-    shader.uniforms.color2.value.copy(scolor2);
-    shader.uniforms.color3.value.copy(scolor3);
-    // console.log(1)
+  useFrame(() => {
+    const uniforms = shaderRef.current.uniforms;
+    uniforms.u_mouse.value.lerp(
+      isMobile.current ? new THREE.Vector2(0.01, 0.008) : mouse.current,
+      0.1,
+    );
+
+    uniforms.color1.value.copy(currentColors.current.color1);
+    uniforms.color2.value.copy(currentColors.current.color2);
+    uniforms.color3.value.copy(currentColors.current.color3);
   });
 
   return (
     <Plane args={[2, 2]}>
-      <shaderMaterial args={[shader]} />
+      <shaderMaterial args={[shaderRef.current]} />
     </Plane>
   );
 };
+
+// Шейдеры остаются без изменений
 const vertexShader = `
 varying vec2 v_uv;
 
 void main() {
   v_uv = uv;
-  gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+  gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
 }
 `;
 
 const fragmentShader = `
 uniform float u_time;
-uniform vec2 u_mouse;  // vec2(0.0, 0.0)
+uniform vec2 u_mouse;  
 
 uniform vec3 color1;
 uniform vec3 color2;
@@ -162,8 +163,8 @@ ${cnoise21}
 
 float random(vec2 p) {
   vec2 k1 = vec2(
-    23.14069263277926, // e^pi (Gelfond's constant)
-    2.665144142690225 // 2^sqrt(2) (Gelfond–Schneider constant)
+    23.14069263277926, 
+    2.665144142690225 
   );
   return fract(
     cos(dot(p, k1)) * 12345.6789

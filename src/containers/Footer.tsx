@@ -2,18 +2,13 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
-import style from './Footer.module.css';
-import InputText from '@/components/interfaces/InputText';
-import InputTel from '@/components/interfaces/InputTel';
-import Switch from '@/components/interfaces/Switch';
-import InputTextArea from '@/components/interfaces/InputTextArea';
-import RangeSlider from '@/components/interfaces/RangeSlider';
+
 import { useTranslation } from '@/hook/useLanguageStore';
 import Button from '@/components/interfaces/Button';
 import CaseView from './CaseView';
 import useProjectStore from '@/hook/useProjectStore';
-import { TCanvas } from './canvas/TCanvas';
 import { Form } from '@/components/form';
+import { TCanvas } from '@/containers/canvas/TCanvas';
 
 const Footer = () => {
   const { currentProject } = useProjectStore();
@@ -39,7 +34,6 @@ const Footer = () => {
         style={{ boxShadow: '0px 0px 63.1px 49px #000000' }}
       />
 
-      {/* <div style={{ backgroundImage: "url(" + bg + ")"}} className={"transition-all absolute h-[600px] w-full pointer-events-none top-0 right-0 bg-right-top bg-no-repeat bg-contain z-20"} /> */}
       <div className="pointer-events-none absolute bottom-32 right-0 m-auto h-full w-full max-w-[600px] bg-[url(/img/interface/bg-footer-form2.png)] bg-contain bg-right-bottom bg-no-repeat sm:bottom-0 lg:max-w-[800px]" />
 
       <div className="pointer-events-none flex w-full flex-row justify-center">
@@ -52,21 +46,13 @@ const Footer = () => {
           <CaseView />
 
           <div className="z-[5] flex flex-row justify-center lg:justify-start">
-            {/* <div className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max sm:ml-24 py-4 pl-16 pr-[88px] rounded-full linerBorderGradient">
-                            {getTranslation('footer.text10')}
-                            <div className="absolute top-0 right-0 p-[22px] bg-[#FF4D00] rounded-full" style={{ filter: "drop-shadow(0px 0px 71.791px rgba(255, 77, 0, 0.90)) drop-shadow(0px 0px 92.444px rgba(255, 77, 0, 0.60))" }}>
-                                <svg width={14} height={14} viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13.7452 0.981492C13.735 0.460177 13.3041 0.0458545 12.7828 0.0560763L4.2875 0.222651C3.76618 0.232872 3.35186 0.663768 3.36208 1.18508C3.3723 1.7064 3.8032 2.12072 4.32451 2.1105L11.8759 1.96243L12.024 9.51382C12.0342 10.0351 12.4651 10.4495 12.9864 10.4392C13.5077 10.429 13.922 9.99812 13.9118 9.4768L13.7452 0.981492ZM1.68054 13.9277L13.4819 1.65437L12.1208 0.345632L0.319458 12.619L1.68054 13.9277Z" fill="white" />
-                                </svg>
-                            </div>
-                        </div> */}
             <Button href={''} className="pointer-events-auto sm:ml-24">
               {getTranslation('footer.text10')}
             </Button>
           </div>
         </div>
       </div>
-      <Form/>
+      <Form />
       <div className="pointer-events-none absolute right-0 top-0 z-[2] h-full w-full bg-[url(/img/interface/shum.png)] opacity-35 mix-blend-soft-light" />
       <div className="flex w-full flex-row justify-center">
         <div className="flex w-full max-w-[1440px] flex-col gap-14 px-4 py-11 md:px-12 lg:px-36 lg:py-32 xl:px-20">
@@ -120,9 +106,6 @@ const Footer = () => {
                 href={'#bot'}>
                 {getTranslation('nav.contact')}
               </Link>
-              {/* <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal] transition-all hover:opacity-100"} href={'/vacancy'}>
-                                {getTranslation('nav.vacancy')}
-                            </Link> */}
             </div>
             <Link
               href={'#top'}
@@ -305,9 +288,6 @@ const Footer = () => {
                 href={'#bot'}>
                 {getTranslation('nav.contact')}
               </Link>
-              {/* <Link className={(pathname == '/vacancy' ? "" : "opacity-50") + " text-white text-sm font-medium leading-[normal]"} href={'/vacancy'}>
-                                {getTranslation('nav.vacancy')}
-                            </Link> */}
             </div>
           </nav>
           <div className="flex flex-col items-center justify-between gap-3 opacity-50 md:flex-row">
@@ -315,7 +295,7 @@ const Footer = () => {
               Working worldwide
             </div>
             <div className="text-sm leading-[normal] text-white">
-              © 2025 No Lable Agency
+              © 2025 No Label Agency
             </div>
           </div>
         </div>

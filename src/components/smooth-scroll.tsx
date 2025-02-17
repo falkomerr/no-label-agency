@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 import { useMediaQuery } from 'usehooks-ts';
 
@@ -11,28 +11,51 @@ interface ResizeObserverEntry {
 }
 
 export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
-  const scrollRef = useRef<HTMLDivElement | null>(null);
+  // Memoized scroll configuration
+  const config = useMemo(
+    () => ({
+      mass: 0.08,
+      tension: 210,
+      friction: 20,
+    }),
+    [],
+  );
 
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [pageHeight, setPageHeight] = useState(0);
 
-  const resizePageHeight = useCallback((entries: ResizeObserverEntry[]) => {
-    for (const entry of entries) {
-      setPageHeight(entry.contentRect.height);
-    }
-  }, []);
+  // Debounced resize handler
+  const debouncedResizeHandler = useCallback(
+    (entries: ResizeObserverEntry[]) => {
+      requestAnimationFrame(() => {
+        for (const entry of entries) {
+          setPageHeight(entry.contentRect.height);
+        }
+      });
+    },
+    [],
+  );
 
+  // Optimized ResizeObserver setup
   useLayoutEffect(() => {
-    const resizeObserver = new ResizeObserver(
-      (entries: ResizeObserverEntry[]) => resizePageHeight(entries),
-    );
-    scrollRef && resizeObserver.observe(scrollRef.current as Element);
-    return () => resizeObserver.disconnect();
-  }, [scrollRef, resizePageHeight]);
+    const resizeObserver = new ResizeObserver(debouncedResizeHandler);
 
-  const { scrollY } = useScroll();
+    if (scrollRef.current) {
+      resizeObserver.observe(scrollRef.current);
+
+      // Initial measurement
+      requestAnimationFrame(() => {
+        setPageHeight(scrollRef.current?.scrollHeight || 0);
+      });
+    }
+
+    return () => resizeObserver.disconnect();
+  }, [debouncedResizeHandler]);
+
+  // Scroll animation logic
+  const { scrollY } = useScroll({ target: scrollRef });
   const transform = useTransform(scrollY, [0, pageHeight], [0, -pageHeight]);
-  const physics = { mass: 0.08 };
-  const spring = useSpring(transform, physics);
+  const spring = useSpring(transform, config);
 
   const isMobile = useMediaQuery('(max-width: 560px)');
 
@@ -45,7 +68,8 @@ export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
       <motion.div
         ref={scrollRef}
         style={{ y: spring }}
-        className="fixed left-0 right-0 top-0 overflow-hidden will-change-transform">
+        className="fixed left-0 right-0 top-0 overflow-hidden will-change-transform"
+        initial={false}>
         {children}
       </motion.div>
 

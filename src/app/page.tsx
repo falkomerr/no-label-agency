@@ -1,5 +1,4 @@
 'use client';
-import ColorText from '@/components/common/ColorText';
 import ArrowIcon from '@/components/icons/Arrow';
 import Button from '@/components/interfaces/Button';
 import Footer from '@/containers/Footer';
@@ -7,6 +6,7 @@ import { useTranslation } from '@/hook/useLanguageStore';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SmoothScroll } from '@/components/smooth-scroll';
+import { TextGenerateEffect } from '@/components/text-generate-effect';
 
 export default function Home() {
   const { getTranslation } = useTranslation();
@@ -218,7 +218,7 @@ export default function Home() {
               <div className="flex w-max max-w-52 items-center justify-center gap-1.5 rounded-full bg-[#e6efef] px-8 py-3 text-xs font-medium leading-[140%] text-[#0f1322] md:text-base">
                 {getTranslation('page.main.text12')}
               </div>
-              <div className="relative max-w-[479px] text-start indent-32 text-sm leading-[140%] text-[#809490] md:text-[1.5625rem]">
+              <div className="relative flex max-w-[479px] items-center text-start indent-32 text-sm leading-[140%] text-[#809490] md:text-[1.5625rem]">
                 <svg
                   className="absolute left-[105px] m-auto h-4 w-4 md:left-24 md:top-1 md:h-auto md:w-auto"
                   width={24}
@@ -231,10 +231,13 @@ export default function Home() {
                     fill="#FF4D00"
                   />
                 </svg>
-                <span className="text-[#0F1322]">
-                  {getTranslation('page.main.text13')}
-                </span>
-                <ColorText text={getTranslation('page.main.text14')} />
+                <TextGenerateEffect
+                  className="text-[#0F1322]"
+                  words={
+                    getTranslation('page.main.text13') +
+                    getTranslation('page.main.text14')
+                  }
+                />
               </div>
             </div>
             <div className="flex w-full max-w-72 flex-row justify-center">
