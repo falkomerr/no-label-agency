@@ -3,8 +3,17 @@ import { Canvas } from '@react-three/fiber';
 import { Suspense, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import { Background } from '@/containers/canvas/Backround';
+import useProjectStore from '@/hook/useProjectStore';
 
-export const TCanvas = ({ index }: { index?: number }) => {
+export const TCanvas = () => {
+  const { currentProject } = useProjectStore();
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (currentProject) setIndex(currentProject.id);
+  }, [currentProject]);
+
   const OrthographicCamera = new THREE.OrthographicCamera(
     -1,
     1,

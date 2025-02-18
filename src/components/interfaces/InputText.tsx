@@ -25,7 +25,6 @@ const InputText: React.FC<InputProps> = ({ placeholder, ...props }) => {
         className={`z-10 w-full bg-[#000]/[.0] text-white placeholder-[#fff]/[.3] focus-visible:outline-none`}
         onFocus={handleFocus}
         onBlur={handleBlur}
-        placeholder={placeholder}
       />
     </div>
   );

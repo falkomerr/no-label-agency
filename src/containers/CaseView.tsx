@@ -50,8 +50,6 @@ const CaseView = () => {
     };
   }, []);
 
-  console.log(currentProject);
-
   const handleSlideChange = (swiper: any) => {
     const currentIndex = swiper.activeIndex;
 

@@ -1,33 +1,24 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { useTranslation } from '@/hook/useLanguageStore';
 import Button from '@/components/interfaces/Button';
 import CaseView from './CaseView';
-import useProjectStore from '@/hook/useProjectStore';
-import { Form } from '@/components/form';
 import { TCanvas } from '@/containers/canvas/TCanvas';
+import { Form } from '@/components/form';
+
+const MemoizedTCanvas = React.memo(TCanvas);
 
 const Footer = () => {
-  const { currentProject } = useProjectStore();
-  const [bg, setBg] = useState('/img/interface/bg-footer-bag.png');
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    // if(currentProject) console.log(currentProject.glare)
-
-    if (currentProject && currentProject.glare) setBg(currentProject.glare);
-    if (currentProject) setIndex(currentProject.id);
-  }, [currentProject]);
-
   const pathname = usePathname();
   const { getTranslation } = useTranslation();
+
   return (
     <div className="relative overflow-hidden rounded-t-[45px] bg-black">
       <div className="absolute h-[800px] w-full">
-        <TCanvas index={index} />
+        <MemoizedTCanvas />
       </div>
       <div
         className="absolute -right-4 top-[800px] m-auto h-[5.75rem] w-screen flex-shrink-0 bg-black"

@@ -59,7 +59,7 @@ export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
 
   const isMobile = useMediaQuery('(max-width: 560px)');
 
-  if (isMobile) {
+  if (true) {
     return children;
   }
 

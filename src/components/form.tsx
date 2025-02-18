@@ -2,7 +2,6 @@ import style from '@/containers/Footer.module.css';
 import InputText from '@/components/interfaces/InputText';
 import InputTel from '@/components/interfaces/InputTel';
 import RangeSlider from '@/components/interfaces/RangeSlider';
-import Switch from '@/components/interfaces/Switch';
 import InputTextArea from '@/components/interfaces/InputTextArea';
 import React, { FormEvent, useState } from 'react';
 import { useTranslation } from '@/hook/useLanguageStore';
@@ -137,21 +136,6 @@ export const Form = () => {
           </div>
         </div>
         <div className="col-span-3 flex flex-col gap-7">
-          <div className="flex flex-col gap-3">
-            <div className="text-sm leading-[140%] text-white">
-              {getTranslation('footer.text17')}
-            </div>
-            <div className="flex flex-wrap justify-start gap-2">
-              {serviceOptions.map((option) => (
-                <Switch
-                  selected={type.includes(option)}
-                  onSelected={handleOptionSelected}
-                  key={option}
-                  name={option}
-                />
-              ))}
-            </div>
-          </div>
           <div className="flex h-full flex-col gap-3">
             <div className="text-sm leading-[140%] text-white">
               {getTranslation('footer.text18')}

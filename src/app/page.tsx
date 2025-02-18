@@ -10,6 +10,7 @@ import { TextGenerateEffect } from '@/components/text-generate-effect';
 
 export default function Home() {
   const { getTranslation } = useTranslation();
+  console.log('rerender');
   return (
     <SmoothScroll>
       <main>

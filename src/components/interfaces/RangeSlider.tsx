@@ -1,5 +1,5 @@
 import Slider from '@mui/material/Slider';
-import React, { Dispatch, SetStateAction, useState } from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 
 interface Props {
   value: [number, number];
@@ -9,18 +9,9 @@ interface Props {
 }
 
 const RangeSlider: React.FC<Props> = ({ value, setValue, min, max }) => {
-  const [range, setRange] = useState([5500, 8500]);
-
-  const handleChange = (event: Event, newValue: number | [number, number]) => {
+  const handleChange = (_: Event, newValue: number | [number, number]) => {
     setValue(newValue as [number, number]);
   };
-
-  // const handleRangeChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
-  //     const value = parseInt(event.target.value, 10);
-  //     const newRange = [...range];
-  //     newRange[index] = value;
-  //     setRange(newRange);
-  // };
 
   return (
     <Slider
