@@ -1,4 +1,4 @@
-import style from '@/containers/Footer.module.css';
+import '@/containers/Footer.css';
 import UnoptimizedInputText from '@/components/interfaces/InputText';
 import UnoptimizedInputTel from '@/components/interfaces/InputTel';
 import RangeSlider from '@/components/interfaces/RangeSlider';
@@ -81,8 +81,7 @@ export const Form = () => {
       <div className="absolute left-0 top-0 h-[300px] w-full bg-[url(/img/interface/bg-footer-form1.png)] bg-contain bg-left-top bg-no-repeat md:h-[413px]" />
       <span
         className={
-          style.textGradient +
-          ' pl-52 text-center text-[39px] font-semibold leading-[120%] opacity-[0.6] md:pl-56 md:text-[65px] lg:text-[113px]'
+          'textGradientFooter pl-52 text-center text-[39px] font-semibold leading-[120%] opacity-[0.6] md:pl-56 md:text-[65px] lg:text-[113px]'
         }>
         Get&nbsp;In Touch with&nbsp;Us
       </span>
@@ -174,8 +173,7 @@ export const Form = () => {
         type="submit"
         className={
           'linerBorderGradient relative cursor-pointer rounded-full bg-[#DACDFF]/[.03] py-4 pl-16 pr-[88px] text-white ' +
-          style.bSubmit +
-          ' z-[5] mb-9 mt-14 flex w-full max-w-[334px] flex-row items-center justify-center'
+          'bSubmitFooter z-[5] mb-9 mt-14 flex w-full max-w-[334px] flex-row items-center justify-center'
         }
         style={linkStyles}
         onMouseEnter={handleMouseEnter}

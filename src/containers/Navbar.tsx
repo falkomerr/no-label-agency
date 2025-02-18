@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useState } from 'react';
-import style from './Navbar.module.css';
+import './Navbar.css';
 import LanguagrSelect from '@/components/common/LanguagrSelect';
 import { useTranslation } from '@/hook/useLanguageStore';
 
@@ -77,8 +77,7 @@ const Navbar = () => {
             <Link
               href={'#bot'}
               className={
-                style.buttonBorder +
-                ' flex items-center justify-center rounded-full px-8 py-4 text-center text-sm text-white transition-all hover:scale-95 hover:bg-[#fff]/[.15]'
+                'buttonBorderNavbar flex items-center justify-center rounded-full px-8 py-4 text-center text-sm text-white transition-all hover:scale-95 hover:bg-[#fff]/[.15]'
               }>
               {getTranslation('nav.explore')}
             </Link>
@@ -219,8 +218,7 @@ const Navbar = () => {
           <Link
             href={'#bot'}
             className={
-              style.buttonBorder +
-              ' flex w-full max-w-60 items-center justify-center rounded-full px-8 py-4 text-center text-xl text-white'
+              'buttonBorderNavbar flex w-full max-w-60 items-center justify-center rounded-full px-8 py-4 text-center text-xl text-white'
             }>
             {getTranslation('nav.explore')}
           </Link>

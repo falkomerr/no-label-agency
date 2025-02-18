@@ -1,7 +1,7 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import style from './LogoSlider.module.css';
+import './LogoSlider.css';
 
 const LogoSlider = () => {
   return (

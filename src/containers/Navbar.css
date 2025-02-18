@@ -1,4 +1,4 @@
-.buttonBorder {
+.buttonBorderNavbar {
   position: relative;
   padding: 12px 24px 12px 24px;
   border-radius: 34px;
@@ -6,7 +6,7 @@
   backdrop-filter: blur(34px);
 }
 
-.buttonBorder::before {
+.buttonBorderNavbar::before {
   content: '';
   position: absolute;
   z-index: -10;

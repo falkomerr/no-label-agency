@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
-
+import './Footer.css';
 import { useTranslation } from '@/hook/useLanguageStore';
 import Button from '@/components/interfaces/Button';
 import CaseView from './CaseView';

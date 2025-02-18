@@ -2,7 +2,7 @@
 import Footer from '@/containers/Footer';
 import Link from 'next/link';
 import React from 'react';
-import style from './Page.module.css';
+import './Page.css';
 import Image from 'next/image';
 import { useTranslation } from '@/hook/useLanguageStore';
 import Button from '@/components/interfaces/Button';
@@ -49,10 +49,10 @@ const Cases = () => {
                 </div>
               </div>
               <div className="flex flex-wrap justify-start gap-4">
-                <div className={style.button}>UX/UI Disign</div>
-                <div className={style.button}>Marketing</div>
-                <div className={style.button}>Branding</div>
-                <div className={style.button}>Illustrtions</div>
+                <div className="buttonCasesPage">UX/UI Disign</div>
+                <div className="buttonCasesPage">Marketing</div>
+                <div className="buttonCasesPage">Branding</div>
+                <div className="buttonCasesPage">Illustrtions</div>
               </div>
             </div>
             <div className="flex flex-col items-center justify-center gap-5">
@@ -103,10 +103,10 @@ const Cases = () => {
               </div>
             </div>
             <div className="flex flex-row items-center gap-4">
-              <div className={style.button}>UX/UI Disign</div>
-              <div className={style.button}>Marketing</div>
-              <div className={style.button}>Branding</div>
-              <div className={style.button}>Illustrtions</div>
+              <div className="buttonCasesPage">UX/UI Disign</div>
+              <div className="buttonCasesPage">Marketing</div>
+              <div className="buttonCasesPage">Branding</div>
+              <div className="buttonCasesPage">Illustrtions</div>
             </div>
             {/* <Link className="text-white cursor-pointer relative bg-[#DACDFF]/[.03] w-max py-4 pl-16 pr-[88px] rounded-full linerBorderGradient" href={"#bot"}>
                             {getTranslation('page.cases.text1')}
@@ -304,8 +304,7 @@ const Cases = () => {
             </div>
             <div
               className={
-                style.textExplore +
-                ' text-[70px] font-semibold leading-[140%] text-[#1c1c1c] md:text-[7.25rem]'
+                'textExploreCasesPage text-[70px] font-semibold leading-[140%] text-[#1c1c1c] md:text-[7.25rem]'
               }>
               {getTranslation('page.cases.text9')}
             </div>

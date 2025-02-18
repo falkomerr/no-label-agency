@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import style from './Footer.module.css';
+import './Footer.css';
 import { useTranslation } from '@/hook/useLanguageStore';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -345,7 +345,7 @@ const CaseView = () => {
                     <div className="my-7 flex flex-wrap justify-start gap-2">
                       {item.tags.map((item, index) => {
                         return (
-                          <div className={style.button} key={index}>
+                          <div className="buttonFooter" key={index}>
                             {item.name}
                           </div>
                         );

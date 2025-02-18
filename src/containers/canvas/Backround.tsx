@@ -61,6 +61,7 @@ export const Background = ({ index }: BackgroundProps) => {
   ]);
   const target = useRef(new THREE.Vector2());
   const isMobile = useRef(true);
+  const timeouts = useRef<number[]>([-1]);
 
   // Оптимизация обработчика движения мыши
   const handleMouseMove = useCallback((event: MouseEvent) => {
@@ -87,7 +88,7 @@ export const Background = ({ index }: BackgroundProps) => {
     const interval = duration / steps;
 
     for (let i = 0; i <= steps; i++) {
-      setTimeout(() => {
+      const timeout = window.setTimeout(() => {
         const progress = i / steps;
         //@ts-ignore
         const newColorValues = newColors.map((targetColor, idx) => {
@@ -106,7 +107,19 @@ export const Background = ({ index }: BackgroundProps) => {
           shader.uniforms[`color${idx + 1}`].value.copy(color);
         });
       }, interval * i);
+
+      timeouts.current = [...timeouts.current, timeout];
     }
+
+    return () => {
+      if (!timeouts.current) return;
+      timeouts.current = timeouts.current
+        .map((timeoutId) => {
+          clearTimeout(timeoutId);
+          return undefined;
+        })
+        .filter((value) => value !== undefined);
+    };
   }, [index]);
 
   // Настройка обработчиков событий

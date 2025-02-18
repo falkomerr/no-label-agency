@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import style from './Case.module.css';
+import './Case.css';
 import { useTranslation } from '@/hook/useLanguageStore';
 import Link from 'next/link';
 
@@ -8,7 +8,6 @@ const CaseMobile = () => {
   const { getTranslation } = useTranslation();
   const [showTooltip, setShowTooltip] = useState(false);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-  const [tooltipSize, setTooltipSize] = useState(0);
   const ref = useRef(null);
 
   const handleMouseMove = (event: any) => {
@@ -153,10 +152,10 @@ const Case = () => {
         <Link
           className="absolute z-20 flex h-full w-full cursor-pointer flex-row items-end gap-2"
           href={'/cases'}>
-          <div className={style.button + ' mb-7 ml-9'}>UX/UI Disign</div>
-          <div className={style.button + ' mb-7'}>Marketing</div>
-          <div className={style.button + ' mb-7'}>Branding</div>
-          <div className={style.button + ' mb-7'}>Illustrtions</div>
+          <div className="buttonCase mb-7 ml-9">UX/UI Disign</div>
+          <div className="buttonCase mb-7">Marketing</div>
+          <div className="buttonCase mb-7">Branding</div>
+          <div className="buttonCase mb-7">Illustrtions</div>
         </Link>
         <div
           className={
