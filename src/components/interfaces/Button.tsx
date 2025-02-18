@@ -5,11 +5,13 @@ const Button = ({
   className,
   href,
   children,
+  onClick,
   ...props
 }: {
   className?: string;
   href: string;
   children: any;
+  onClick?: () => void;
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -36,6 +38,7 @@ const Button = ({
       }
       href={href}
       style={linkStyles}
+      onClick={onClick}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}>
       {children}

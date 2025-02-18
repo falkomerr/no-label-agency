@@ -81,7 +81,7 @@ export const Form = () => {
       <div className="absolute left-0 top-0 h-[300px] w-full bg-[url(/img/interface/bg-footer-form1.png)] bg-contain bg-left-top bg-no-repeat md:h-[413px]" />
       <span
         className={
-          'textGradientFooter pl-52 text-center text-[39px] font-semibold leading-[120%] opacity-[0.6] md:pl-56 md:text-[65px] lg:text-[113px]'
+          'bot textGradientFooter pl-52 text-center text-[39px] font-semibold leading-[120%] opacity-[0.6] md:pl-56 md:text-[65px] lg:text-[113px]'
         }>
         Get&nbsp;In Touch with&nbsp;Us
       </span>

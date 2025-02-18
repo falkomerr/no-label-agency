@@ -28,10 +28,8 @@ const CaseView = () => {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsComponentInView(true);
-          document.body.style.overflow = 'hidden';
         } else {
           setIsComponentInView(false);
-          document.body.style.overflow = 'auto';
         }
       },
       {
@@ -53,13 +51,6 @@ const CaseView = () => {
   const handleSlideChange = (swiper: any) => {
     const currentIndex = swiper.activeIndex;
 
-    if (isComponentInView) {
-      if (currentIndex > currentSlide && currentIndex == projects.length - 1) {
-        document.body.style.overflow = 'auto';
-      } else if (currentIndex < currentSlide && currentIndex == 0) {
-        document.body.style.overflow = 'auto';
-      }
-    }
     setCurrentSlide(currentIndex);
 
     setStateProject(projects[currentIndex]);

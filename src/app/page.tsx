@@ -6,11 +6,13 @@ import { useTranslation } from '@/hook/useLanguageStore';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SmoothScroll } from '@/components/smooth-scroll';
-import { TextGenerateEffect } from '@/components/text-generate-effect';
+import { useRef } from 'react';
+import ColorText from '@/components/common/ColorText';
 
 export default function Home() {
   const { getTranslation } = useTranslation();
   console.log('rerender');
+  const scrollRef = useRef<HTMLDivElement>(null);
   return (
     <SmoothScroll>
       <main>
@@ -81,7 +83,15 @@ export default function Home() {
                 </svg>
               </div>
             </Link> */}
-              <Button href={'#bot'}>{getTranslation('nav.explore')}</Button>
+              <Button
+                onClick={() =>
+                  scrollTo({
+                    top: scrollRef.current!.getBoundingClientRect().top,
+                  })
+                }
+                href={'#bot'}>
+                {getTranslation('nav.explore')}
+              </Button>
             </div>
             <div
               id="top"
@@ -113,7 +123,15 @@ export default function Home() {
                   </svg>
                 </div>
               </Link> */}
-                <Button href={'#bot'}>{getTranslation('nav.explore')}</Button>
+                <Button
+                  href={'#bot'}
+                  onClick={() =>
+                    scrollTo({
+                      top: scrollRef.current!.getBoundingClientRect().top,
+                    })
+                  }>
+                  {getTranslation('nav.explore')}
+                </Button>
               </div>
             </div>
             <div className="mb-12 flex flex-row items-center justify-around gap-16 md:justify-end md:gap-28">
@@ -135,6 +153,11 @@ export default function Home() {
             </div> */}
               <Link
                 href={'#bot'}
+                onClick={() =>
+                  scrollTo({
+                    top: scrollRef.current!.getBoundingClientRect().top,
+                  })
+                }
                 className="hidden rounded-full transition-all hover:scale-95 hover:bg-[#fff]/[.1] md:block">
                 <svg
                   width={51}
@@ -219,7 +242,7 @@ export default function Home() {
               <div className="flex w-max max-w-52 items-center justify-center gap-1.5 rounded-full bg-[#e6efef] px-8 py-3 text-xs font-medium leading-[140%] text-[#0f1322] md:text-base">
                 {getTranslation('page.main.text12')}
               </div>
-              <div className="relative flex max-w-[479px] items-center text-start indent-32 text-sm leading-[140%] text-[#809490] md:text-[1.5625rem]">
+              <div className="relative max-w-[479px] text-start indent-32 text-sm leading-[140%] text-[#809490] md:text-[1.5625rem]">
                 <svg
                   className="absolute left-[105px] m-auto h-4 w-4 md:left-24 md:top-1 md:h-auto md:w-auto"
                   width={24}
@@ -232,13 +255,10 @@ export default function Home() {
                     fill="#FF4D00"
                   />
                 </svg>
-                <TextGenerateEffect
-                  className="text-[#0F1322]"
-                  words={
-                    getTranslation('page.main.text13') +
-                    getTranslation('page.main.text14')
-                  }
-                />
+                <span className="text-[#0F1322]">
+                  {getTranslation('page.main.text13')}
+                </span>
+                <ColorText text={getTranslation('page.main.text14')} />
               </div>
             </div>
             <div className="flex w-full max-w-72 flex-row justify-center">
@@ -288,7 +308,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="bot bg-white">
+        <div ref={scrollRef} className="bg-white">
           <Footer />
         </div>
       </main>

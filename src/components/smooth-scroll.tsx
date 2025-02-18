@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { useCallback, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ResizeObserver from 'resize-observer-polyfill';
 import { useMediaQuery } from 'usehooks-ts';
 
@@ -37,7 +37,7 @@ export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
   );
 
   // Optimized ResizeObserver setup
-  useLayoutEffect(() => {
+  useEffect(() => {
     const resizeObserver = new ResizeObserver(debouncedResizeHandler);
 
     if (scrollRef.current) {
@@ -59,7 +59,7 @@ export const SmoothScroll = ({ children }: { children: React.ReactNode }) => {
 
   const isMobile = useMediaQuery('(max-width: 560px)');
 
-  if (true) {
+  if (isMobile) {
     return children;
   }
 
