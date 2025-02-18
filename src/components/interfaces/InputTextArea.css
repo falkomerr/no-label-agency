@@ -1,12 +1,12 @@
-.borderGradient {
+.borderGradientInput {
   position: relative;
   padding: 16px 21px 16px 21px;
   border-radius: 11px;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(120px);
+  backdrop-filter: blur(30px);
 }
 
-.borderGradient::before {
+.borderGradientInput::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -33,7 +33,7 @@
   mask-composite: exclude;
 }
 
-.focusedBorder::before {
+.focusedBorderInput::before {
   background: linear-gradient(
     131deg,
     rgba(255, 141, 92, 0.4),

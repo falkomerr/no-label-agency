@@ -1,7 +1,7 @@
 'use client';
-import { useState } from 'react';
 import type React from 'react';
-import style from './Switch.module.css';
+import './Switch.css';
+import { cn } from '@/lib/utils';
 
 export type SwitchProps = {
   name: string;
@@ -10,10 +10,12 @@ export type SwitchProps = {
 };
 
 const Switch: React.FC<SwitchProps> = ({ name, onSelected, selected }) => {
-
   return (
     <div
-      className={`${style.borderGradient} max-h-[50px] w-min cursor-pointer transition-all ${selected ? style.focusedBorder : ''}`}
+      className={cn(
+        'borderGradient max-h-[50px] w-min cursor-pointer rounded-xl transition-all',
+        selected && 'focusedBorder',
+      )}
       onClick={() => onSelected(name)}>
       <div
         className={

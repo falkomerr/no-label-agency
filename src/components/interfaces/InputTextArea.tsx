@@ -1,6 +1,7 @@
 'use client';
 import React, { TextareaHTMLAttributes, useState } from 'react';
-import style from './InputTextArea.module.css';
+import './InputTextArea.css';
+import { cn } from '@/lib/utils';
 
 const InputTextArea: React.FC<TextareaHTMLAttributes<HTMLTextAreaElement>> = ({
   placeholder,
@@ -18,7 +19,10 @@ const InputTextArea: React.FC<TextareaHTMLAttributes<HTMLTextAreaElement>> = ({
 
   return (
     <div
-      className={`${style.borderGradient} relative h-full max-h-72 min-h-44 ${isFocused ? style.focusedBorder : ''}`}>
+      className={cn(
+        'borderGradientInput relative h-full max-h-72 min-h-44',
+        isFocused && 'focusedBorderInput',
+      )}>
       <textarea
         {...props}
         className={`z-10 h-full w-full resize-none bg-[#000]/[.0] text-white placeholder-[#fff]/[.3] focus-visible:outline-none`}

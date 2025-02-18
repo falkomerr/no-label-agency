@@ -1,6 +1,7 @@
 'use client';
 import React, { InputHTMLAttributes, useState } from 'react';
-import style from './InputText.module.css';
+import './InputText.css';
+import { cn } from '@/lib/utils';
 
 export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   placeholder: string;
@@ -19,7 +20,11 @@ const InputText: React.FC<InputProps> = ({ placeholder, ...props }) => {
 
   return (
     <div
-      className={`${style.borderGradient} relative ${isFocused ? style.focusedBorder : ''}`}>
+      className={cn(
+        'borderGradientInput',
+        'relative',
+        isFocused && 'focusedBorderInput',
+      )}>
       <input
         {...props}
         className={`z-10 w-full bg-[#000]/[.0] text-white placeholder-[#fff]/[.3] focus-visible:outline-none`}
