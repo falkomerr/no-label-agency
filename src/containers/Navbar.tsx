@@ -142,7 +142,7 @@ const Navbar = () => {
       <nav
         className={
           isOpen
-            ? 'opacity-0'
+            ? '!h-0 opacity-0'
             : 'opacity-100' +
               ' fixed left-0 top-0 z-40 flex h-screen w-screen flex-col justify-between bg-[#0A0A0A]/[.50] px-4 py-4 backdrop-blur-sm transition-all duration-300'
         }>
