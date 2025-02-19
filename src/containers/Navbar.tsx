@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import './Navbar.css';
 import LanguagrSelect from '@/components/common/LanguagrSelect';
 import { useTranslation } from '@/hook/useLanguageStore';
+import { scrollToCases, scrollToForm } from '@/lib/scrollTo';
+import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -13,7 +15,9 @@ const Navbar = () => {
   return (
     <div>
       <nav
-        className="absolute z-50 hidden w-screen flex-row items-center justify-center px-4 pt-[51px] md:flex md:px-12 xl:px-20"
+        className={cn(
+          'absolute z-50 hidden w-screen flex-row items-center justify-center px-4 pt-[51px] transition-all duration-300 md:flex md:px-12 xl:px-20',
+        )}
         style={{
           background:
             'linear-gradient(180deg, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0))',
@@ -57,6 +61,7 @@ const Navbar = () => {
                 (pathname == '/#cases' ? '' : 'opacity-50') +
                 ' text-sm font-medium leading-[normal] text-white transition-all hover:opacity-100'
               }
+              onClick={() => scrollToCases()}
               href={'#cases'}>
               {getTranslation('nav.cases')}
             </Link>
@@ -68,6 +73,7 @@ const Navbar = () => {
                 (pathname == '/#bot' ? '' : 'opacity-50') +
                 ' text-sm font-medium leading-[normal] text-white transition-all hover:opacity-100'
               }
+              onClick={() => scrollToForm()}
               href={'#bot'}>
               {getTranslation('nav.contact')}
             </Link>
@@ -76,6 +82,7 @@ const Navbar = () => {
             <LanguagrSelect />
             <Link
               href={'#bot'}
+              onClick={() => scrollToCases()}
               className={
                 'buttonBorderNavbar flex items-center justify-center rounded-full px-8 py-4 text-center text-sm text-white transition-all hover:scale-95 hover:bg-[#fff]/[.15]'
               }>
@@ -87,7 +94,7 @@ const Navbar = () => {
       <nav
         className={
           (isOpen ? '' : 'invisible') +
-          ' fixed z-40 flex w-screen flex-row items-center justify-between bg-[#0A0D1D]/[0.1] px-4 py-4 backdrop-blur-3xl md:hidden'
+          ' fixed z-40 flex w-screen flex-row items-center justify-between bg-[#0A0D1D]/60 px-4 py-4 md:hidden'
         }>
         <Link className="logo flex items-center gap-[15px]" href={'/'}>
           <svg
@@ -135,9 +142,9 @@ const Navbar = () => {
       <nav
         className={
           isOpen
-            ? 'hidden'
-            : 'flex' +
-              ' fixed left-0 top-0 z-40 h-screen w-screen flex-col justify-between bg-[#0A0A0A]/[.50] px-4 py-4 backdrop-blur-sm'
+            ? 'opacity-0'
+            : 'opacity-100' +
+              ' fixed left-0 top-0 z-40 flex h-screen w-screen flex-col justify-between bg-[#0A0A0A]/[.50] px-4 py-4 backdrop-blur-sm transition-all duration-300'
         }>
         <div className="flex flex-row items-center justify-between">
           <Link className="logo flex items-center gap-[15px]" href={'/'}>
@@ -181,47 +188,53 @@ const Navbar = () => {
           </div>
         </div>
         <div className="my-5 flex flex-col items-center justify-center gap-5">
-          <Link
+          <button
+            onClick={() => {
+              scrollTo({
+                top: 0,
+              });
+              setIsOpen(false);
+            }}
             className={
               (pathname == '/' ? '' : 'opacity-50') +
               ' text-xl font-medium leading-[normal] text-white'
-            }
-            href={'/'}>
+            }>
             {getTranslation('nav.about')}
-          </Link>
-          <Link
+          </button>
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              scrollToCases();
+            }}
             className={
-              (pathname == '/cases' ? '' : 'opacity-50') +
+              (pathname == '/' ? '' : 'opacity-50') +
               ' text-xl font-medium leading-[normal] text-white'
-            }
-            href={'/cases'}>
+            }>
             {getTranslation('nav.cases')}
-          </Link>
-          <Link
+          </button>
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              scrollToForm();
+            }}
             className={
-              (pathname == '/contact' ? '' : 'opacity-50') +
+              (pathname == '/' ? '' : 'opacity-50') +
               ' text-xl font-medium leading-[normal] text-white'
-            }
-            href={'/contact'}>
+            }>
             {getTranslation('nav.contact')}
-          </Link>
-          <Link
-            className={
-              (pathname == '/vacancy' ? '' : 'opacity-50') +
-              ' text-xl font-medium leading-[normal] text-white'
-            }
-            href={'/vacancy'}>
-            {getTranslation('nav.vacancy')}
-          </Link>
+          </button>
         </div>
         <div className="mb-32 flex w-full flex-row justify-center">
-          <Link
-            href={'#bot'}
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              scrollToCases();
+            }}
             className={
               'buttonBorderNavbar flex w-full max-w-60 items-center justify-center rounded-full px-8 py-4 text-center text-xl text-white'
             }>
             {getTranslation('nav.explore')}
-          </Link>
+          </button>
         </div>
       </nav>
     </div>

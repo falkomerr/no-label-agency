@@ -16,7 +16,9 @@ const Footer = () => {
   const { getTranslation } = useTranslation();
 
   return (
-    <div className="relative overflow-hidden rounded-t-[45px] bg-black">
+    <div
+      id="footer"
+      className="relative overflow-hidden rounded-t-[45px] bg-black">
       <div className="absolute h-[800px] w-full">
         <MemoizedTCanvas />
       </div>

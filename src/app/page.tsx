@@ -6,18 +6,16 @@ import { useTranslation } from '@/hook/useLanguageStore';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SmoothScroll } from '@/components/smooth-scroll';
-import { useRef } from 'react';
 import ColorText from '@/components/common/ColorText';
+import { scrollToCases } from '@/lib/scrollTo';
 
 export default function Home() {
   const { getTranslation } = useTranslation();
-  console.log('rerender');
-  const scrollRef = useRef<HTMLDivElement>(null);
   return (
     <SmoothScroll>
       <main>
         <div className="relative flex w-full flex-row justify-center bg-black bg-cover bg-center bg-no-repeat px-4 md:bg-auto md:bg-right md:px-12 xl:px-20">
-          <div className="absolute bottom-0 right-auto top-0 h-full overflow-x-hidden md:right-0 md:h-[803px] md:w-max">
+          <div className="absolute bottom-0 right-auto top-0 h-full w-full overflow-x-hidden md:right-0 md:h-[803px] md:w-max">
             <video
               poster="/img/interface/bg-main.webp"
               autoPlay
@@ -83,13 +81,7 @@ export default function Home() {
                 </svg>
               </div>
             </Link> */}
-              <Button
-                onClick={() =>
-                  scrollTo({
-                    top: scrollRef.current!.getBoundingClientRect().top,
-                  })
-                }
-                href={'#bot'}>
+              <Button onClick={() => scrollToCases()} href={'#bot'}>
                 {getTranslation('nav.explore')}
               </Button>
             </div>
@@ -123,13 +115,7 @@ export default function Home() {
                   </svg>
                 </div>
               </Link> */}
-                <Button
-                  href={'#bot'}
-                  onClick={() =>
-                    scrollTo({
-                      top: scrollRef.current!.getBoundingClientRect().top,
-                    })
-                  }>
+                <Button href={'#bot'} onClick={() => scrollToCases()}>
                   {getTranslation('nav.explore')}
                 </Button>
               </div>
@@ -153,11 +139,7 @@ export default function Home() {
             </div> */}
               <Link
                 href={'#bot'}
-                onClick={() =>
-                  scrollTo({
-                    top: scrollRef.current!.getBoundingClientRect().top,
-                  })
-                }
+                onClick={() => scrollToCases()}
                 className="hidden rounded-full transition-all hover:scale-95 hover:bg-[#fff]/[.1] md:block">
                 <svg
                   width={51}
@@ -308,7 +290,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div ref={scrollRef} className="bg-white">
+        <div className="bg-white">
           <Footer />
         </div>
       </main>

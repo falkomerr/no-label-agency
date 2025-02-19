@@ -76,6 +76,7 @@ export const Form = () => {
 
   return (
     <form
+      id="form"
       onSubmit={onSubmit}
       className="relative flex flex-col items-center justify-center pt-28">
       <div className="absolute left-0 top-0 h-[300px] w-full bg-[url(/img/interface/bg-footer-form1.png)] bg-contain bg-left-top bg-no-repeat md:h-[413px]" />
