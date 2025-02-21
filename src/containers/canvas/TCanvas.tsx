@@ -22,13 +22,13 @@ export const TCanvas = () => {
     -10,
     10,
   );
-  const [dpr, setDpr] = useState<number>(1);
-  useEffect(() => {
-    if (window) setDpr(window.devicePixelRatio);
-  }, []);
+  // const [dpr, setDpr] = useState<number>(1);
+  // useEffect(() => {
+  //   if (window) setDpr(window.devicePixelRatio);
+  // }, []);
 
   return (
-    <Canvas camera={OrthographicCamera} dpr={dpr}>
+    <Canvas camera={OrthographicCamera}>
       <Suspense fallback={null}>
         <Background index={index} />
       </Suspense>

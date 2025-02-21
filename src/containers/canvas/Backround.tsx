@@ -60,7 +60,7 @@ export const Background = ({ index }: BackgroundProps) => {
     new THREE.Vector3(),
   ]);
   const target = useRef(new THREE.Vector2());
-  const isMobile = useRef(true);
+  const isMobile = useRef(window.innerWidth < 1024);
   const timeouts = useRef<number[]>([-1]);
 
   // Оптимизация обработчика движения мыши
@@ -83,8 +83,8 @@ export const Background = ({ index }: BackgroundProps) => {
     //@ts-ignore
     const newColors = colorScheme[index || 0];
     const startColors = [...colors];
-    const duration = 500;
-    const steps = 60;
+    const duration = 300;
+    const steps = 20;
     const interval = duration / steps;
 
     for (let i = 0; i <= steps; i++) {
