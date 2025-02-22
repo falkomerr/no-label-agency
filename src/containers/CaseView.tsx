@@ -13,6 +13,7 @@ import { Cursor } from 'react-creative-cursor';
 
 const CaseView = () => {
   const { setProject: setStateProject, currentProject } = useProjectStore();
+  const isMobile = useRef(window.innerWidth < 1024);
 
   const { getTranslation } = useTranslation();
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -27,8 +28,14 @@ const CaseView = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
+          if (isMobile.current) {
+            document.body.style.overflow = 'hidden';
+          }
           setIsComponentInView(true);
         } else {
+          if (isMobile.current) {
+            document.body.style.overflow = 'auto';
+          }
           setIsComponentInView(false);
         }
       },
@@ -53,7 +60,15 @@ const CaseView = () => {
 
     setCurrentSlide(currentIndex);
 
+    console.log(projects[currentIndex]);
     setStateProject(projects[currentIndex]);
+
+    if (isComponentInView) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
     if (scrollRef ?? scrollRef2) {
       const current =
         window.innerWidth <= 1024 ? scrollRef2.current : scrollRef.current;
@@ -231,7 +246,7 @@ const CaseView = () => {
             }}>
             {projects.map((project, index) => {
               return (
-                <SwiperSlide key={index} className="w-full" style={{}}>
+                <SwiperSlide key={index} className="w-full">
                   <div
                     className={
                       'bac relative h-full w-full bg-contain bg-no-repeat'
@@ -264,6 +279,7 @@ const CaseView = () => {
                 scrollbar={{ draggable: true }}
                 spaceBetween={30}
                 speed={700}
+                onSlideChange={handleSlideChange}
                 mousewheel={{
                   releaseOnEdges: true,
                   thresholdDelta: 4,
@@ -304,10 +320,10 @@ const CaseView = () => {
                     className="z-10 inline-flex flex-col items-start gap-3"
                     key={index}>
                     <div className="text-xs leading-[140%] text-white opacity-[0.34]">
-                      {item.description}
+                      {currentProject.description}
                     </div>
                     <div className="text-[27px] font-semibold leading-[140%] text-white">
-                      {item.title}
+                      {currentProject.title}
                     </div>
                     <div className="flex items-center gap-2">
                       <svg
@@ -330,11 +346,11 @@ const CaseView = () => {
                         </g>
                       </svg>
                       <div className="h-[1.1875rem] w-[5.0625rem] text-xs font-medium leading-[140%] text-white opacity-[0.3]">
-                        {item.date}
+                        {currentProject.date}
                       </div>
                     </div>
                     <div className="my-7 flex flex-wrap justify-start gap-2">
-                      {item.tags.map((item, index) => {
+                      {currentProject.tags.map((item, index) => {
                         return (
                           <div className="buttonFooter" key={index}>
                             {item.name}

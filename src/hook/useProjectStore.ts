@@ -52,14 +52,10 @@ export const projects = [
     title: "Mr. Ods. The mascot, GIF's & stickers",
     description: 'Character and animation',
     img: '/img/interface/bg-footer-case5.png',
-    imgMobile: '/img/interface/bg-footer-case3.mobile.png',
+    imgMobile: '/img/interface/bg-footer-case5.mobile.png',
     glare: '/img/interface/bg-footer-bag5.png',
     link: 'https://www.behance.net/gallery/210040727/Mr-Ods-The-mascot-GIFs-stickers',
-    tags: [
-      { name: 'Marketing' },
-      { name: 'Branding' },
-      { name: 'Illustations' },
-    ],
+    tags: [],
   },
 ];
 
