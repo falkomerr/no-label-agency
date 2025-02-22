@@ -46,7 +46,7 @@ const Footer = () => {
         </div>
       </div>
       <Form />
-      <div className="pointer-events-none absolute right-0 top-0 z-[2] h-full w-full bg-[url(/img/interface/shum.png)] opacity-35 mix-blend-soft-light" />
+      {/*<div className="pointer-events-none absolute right-0 top-0 z-[2] h-full w-full bg-[url(/img/interface/shum.png)] opacity-35 mix-blend-soft-light" />*/}
       <div className="flex w-full flex-row justify-center">
         <div className="flex w-full max-w-[1440px] flex-col gap-14 px-4 py-11 md:px-12 lg:px-36 lg:py-32 xl:px-20">
           <nav className="z-40 hidden flex-row items-center justify-between pt-[51px] md:flex">
