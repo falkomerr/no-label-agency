@@ -13,7 +13,11 @@ import { Cursor } from 'react-creative-cursor';
 
 const CaseView = () => {
   const { setProject: setStateProject, currentProject } = useProjectStore();
-  const isMobile = useRef(window.innerWidth < 1024);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+  }, []);
 
   const { getTranslation } = useTranslation();
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -28,12 +32,12 @@ const CaseView = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          if (isMobile.current) {
+          if (isMobile) {
             document.body.style.overflow = 'hidden';
           }
           setIsComponentInView(true);
         } else {
-          if (isMobile.current) {
+          if (isMobile) {
             document.body.style.overflow = 'auto';
           }
           setIsComponentInView(false);
@@ -53,7 +57,7 @@ const CaseView = () => {
         observer.unobserve(componentRef.current);
       }
     };
-  }, []);
+  }, [isMobile]);
 
   const handleSlideChange = (swiper: any) => {
     const currentIndex = swiper.activeIndex;
