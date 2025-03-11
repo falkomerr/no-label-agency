@@ -74,14 +74,14 @@ const Navbar = () => {
                 ' text-sm font-medium leading-[normal] text-white transition-all hover:opacity-100'
               }
               onClick={() => scrollToForm()}
-              href={'#bot'}>
+              href={'#contact'}>
               {getTranslation('nav.contact')}
             </Link>
           </div>
           <div className="flex flex-row items-center gap-5">
             <LanguagrSelect />
             <Link
-              href={'#bot'}
+              href={'#contact'}
               onClick={() => scrollToCases()}
               className={
                 'buttonBorderNavbar flex items-center justify-center rounded-full px-8 py-4 text-center text-sm text-white transition-all hover:scale-95 hover:bg-[#fff]/[.15]'

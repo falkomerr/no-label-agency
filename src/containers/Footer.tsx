@@ -8,12 +8,14 @@ import Button from '@/components/interfaces/Button';
 import CaseView from './CaseView';
 import { TCanvas } from '@/containers/canvas/TCanvas';
 import { Form } from '@/components/form';
+import useProjectStore from '@/hook/useProjectStore';
 
 const MemoizedTCanvas = React.memo(TCanvas);
 
 const Footer = () => {
   const pathname = usePathname();
   const { getTranslation } = useTranslation();
+  const { currentProject } = useProjectStore();
 
   return (
     <div
@@ -39,7 +41,9 @@ const Footer = () => {
           <CaseView />
 
           <div className="z-[5] flex flex-row justify-center lg:justify-start">
-            <Button href={''} className="pointer-events-auto sm:ml-24">
+            <Button
+              href={'https://www.behance.net/nolabelagency'}
+              className="pointer-events-auto sm:ml-24">
               {getTranslation('footer.text10')}
             </Button>
           </div>
@@ -96,7 +100,7 @@ const Footer = () => {
                   (pathname == '#bot' ? '' : 'opacity-50') +
                   ' text-sm font-medium leading-[normal] text-white transition-all hover:opacity-100'
                 }
-                href={'#bot'}>
+                href={'#contact'}>
                 {getTranslation('nav.contact')}
               </Link>
             </div>
@@ -275,10 +279,10 @@ const Footer = () => {
               </Link>
               <Link
                 className={
-                  (pathname == '/#bot' ? '' : 'opacity-50') +
+                  (pathname == '/#сontact' ? '' : 'opacity-50') +
                   ' text-sm font-medium leading-[normal] text-white'
                 }
-                href={'#bot'}>
+                href={'#footer'}>
                 {getTranslation('nav.contact')}
               </Link>
             </div>

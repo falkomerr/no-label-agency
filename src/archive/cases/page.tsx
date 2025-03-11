@@ -64,7 +64,7 @@ const Cases = () => {
                                     </svg>
                                 </div>
                             </Link> */}
-              <Button href={'#bot'}>
+              <Button href={'#contact'}>
                 {getTranslation('page.cases.text1')}
               </Button>
             </div>
@@ -116,7 +116,9 @@ const Cases = () => {
                                 </svg>
                             </div>
                         </Link> */}
-            <Button href={'#bot'}>{getTranslation('page.cases.text1')}</Button>
+            <Button href={'#contact'}>
+              {getTranslation('page.cases.text1')}
+            </Button>
           </div>
           <div className="mb-12 flex flex-row items-center justify-around gap-16 md:justify-end md:gap-28">
             <div className="flex flex-col items-start">
@@ -143,7 +145,7 @@ const Cases = () => {
                 {getTranslation('page.cases.text7')}
               </div>
             </div>
-            <Link href={'#bot'} className="hidden md:block">
+            <Link href={'#contact'} className="hidden md:block">
               <svg
                 width={51}
                 height={51}

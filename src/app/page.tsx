@@ -76,7 +76,7 @@ export default function Home() {
                 </svg>
               </div>
             </Link> */}
-            <Button onClick={() => scrollToCases()} href={'#bot'}>
+            <Button onClick={() => scrollToCases()} href={'#contact'}>
               {getTranslation('nav.explore')}
             </Button>
           </div>
@@ -110,7 +110,7 @@ export default function Home() {
                   </svg>
                 </div>
               </Link> */}
-              <Button href={'#bot'} onClick={() => scrollToCases()}>
+              <Button href={'#contact'} onClick={() => scrollToCases()}>
                 {getTranslation('nav.explore')}
               </Button>
             </div>
@@ -133,7 +133,7 @@ export default function Home() {
               <div className="opacity-[0.3] text-white text-[8px] md:text-sm font-semibold leading-[normal]">{getTranslation('page.main.text10')}</div>
             </div> */}
             <Link
-              href={'#bot'}
+              href={'#contact'}
               onClick={() => scrollToCases()}
               className="hidden rounded-full transition-all hover:scale-95 hover:bg-[#fff]/[.1] md:block">
               <svg
