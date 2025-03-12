@@ -59,14 +59,6 @@ const CaseView = () => {
     };
   }, [isMobile]);
 
-  useEffect(() => {
-    if (isComponentInView) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-  }, [isComponentInView, projects]);
-
   const handleSlideChange = (swiper: any) => {
     const currentIndex = swiper.activeIndex;
 
@@ -75,7 +67,7 @@ const CaseView = () => {
     console.log(projects[currentIndex]);
     setStateProject(projects[currentIndex]);
 
-    if (isComponentInView) {
+    if (isComponentInView && isMobile) {
       if (currentIndex > currentSlide && currentIndex == projects.length - 1) {
         document.body.style.overflow = 'auto';
       } else if (currentIndex < currentSlide && currentIndex == 0) {
